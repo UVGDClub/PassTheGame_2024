@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dslvmccm7rnqy"
-path="res://.godot/imported/Tuffy_Bold_Italic.otf-c55aef20490bb839aa9a23744f89fa2a.fontdata"
+path="res://.godot/imported/Tuffy_Bold_Italic.otf-18f285042bb35c50a9458419d0d78504.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Tuffy_Bold_Italic/Tuffy_Bold_Italic.otf"
-dest_files=["res://.godot/imported/Tuffy_Bold_Italic.otf-c55aef20490bb839aa9a23744f89fa2a.fontdata"]
+source_file="res://assets/fonts/Tuffy_Bold_Italic_temp/Tuffy_Bold_Italic.otf"
+dest_files=["res://.godot/imported/Tuffy_Bold_Italic.otf-18f285042bb35c50a9458419d0d78504.fontdata"]
 
 [params]
 
