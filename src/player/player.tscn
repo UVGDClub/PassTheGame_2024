@@ -69,3 +69,7 @@ text = "hi !"
 label_settings = SubResource("LabelSettings_gamxu")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.266667, 1, 0, 1)
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
