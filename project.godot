@@ -13,3 +13,17 @@ config_version=5
 config/name="PassTheGame_2024"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+CardsManager="*res://src/managers/cards_manager.gd"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=576
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
