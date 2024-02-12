@@ -5,6 +5,9 @@ var t : Tween
 func enter(prev_state_name=null):
 	host.is_input_chaining = true
 	var dash_dir = host.to_local(get_viewport().get_mouse_position()).normalized()
+	if dash_dir == Vector2.ZERO:
+		dash_dir = Vector2.RIGHT
+	host.last_input_vect = dash_dir
 	t = create_tween()
 	host.velocity = dash_dir * host.ATTACK_START_VEL
 	t.tween_property(host, "velocity", host.ATTACK_END_VEL * dash_dir, host.ATTACK_TIME)

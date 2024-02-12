@@ -24,6 +24,8 @@ const ATTACK_TIME = 0.2
 var input_vect = Vector2.ZERO
 var dash_just_pressed = false
 var attack_just_pressed = false
+
+var last_input_vect = Vector2.RIGHT
 #
 
 var is_input_chaining = false :
@@ -62,6 +64,18 @@ func update_animation(type, vect):
 	
 	var animation_name
 	match type:
+		"idle":
+			if vect_angle < -3 * PI / 8:
+				animation_name = "IdleUp"
+			elif vect_angle > 3 * PI / 8:
+				animation_name = "IdleDown"
+			elif vect_angle < -1 * PI / 8:
+				animation_name = "IdleUpSide"
+			elif vect_angle > 1 * PI / 8:
+				animation_name = "IdleDownSide"
+			else:
+				animation_name = "IdleSide"
+		
 		"walk":
 			if vect_angle < -3 * PI / 8:
 				animation_name = "WalkUp"
@@ -103,7 +117,8 @@ func update_animation(type, vect):
 
 
 func update_debug_labels():
-	$temp_StateLabel.text = state_machine.current_state.name
+	$temp_StateLabel.text = "State: " + state_machine.current_state.name
+	$temp_AnimationLabel.text = "Animation: " + animation_player.current_animation
 	if is_input_chaining:
 		$temp_InputChainLabel.text = "Chain Buffer: " + str(round(input_chain_buffer_timer * 100) / 100)
 	else:

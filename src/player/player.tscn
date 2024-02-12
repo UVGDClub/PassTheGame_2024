@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d3ym2eve3i077"]
+[gd_scene load_steps=32 format=3 uid="uid://d3ym2eve3i077"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_lho8y"]
 [ext_resource type="Script" path="res://src/state_machine/state_machine.gd" id="2_jacng"]
@@ -59,6 +59,21 @@ resource_name = "AttackUp"
 [sub_resource type="Animation" id="Animation_pan10"]
 resource_name = "AttackUpSide"
 
+[sub_resource type="Animation" id="Animation_xgqwp"]
+resource_name = "IdleSide"
+
+[sub_resource type="Animation" id="Animation_rhv12"]
+resource_name = "IdleDown"
+
+[sub_resource type="Animation" id="Animation_s1y77"]
+resource_name = "IdleDownSide"
+
+[sub_resource type="Animation" id="Animation_uh51d"]
+resource_name = "IdleUp"
+
+[sub_resource type="Animation" id="Animation_uvdjj"]
+resource_name = "IdleUpSide"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qtd45"]
 _data = {
 "AttackDown": SubResource("Animation_jss6w"),
@@ -71,6 +86,11 @@ _data = {
 "DashSide": SubResource("Animation_bhix2"),
 "DashUp": SubResource("Animation_o6usd"),
 "DashUpSide": SubResource("Animation_g1v04"),
+"IdleDown": SubResource("Animation_rhv12"),
+"IdleDownSide": SubResource("Animation_s1y77"),
+"IdleSide": SubResource("Animation_xgqwp"),
+"IdleUp": SubResource("Animation_uh51d"),
+"IdleUpSide": SubResource("Animation_uvdjj"),
 "WalkDown": SubResource("Animation_4su5r"),
 "WalkDownSide": SubResource("Animation_x7ilt"),
 "WalkSide": SubResource("Animation_8kaw7"),
@@ -114,6 +134,16 @@ offset_left = -33.0
 offset_top = -49.0
 offset_right = 33.0
 offset_bottom = -12.0
+text = "hi !"
+label_settings = SubResource("LabelSettings_gamxu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="temp_AnimationLabel" type="Label" parent="."]
+offset_left = -90.0
+offset_top = -78.0
+offset_right = 90.0
+offset_bottom = -41.0
 text = "hi !"
 label_settings = SubResource("LabelSettings_gamxu")
 horizontal_alignment = 1

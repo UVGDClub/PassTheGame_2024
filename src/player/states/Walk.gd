@@ -12,7 +12,11 @@ func process(delta):
 func physics_process(delta):
 	compute_axis("x", delta)
 	compute_axis("y", delta)
-	host.update_animation("walk", host.input_vect)
+	if host.input_vect != Vector2.ZERO:
+		host.last_input_vect = host.input_vect
+		host.update_animation("walk", host.input_vect)
+	else:
+		host.update_animation("idle", host.last_input_vect)
 	update_timers(delta)
 
 func compute_axis(axis, delta):
