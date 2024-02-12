@@ -8,6 +8,7 @@ func enter(prev_state_name=null):
 	t = create_tween()
 	host.velocity = dash_dir * host.DASH_START_VEL
 	t.tween_property(host, "velocity", host.DASH_END_VEL * dash_dir, host.DASH_TIME)
+	host.update_animation("dash", dash_dir)
 
 func exit(new_state_name=null):
 	host.velocity = Vector2.ZERO

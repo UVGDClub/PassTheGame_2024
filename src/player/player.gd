@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var state_machine = $StateMachine
+@onready var flip = $Flip
+@onready var animation_player = $AnimationPlayer
 
 const MAX_WALK_VEL = 200
 const WALK_ACC = MAX_WALK_VEL / 0.1 # time to reach full speed in seconds
@@ -48,6 +50,57 @@ func get_input():
 	input_vect = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	dash_just_pressed = Input.is_action_just_pressed("ui_accept")
 	attack_just_pressed = Input.is_action_just_pressed("ui_focus_next")
+
+func update_animation(type, vect):
+	if vect == Vector2.ZERO:
+		return
+	
+	if (flip.scale.x < 0 and vect.x > 0) or (flip.scale.x > 0 and vect.x < 0):
+		flip.scale.x *= -1
+	vect.x = abs(vect.x)
+	var vect_angle = Vector2.RIGHT.angle_to(vect)
+	
+	var animation_name
+	match type:
+		"walk":
+			if vect_angle < -3 * PI / 8:
+				animation_name = "WalkUp"
+			elif vect_angle > 3 * PI / 8:
+				animation_name = "WalkDown"
+			elif vect_angle < -1 * PI / 8:
+				animation_name = "WalkUpSide"
+			elif vect_angle > 1 * PI / 8:
+				animation_name = "WalkDownSide"
+			else:
+				animation_name = "WalkSide"
+		
+		"dash":
+			if vect_angle < -3 * PI / 8:
+				animation_name = "DashUp"
+			elif vect_angle > 3 * PI / 8:
+				animation_name = "DashDown"
+			elif vect_angle < -1 * PI / 8:
+				animation_name = "DashUpSide"
+			elif vect_angle > 1 * PI / 8:
+				animation_name = "DashDownSide"
+			else:
+				animation_name = "DashSide"
+		
+		"attack":
+			if vect_angle < -3 * PI / 8:
+				animation_name = "AttackUp"
+			elif vect_angle > 3 * PI / 8:
+				animation_name = "AttackDown"
+			elif vect_angle < -1 * PI / 8:
+				animation_name = "AttackUpSide"
+			elif vect_angle > 1 * PI / 8:
+				animation_name = "AttackDownSide"
+			else:
+				animation_name = "AttackSide"
+	
+	if animation_name and animation_player.current_animation != animation_name:
+		animation_player.play(animation_name)
+
 
 func update_debug_labels():
 	$temp_StateLabel.text = state_machine.current_state.name

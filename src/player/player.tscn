@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3ym2eve3i077"]
+[gd_scene load_steps=27 format=3 uid="uid://d3ym2eve3i077"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_lho8y"]
 [ext_resource type="Script" path="res://src/state_machine/state_machine.gd" id="2_jacng"]
@@ -12,9 +12,73 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmb70"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6118o"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_gamxu"]
+
+[sub_resource type="Animation" id="Animation_8kaw7"]
+resource_name = "WalkSide"
+
+[sub_resource type="Animation" id="Animation_4su5r"]
+resource_name = "WalkDown"
+
+[sub_resource type="Animation" id="Animation_g3hnx"]
+resource_name = "WalkUp"
+
+[sub_resource type="Animation" id="Animation_bhix2"]
+resource_name = "DashSide"
+
+[sub_resource type="Animation" id="Animation_x7ilt"]
+resource_name = "WalkDownSide"
+
+[sub_resource type="Animation" id="Animation_ysp5k"]
+resource_name = "WalkUpSide"
+
+[sub_resource type="Animation" id="Animation_en7hj"]
+resource_name = "DashDown"
+
+[sub_resource type="Animation" id="Animation_r804u"]
+resource_name = "DashDownSide"
+
+[sub_resource type="Animation" id="Animation_o6usd"]
+resource_name = "DashUp"
+
+[sub_resource type="Animation" id="Animation_g1v04"]
+resource_name = "DashUpSide"
+
+[sub_resource type="Animation" id="Animation_3ms8x"]
+resource_name = "AttackSide"
+
+[sub_resource type="Animation" id="Animation_jss6w"]
+resource_name = "AttackDown"
+
+[sub_resource type="Animation" id="Animation_ok08f"]
+resource_name = "AttackDownSide"
+
+[sub_resource type="Animation" id="Animation_g883u"]
+resource_name = "AttackUp"
+
+[sub_resource type="Animation" id="Animation_pan10"]
+resource_name = "AttackUpSide"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtd45"]
+_data = {
+"AttackDown": SubResource("Animation_jss6w"),
+"AttackDownSide": SubResource("Animation_ok08f"),
+"AttackSide": SubResource("Animation_3ms8x"),
+"AttackUp": SubResource("Animation_g883u"),
+"AttackUpSide": SubResource("Animation_pan10"),
+"DashDown": SubResource("Animation_en7hj"),
+"DashDownSide": SubResource("Animation_r804u"),
+"DashSide": SubResource("Animation_bhix2"),
+"DashUp": SubResource("Animation_o6usd"),
+"DashUpSide": SubResource("Animation_g1v04"),
+"WalkDown": SubResource("Animation_4su5r"),
+"WalkDownSide": SubResource("Animation_x7ilt"),
+"WalkSide": SubResource("Animation_8kaw7"),
+"WalkUp": SubResource("Animation_g3hnx"),
+"WalkUpSide": SubResource("Animation_ysp5k")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6118o"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lho8y")
@@ -31,11 +95,6 @@ shape = SubResource("RectangleShape2D_gsfch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_dmb70")
-
-[node name="Hurtbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("RectangleShape2D_6118o")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_jacng")
@@ -70,6 +129,20 @@ label_settings = SubResource("LabelSettings_gamxu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qtd45")
+}
+
+[node name="Flip" type="Node2D" parent="."]
+
+[node name="temp_Sprite" type="Sprite2D" parent="Flip"]
+
+[node name="Hurtbox" type="Area2D" parent="Flip"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flip/Hurtbox"]
+shape = SubResource("RectangleShape2D_6118o")
+
+[node name="Polygon2D" type="Polygon2D" parent="Flip"]
 color = Color(0.266667, 1, 0, 1)
 polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
