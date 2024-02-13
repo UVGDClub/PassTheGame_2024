@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @onready var state_machine = $StateMachine
 @onready var flip = $Flip
@@ -27,6 +27,9 @@ var attack_just_pressed = false
 
 var last_input_vect = Vector2.RIGHT
 #
+
+# Card controlled offsets
+var dash_time_offset = 0.0
 
 var is_input_chaining = false :
 	set(value):
@@ -123,3 +126,10 @@ func update_debug_labels():
 		$temp_InputChainLabel.text = "Chain Buffer: " + str(round(input_chain_buffer_timer * 100) / 100)
 	else:
 		$temp_InputChainLabel.text = "Cooldown: " + str(round(dash_cooldown_timer * 100) / 100)
+
+
+func _on_card_pickup_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	var card_pickup: Card = area.get_parent()
+	if card_pickup is Card:
+		DeckManager.add_card(card_pickup)
+		card_pickup.visible = false
