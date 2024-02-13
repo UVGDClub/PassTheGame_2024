@@ -35,7 +35,8 @@ func generate_level():
 		leaf_rooms = next_leaf_rooms
 
 func add_connections(room) -> Array:
-	var connect_num = min(randi_range(1, 4), rooms_left)
+	var con_min = 1 if rooms_left <= MAX_ROOMS/2 else 3
+	var connect_num = min(randi_range(con_min, 4), rooms_left)
 	var vects = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
 	var new_leaf_rooms = []
 	if room.original_connection != Vector2.ZERO:
