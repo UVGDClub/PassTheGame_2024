@@ -134,3 +134,4 @@ func _on_card_pickup_area_shape_entered(area_rid, area, area_shape_index, local_
 	if card_pickup is Card:
 		DeckManager.add_card(card_pickup)
 		card_pickup.visible = false
+		card_pickup.position = Vector2(100000, 100000) # I'm so sorry

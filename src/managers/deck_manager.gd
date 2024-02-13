@@ -33,7 +33,7 @@ func start_card_draw_cycle() -> void:
 
 func add_card(card: Card) -> void:
 	full_deck.append(card)
-	discard_pile.append(card)
+	draw_pile.append(card)
 
 
 func remove_card(card: Card) -> void:
@@ -43,18 +43,22 @@ func remove_card(card: Card) -> void:
 	
 
 func shuffle_deck() -> void:
-	SfxManager.play_sfx(shuffle_sfx, 0.05)
+	print("shuffle")
 	discard_pile = []
 	draw_pile = full_deck.duplicate()
 	draw_pile.shuffle()
 	emit_signal("deck_shuffled")
 	timer.start(SHUFFLE_TIME)
+	await get_tree().create_timer(1).timeout
+	SfxManager.play_sfx(shuffle_sfx, 0.05)
 
 
 func draw_card() -> void:
-	var drawn_card: Card = draw_pile.front()
-	if drawn_card == null:
+	print("draw")
+	if len(draw_pile) <= 0:
+		shuffle_deck()
 		return
+	var drawn_card: Card = draw_pile.pop_front()
 	
 	drawn_card.on_drawn()
 	drawn_card.play()

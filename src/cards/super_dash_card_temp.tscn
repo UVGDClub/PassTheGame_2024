@@ -1,47 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://be00ijskpc5ri"]
+[gd_scene load_steps=5 format=3 uid="uid://be00ijskpc5ri"]
 
 [ext_resource type="Texture2D" uid="uid://uijbtnjtthj0" path="res://assets/art/cards/card_1_temp.png" id="1_7gh2s"]
 [ext_resource type="Script" path="res://src/cards/super_dash_card_temp.gd" id="1_gy351"]
 [ext_resource type="AudioStream" uid="uid://causwrfaklwgg" path="res://assets/audio/sfx/on_super_dash_card_drawn_temp.wav" id="2_1myuh"]
-[ext_resource type="FontFile" uid="uid://dslvmccm7rnqy" path="res://assets/fonts/Tuffy_Bold_Italic_temp/Tuffy_Bold_Italic.otf" id="2_2owx4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mygx0"]
-size = Vector2(128, 186)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwgho"]
+size = Vector2(125, 182)
 
 [node name="super_dash_card_temp" type="Node2D"]
 script = ExtResource("1_gy351")
+super_dash_length = 4.0
+dash_time_increase = 0.3
 card_name = "Super Dash"
-card_description = "Increases your dash length for 8 seconds"
+card_description = "Increases your dash length for 4 seconds"
 on_card_played_sfx = ExtResource("2_1myuh")
 
-[node name="card_sprite" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7gh2s")
 
-[node name="name_text" type="Label" parent="."]
-offset_left = -58.0
-offset_top = -86.0
-offset_right = 52.0
-offset_bottom = -53.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_2owx4")
-theme_override_font_sizes/font_size = 14
-text = "Super Dash"
-autowrap_mode = 3
-
-[node name="description_text" type="Label" parent="."]
-offset_left = -55.0
-offset_top = 9.0
-offset_right = 55.0
-offset_bottom = 87.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_2owx4")
-theme_override_font_sizes/font_size = 14
-text = "This card does stuff..."
-autowrap_mode = 3
-
-[node name="pickup_area_2d" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_area_2d"]
-shape = SubResource("RectangleShape2D_mygx0")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_uwgho")
