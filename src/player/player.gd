@@ -49,9 +49,9 @@ func _physics_process(delta):
 	update_debug_labels()
 
 func get_input():
-	input_vect = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	dash_just_pressed = Input.is_action_just_pressed("ui_accept")
-	attack_just_pressed = Input.is_action_just_pressed("ui_focus_next")
+	input_vect = Input.get_vector("left", "right", "up", "down")
+	dash_just_pressed = Input.is_action_just_pressed("dash")
+	attack_just_pressed = Input.is_action_just_pressed("attack")
 
 func update_animation(type, vect):
 	if vect == Vector2.ZERO:
