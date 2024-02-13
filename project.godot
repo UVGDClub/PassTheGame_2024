@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="PassTheGame_2024"
-run/main_scene="res://src/main_temp.tscn"
+run/main_scene="res://src/proc_gen/GeneratingLevel.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-CardsManager="*res://src/managers/cards_manager.gd"
 DeckManager="*res://src/managers/deck_manager.tscn"
 SfxManager="*res://src/managers/sfx_manager.gd"
+CardsManager="*res://src/managers/cards_manager.gd"
 
 [display]
 
