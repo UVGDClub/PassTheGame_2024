@@ -30,6 +30,7 @@ var last_input_vect = Vector2.RIGHT
 
 # Card controlled offsets
 var dash_time_offset = 0.0
+#
 
 var is_input_chaining = false :
 	set(value):
