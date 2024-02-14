@@ -4,14 +4,14 @@ extends Node2D
 @onready var camera = $Camera2D
 @onready var player = $Player
 
-const ROOM_SIZE = Vector2(38, 20)
+const ROOM_SIZE = Vector2(30, 15)
 const HALLWAY_LENGTH = Vector2(15, 15)
 
 const START_RECT_SIZE = Vector2(20, 18)
 
-const EXTRA_RECT_NUM = 2
-const EXTRA_RECT_SIZE_MIN = Vector2(15, 12)
-const EXTRA_RECT_SIZE_MAX = Vector2(19, 10)
+const EXTRA_RECT_NUM = 10
+const EXTRA_RECT_SIZE_MIN = Vector2(5, 5)
+const EXTRA_RECT_SIZE_MAX = Vector2(19, 8)
 
 const MAX_ROOMS = 20
 
@@ -54,8 +54,8 @@ func update_camera():
 	
 func is_player_in_room(room):
 	return (
-		abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 16 / 2 and
-		abs(player.global_position.y - room.glo_pos.y) < ROOM_SIZE.y * 16 / 2
+		abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 20 / 2 and
+		abs(player.global_position.y - room.glo_pos.y) < ROOM_SIZE.y * 20 / 2
 	)
 
 func generate_level():
@@ -203,7 +203,7 @@ func assignWalls():
 
 
 func adj_to_floor(coord) -> bool:
-	var dirs = [Vector2(0,1),Vector2(1,0),Vector2(-1,0),Vector2(0,-1)]
+	var dirs = [Vector2(1,1),Vector2(0,1),Vector2(1,0),Vector2(-1,0),Vector2(0,-1),Vector2(-1,-1),Vector2(-1,1),Vector2(1,-1)]
 	for dir in dirs:
 		if tile_map.get_cell_atlas_coords(0, coord + dir) == Vector2i(1, 1):
 			return true
