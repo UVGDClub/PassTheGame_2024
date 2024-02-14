@@ -18,8 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DeckManager="*res://src/managers/deck_manager.tscn"
-SfxManager="*res://src/managers/sfx_manager.gd"
-CardsManager="*res://src/managers/cards_manager.gd"
+SfxManager="*res://src/managers/sfx_manager.tscn"
 
 [display]
 
