@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd4lkys1wh1vn"]
+[gd_scene load_steps=7 format=3 uid="uid://cd4lkys1wh1vn"]
 
 [ext_resource type="Script" path="res://src/proc_gen/GeneratingLevel.gd" id="1_xd3a0"]
 [ext_resource type="Texture2D" uid="uid://di478fqpjmgjb" path="res://assets/art/map/dungeon_tiles.png" id="2_8jqqr"]
 [ext_resource type="PackedScene" uid="uid://d3ym2eve3i077" path="res://src/player/player.tscn" id="3_tvj8y"]
+[ext_resource type="PackedScene" uid="uid://doqkk4asrw2yh" path="res://src/ui/card_inventory/card_inventory.tscn" id="4_esyt6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8817"]
 texture = ExtResource("2_8jqqr")
@@ -822,6 +823,8 @@ layer_0/name = "0"
 
 [node name="UI" type="CanvasLayer" parent="Camera2D" groups=["UI"]]
 
+[node name="CardInventory" parent="Camera2D/UI" instance=ExtResource("4_esyt6")]
+
 [node name="TutorialLabel_temp" type="Label" parent="."]
 offset_left = -373.0
 offset_top = -203.0
@@ -830,6 +833,7 @@ offset_bottom = -50.0
 text = "WASD to move
 Left click to Attack
 Right click to Dash
+E to open inventory
 
 Chain attacks and dashes by alternating actions
 (be sure to time your inputs!)"

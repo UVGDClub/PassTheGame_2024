@@ -28,6 +28,7 @@ var draw_pile: Array[Card] = []
 # Cards that have been drawn
 var discard_pile: Array[Card] = [] 
 
+var is_currently_shuffling: bool = false
 var card_cycle_started: bool = false
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -79,6 +80,7 @@ func shuffle_deck() -> void:
 	draw_pile.shuffle()
 	emit_signal("deck_shuffled")
 	timer.start(SHUFFLE_TIME)
+	is_currently_shuffling = true
 	await get_tree().create_timer(1).timeout
 	SfxManager.play_sfx(shuffle_sfx, 0.1)
 
@@ -104,6 +106,8 @@ func draw_card() -> void:
 
 
 func _on_timer_timeout():
+	if is_currently_shuffling:
+		is_currently_shuffling = false
 	draw_card()
 
 

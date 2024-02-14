@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwvcw8ov07o52"]
+[gd_scene load_steps=5 format=3 uid="uid://dwvcw8ov07o52"]
 
 [ext_resource type="Script" path="res://src/cards/card_pack/card_display/card_display.gd" id="1_kfvnv"]
 [ext_resource type="Texture2D" uid="uid://jvuwlialq2ky" path="res://assets/art/cards/card_backgrounds/common_card_background_temp.png" id="1_q6rb1"]
-[ext_resource type="Texture2D" uid="uid://ua67285ivi2y" path="res://assets/art/cards/card_images/super_dash_card_image_temp.png" id="3_7oihe"]
 [ext_resource type="FontFile" uid="uid://dslvmccm7rnqy" path="res://assets/fonts/Tuffy_Bold_Italic_temp/Tuffy_Bold_Italic.otf" id="3_11eos"]
 [ext_resource type="Texture2D" uid="uid://cak2ifpspl4kh" path="res://assets/art/ui/card_pack/add_card_button_hover.png" id="4_b14mp"]
 
@@ -24,7 +23,6 @@ texture = ExtResource("1_q6rb1")
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 42.0
-texture = ExtResource("3_7oihe")
 
 [node name="name_label" type="Label" parent="background_sprite"]
 layout_mode = 1
