@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var tile_map = $TileMap
+@onready var camera = $Camera2D
+@onready var player = $Player
 
 const ROOM_SIZE = Vector2(48, 27)
 const HALLWAY_LENGTH = Vector2(10, 10)
@@ -19,9 +21,18 @@ var rooms_left = MAX_ROOMS
 
 var rooms = Dictionary()
 
+var camera_tween : Tween
+
 func _ready():
 	generate_level()
 	display_level()
+	camera_tween = create_tween()
+
+func _physics_process(delta):
+	update_camera()
+
+func update_camera():
+	camera.position = player.position
 
 func generate_level():
 	rooms[Vector2.ZERO] = create_room(Vector2.ZERO)

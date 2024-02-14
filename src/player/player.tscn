@@ -184,6 +184,4 @@ shape = SubResource("RectangleShape2D_6118o")
 color = Color(0.266667, 1, 0, 1)
 polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [connection signal="area_shape_entered" from="CardPickup" to="." method="_on_card_pickup_area_shape_entered"]
