@@ -6,3 +6,4 @@ var original_connection : Vector2 = Vector2.ZERO
 var connection_offsets = {}
 var grid_position : Vector2 = Vector2.ZERO
 var tile_pos : Vector2 = Vector2.ZERO
+var glo_pos : Vector2 = Vector2.ZERO

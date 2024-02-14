@@ -5,7 +5,7 @@ extends Node2D
 @onready var player = $Player
 
 const ROOM_SIZE = Vector2(48, 27)
-const HALLWAY_LENGTH = Vector2(10, 10)
+const HALLWAY_LENGTH = Vector2(15, 15)
 
 const START_RECT_SIZE = Vector2(20, 20)
 
@@ -17,7 +17,14 @@ const MAX_ROOMS = 20
 
 const CELL_SIZE = ROOM_SIZE + HALLWAY_LENGTH
 
+const FLOOR_TILE_SET_ATLAS_COORDS = Vector2i(3,3)
+const WALL_TILE_SET_ATLAS_COORDS = Vector2i(12,2)
+const VOID_TILE_SET_ATLAS_COORDS = Vector2i(16,3)
+
 var rooms_left = MAX_ROOMS
+
+var top_left = Vector2.ZERO
+var bot_right = Vector2.ZERO
 
 var rooms = Dictionary()
 
@@ -32,6 +39,11 @@ func _physics_process(delta):
 	update_camera()
 
 func update_camera():
+	for room in rooms.values():
+		if abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 16 / 2 and \
+		 abs(player.global_position.y - room.glo_pos.y) < ROOM_SIZE.y * 16 / 2:
+			camera.position = room.glo_pos
+			return
 	camera.position = player.position
 
 func generate_level():
@@ -74,6 +86,7 @@ func create_room(grid_pos) -> Room:
 	var new_room = Room.new()
 	new_room.grid_position = grid_pos
 	new_room.tile_pos = grid_pos * CELL_SIZE
+	new_room.glo_pos = grid_pos * CELL_SIZE * 16
 	return new_room
 
 func connect_rooms(room1, room2):
@@ -105,13 +118,42 @@ func display_level():
 				rect_size = Vector2(4, (ROOM_SIZE.y + HALLWAY_LENGTH.y)/2)
 				rect_pos_offset = Vector2(room.connection_offsets[con], (ROOM_SIZE.x + HALLWAY_LENGTH.x)/4 * con.y)
 			paint_rect(rect_size, room.tile_pos + rect_pos_offset)
+	
+	fill_map()
 
 func paint_rect(rect_size, rect_pos):
 	rect_pos -= floor(rect_size / 2)
+	
+	bot_right.x = max(bot_right.x, rect_pos.x + rect_size.x)
+	bot_right.y = max(bot_right.y, rect_pos.y + rect_size.y)
+	top_left.x = min(top_left.x, rect_pos.x)
+	top_left.y = min(top_left.y, rect_pos.y)
+	
 	for x in rect_size.x:
 		for y in rect_size.y:
 			var tile_coord = rect_pos + Vector2(x, y)
-			tile_map.set_cell(0, tile_coord, 0, Vector2(0,0))
+			tile_map.set_cell(0, tile_coord, 0, FLOOR_TILE_SET_ATLAS_COORDS)
+
+func fill_map():
+	bot_right += ROOM_SIZE
+	top_left -= ROOM_SIZE
+	for x in range(round(bot_right.x - top_left.x)):
+		for y in range(round(bot_right.x - top_left.x)):
+			var tile_coord = top_left + Vector2(x, y)
+			var tile_id = tile_map.get_cell_source_id(0, tile_coord)
+			if tile_id == -1:
+				if adj_to_floor(tile_coord):
+					tile_map.set_cell(0, tile_coord, 0, WALL_TILE_SET_ATLAS_COORDS)
+				else:
+					tile_map.set_cell(0, tile_coord, 0, VOID_TILE_SET_ATLAS_COORDS)
+
+func adj_to_floor(coord) -> bool:
+	var dirs = [Vector2(1,1),Vector2(0,1),Vector2(-1,1),Vector2(1,0),Vector2(-1,0),
+	Vector2(1,-1),Vector2(0,-1),Vector2(-1,-1)]
+	for dir in dirs:
+		if tile_map.get_cell_atlas_coords(0, coord + dir) == FLOOR_TILE_SET_ATLAS_COORDS:
+			return true
+	return false
 
 func get_extra_rect_size() -> Vector2:
 	return Vector2(randf_range(EXTRA_RECT_SIZE_MIN.x, EXTRA_RECT_SIZE_MAX.x), randf_range(EXTRA_RECT_SIZE_MIN.y, EXTRA_RECT_SIZE_MAX.y))
