@@ -3,14 +3,13 @@ extends Node2D
 @onready var tile_map = $TileMap
 @onready var camera = $Camera2D
 @onready var player = $Player
-@onready var card_pack = load("res://src/cards/card_pack/card_pack_pickup.tscn")
 
 const ROOM_SIZE = Vector2(38, 20)
-const HALLWAY_LENGTH = Vector2(20, 15)
+const HALLWAY_LENGTH = Vector2(15, 15)
 
-const START_RECT_SIZE = Vector2(10, 10)
+const START_RECT_SIZE = Vector2(20, 20)
 
-const EXTRA_RECT_NUM = 4
+const EXTRA_RECT_NUM = 2
 const EXTRA_RECT_SIZE_MIN = Vector2(10, 10)
 const EXTRA_RECT_SIZE_MAX = Vector2(19, 10)
 
@@ -28,13 +27,12 @@ var top_left = Vector2.ZERO
 var bot_right = Vector2.ZERO
 
 var rooms = Dictionary()
-
+var walls = []
 var camera_tween : Tween
 
 func _ready():
 	generate_level()
 	display_level()
-	add_packs_to_rooms()
 
 func _process(delta):
 	update_camera()
@@ -42,16 +40,17 @@ func _process(delta):
 var currentRoom : Vector2
 
 func update_camera():
+	# Beautiful tweening system is courtesy of Inbesticorp™️©️®️ 🔥🔥🔥
 	for room in rooms.values():
 		if is_player_in_room(room):
 			if currentRoom == room.glo_pos: return
 			currentRoom = room.glo_pos
 			var camera_tween = create_tween()
-			camera_tween.tween_property(camera, "position", room.glo_pos, 0.5)
+			camera_tween.set_ease(2).tween_property(camera, "position", room.glo_pos, 0.5)
 			return
 	currentRoom = Vector2(69420, 69420)
 	var camera_tween = create_tween()
-	camera_tween.tween_property(camera, "position", player.global_position, 0.5)
+	camera_tween.set_ease(2).tween_property(camera, "position", player.global_position, 0.5)
 	
 func is_player_in_room(room):
 	return (
@@ -129,7 +128,7 @@ func display_level():
 				rect_pos_offset = Vector2((ROOM_SIZE.x + HALLWAY_LENGTH.x)/4 * con.x, room.connection_offsets[con])
 			else:
 				rect_size = Vector2(4, (ROOM_SIZE.y + HALLWAY_LENGTH.y)/2)
-				rect_pos_offset = Vector2(room.connection_offsets[con], (ROOM_SIZE.y + HALLWAY_LENGTH.y)/4 * con.y)
+				rect_pos_offset = Vector2(room.connection_offsets[con], (ROOM_SIZE.x + HALLWAY_LENGTH.x)/4 * con.y)
 			paint_rect(rect_size, room.tile_pos + rect_pos_offset)
 	
 	fill_map()
@@ -145,7 +144,7 @@ func paint_rect(rect_size, rect_pos):
 	for x in rect_size.x:
 		for y in rect_size.y:
 			var tile_coord = rect_pos + Vector2(x, y)
-			tile_map.set_cell(0, tile_coord, 0, FLOOR_TILE_SET_ATLAS_COORDS)
+			tile_map.set_cell(0, tile_coord, 1, Vector2(1 ,1))
 
 func fill_map():
 	bot_right += ROOM_SIZE
@@ -153,18 +152,59 @@ func fill_map():
 	for x in range(round(bot_right.x - top_left.x)):
 		for y in range(round(bot_right.x - top_left.x)):
 			var tile_coord = top_left + Vector2(x, y)
-			var tile_id = tile_map.get_cell_source_id(0, tile_coord)
-			if tile_id == -1:
+			if tile_map.get_cell_atlas_coords(0, tile_coord) == Vector2i(-1, -1):
 				if adj_to_floor(tile_coord):
-					tile_map.set_cell(0, tile_coord, 0, WALL_TILE_SET_ATLAS_COORDS)
-				else:
-					tile_map.set_cell(0, tile_coord, 0, VOID_TILE_SET_ATLAS_COORDS)
+					tile_map.set_cell(0, tile_coord, 2, Vector2(0, 0))
+					walls.push_back(tile_coord)
+				# else: tile_map.set_cell(0, tile_coord, 3, Vector2(0, 0))
+				# ⬆️ Uncommenting will f**k up the tile determination ⬆️
+	assignWalls()
+
+func assignWalls():
+	# Ugly code incoming
+	for wall in walls:
+		var number = 0;
+		if tile_map.get_cell_atlas_coords(0, Vector2(wall.x, wall.y - 1)) == Vector2i(-1, -1):
+			number += 1
+		if tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y)) == Vector2i(-1, -1):
+			number += 2
+		if tile_map.get_cell_atlas_coords(0, Vector2(wall.x, wall.y + 1)) == Vector2i(-1, -1):
+			number += 4
+		if tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y)) == Vector2i(-1, -1):
+			number += 8
+		
+		# Why can't Godot have Switch statements :waa:
+		if number == 1:
+			tile_map.set_cell(0, wall, 1, Vector2(1, 0))
+		elif number == 2:
+			tile_map.set_cell(0, wall, 1, Vector2(4, 1))
+		elif number == 3:
+			tile_map.set_cell(0, wall, 1, Vector2(4, 0))
+		elif number == 4:
+			tile_map.set_cell(0, wall, 1, Vector2(1, 4))
+		elif number == 6:
+			tile_map.set_cell(0, wall, 1, Vector2(4, 4))
+		elif number == 8:
+			tile_map.set_cell(0, wall, 1, Vector2(0, 1))
+		elif number == 9:
+			tile_map.set_cell(0, wall, 1, Vector2(0, 0))
+		elif number == 12:
+			tile_map.set_cell(0, wall, 1, Vector2(0, 4))
+		elif number == 0:
+			if tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y - 1)) == Vector2i(-1, -1):
+				tile_map.set_cell(0, wall, 4, Vector2(2, 2))
+			if tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y + 1)) == Vector2i(-1, -1):
+				tile_map.set_cell(0, wall, 4, Vector2(0, 0))
+			if tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y + 1)) == Vector2i(-1, -1):
+				tile_map.set_cell(0, wall, 4, Vector2(2, 0))
+			if tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y - 1)) == Vector2i(-1, -1):
+				tile_map.set_cell(0, wall, 4, Vector2(0, 2))
+
 
 func adj_to_floor(coord) -> bool:
-	var dirs = [Vector2(1,1),Vector2(0,1),Vector2(-1,1),Vector2(1,0),Vector2(-1,0),
-	Vector2(1,-1),Vector2(0,-1),Vector2(-1,-1)]
+	var dirs = [Vector2(0,1),Vector2(1,0),Vector2(-1,0),Vector2(0,-1)]
 	for dir in dirs:
-		if tile_map.get_cell_atlas_coords(0, coord + dir) == FLOOR_TILE_SET_ATLAS_COORDS:
+		if tile_map.get_cell_atlas_coords(0, coord + dir) == Vector2i(1, 1):
 			return true
 	return false
 
@@ -173,12 +213,3 @@ func get_extra_rect_size() -> Vector2:
 
 func get_extra_rect_offset(rect_size) -> Vector2:
 	return Vector2(randi_range(-rect_size.x/2, rect_size.x/2), randi_range(-rect_size.y/2, rect_size.y/2))
-
-
-func add_packs_to_rooms() -> void:
-	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	for r in rooms.values():
-		if (rng.randf() < 0.7):
-			var new_card_pack = card_pack.instantiate()
-			new_card_pack.global_position = r.glo_pos
-			add_child(new_card_pack)
