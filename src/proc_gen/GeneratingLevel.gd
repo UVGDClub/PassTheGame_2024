@@ -156,7 +156,7 @@ func fill_map():
 				if adj_to_floor(tile_coord):
 					tile_map.set_cell(0, tile_coord, 2, Vector2(0, 0))
 					walls.push_back(tile_coord)
-				# else: tile_map.set_cell(0, tile_coord, 3, Vector2(0, 0))
+				#else: tile_map.set_cell(0, tile_coord, 3, Vector2(0, 0))
 				# ⬆️ Uncommenting will f**k up the tile determination ⬆️
 	assignWalls()
 
@@ -193,12 +193,13 @@ func assignWalls():
 		elif number == 0:
 			if tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y - 1)) == Vector2i(-1, -1):
 				tile_map.set_cell(0, wall, 4, Vector2(2, 2))
-			if tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y + 1)) == Vector2i(-1, -1):
+			elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y + 1)) == Vector2i(-1, -1):
 				tile_map.set_cell(0, wall, 4, Vector2(0, 0))
-			if tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y + 1)) == Vector2i(-1, -1):
+			elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y + 1)) == Vector2i(-1, -1):
 				tile_map.set_cell(0, wall, 4, Vector2(2, 0))
-			if tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y - 1)) == Vector2i(-1, -1):
+			elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y - 1)) == Vector2i(-1, -1):
 				tile_map.set_cell(0, wall, 4, Vector2(0, 2))
+			else: tile_map.set_cell(0, wall, 1, Vector2(1, 1))
 
 
 func adj_to_floor(coord) -> bool:
