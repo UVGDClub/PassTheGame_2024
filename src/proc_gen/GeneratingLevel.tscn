@@ -819,3 +819,5 @@ layer_0/name = "0"
 [node name="Player" parent="." instance=ExtResource("3_tvj8y")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="Camera2D" groups=["UI"]]

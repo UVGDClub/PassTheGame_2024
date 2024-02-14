@@ -1,12 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxuempje6apw8"]
 
-[ext_resource type="PackedScene" uid="uid://be00ijskpc5ri" path="res://src/cards/super_dash_card_temp.tscn" id="1_xkguf"]
+[ext_resource type="PackedScene" uid="uid://ta5ytoo5atku" path="res://src/cards/card_pack/card_picker_ui.tscn" id="2_4i5ib"]
 [ext_resource type="PackedScene" uid="uid://d3ym2eve3i077" path="res://src/player/player.tscn" id="2_ldfl8"]
 
 [node name="Main_temp" type="Node2D"]
 
-[node name="card_1_temp" parent="." instance=ExtResource("1_xkguf")]
-position = Vector2(169, 168)
-card_description = ""
-
 [node name="Player" parent="." instance=ExtResource("2_ldfl8")]
+
+[node name="CardPickerUi" parent="." instance=ExtResource("2_4i5ib")]
+offset_left = 355.0
+offset_top = 204.0
+offset_right = 355.0
+offset_bottom = 204.0

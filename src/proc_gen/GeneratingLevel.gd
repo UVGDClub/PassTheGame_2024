@@ -3,6 +3,7 @@ extends Node2D
 @onready var tile_map = $TileMap
 @onready var camera = $Camera2D
 @onready var player = $Player
+@onready var card_pack = load("res://src/cards/card_pack/card_pack_pickup.tscn")
 
 const ROOM_SIZE = Vector2(48, 27)
 const HALLWAY_LENGTH = Vector2(15, 15)
@@ -33,6 +34,7 @@ var camera_tween : Tween
 func _ready():
 	generate_level()
 	display_level()
+	add_packs_to_rooms()
 	camera_tween = create_tween()
 
 func _physics_process(delta):
@@ -160,3 +162,12 @@ func get_extra_rect_size() -> Vector2:
 
 func get_extra_rect_offset(rect_size) -> Vector2:
 	return Vector2(randi_range(-rect_size.x/2, rect_size.x/2), randi_range(-rect_size.y/2, rect_size.y/2))
+
+
+func add_packs_to_rooms() -> void:
+	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+	for r in rooms.values():
+		if (rng.randf() < 0.7):
+			var new_card_pack = card_pack.instantiate()
+			new_card_pack.global_position = r.glo_pos
+			add_child(new_card_pack)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxuempje6apw8"]
+
+[ext_resource type="PackedScene" uid="uid://d3ym2eve3i077" path="res://src/player/player.tscn" id="2_ldfl8"]
+[ext_resource type="PackedScene" uid="uid://dwvcw8ov07o52" path="res://src/cards/card_display/card_display.tscn" id="2_s5orn"]
+[ext_resource type="Resource" uid="uid://j5r0s52bc5wg" path="res://src/cards/card_resources/super_dash_card_temp.tres" id="3_xdhlx"]
+
+[node name="Main_temp" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_ldfl8")]
+
+[node name="card_display" parent="." instance=ExtResource("2_s5orn")]
+position = Vector2(100, 95)
+display_card = ExtResource("3_xdhlx")

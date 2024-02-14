@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuperAttackCard" load_steps=4 format=3 uid="uid://0d5hal60uh0"]
+
+[ext_resource type="AudioStream" uid="uid://cpqr4iscweot5" path="res://assets/audio/sfx/on_super_attack_card_drawn_temp.wav" id="1_bl1oo"]
+[ext_resource type="Script" path="res://src/cards/super_attack_card_temp.gd" id="1_tjd85"]
+[ext_resource type="Texture2D" uid="uid://q4flofp6gkg7" path="res://assets/art/cards/card_images/super_attack_card_image_temp.png" id="2_i3lni"]
+
+[resource]
+script = ExtResource("1_tjd85")
+super_attack_length = 4.0
+attack_length_increase = 0.15
+card_name = "Super Attack"
+card_description = "Increases your attack distance for 4 seconds."
+on_card_played_sfx = ExtResource("1_bl1oo")
+picture = ExtResource("2_i3lni")
+rarity = 1

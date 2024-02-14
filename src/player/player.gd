@@ -3,22 +3,23 @@ class_name Player extends CharacterBody2D
 @onready var state_machine = $StateMachine
 @onready var flip = $Flip
 @onready var animation_player = $AnimationPlayer
+@onready var hurtbox = $Flip/Hurtbox
 
-const MAX_WALK_VEL = 200
-const WALK_ACC = MAX_WALK_VEL / 0.1 # time to reach full speed in seconds
-const WALK_TURN_ACC = MAX_WALK_VEL / 0.04
-const IDLE_FRICTION = MAX_WALK_VEL / 0.05
+var MAX_WALK_VEL = 200
+var WALK_ACC = MAX_WALK_VEL / 0.1 # time to reach full speed in seconds
+var WALK_TURN_ACC = MAX_WALK_VEL / 0.04
+var IDLE_FRICTION = MAX_WALK_VEL / 0.05
 
 const INPUT_CHAIN_STARTING_BUFFER = 1
-const DASH_COOLDOWN = 1
+var dash_cooldown = 1
 
 const DASH_START_VEL = 1000
 const DASH_END_VEL = 1200
-const DASH_TIME = 0.1
+var dash_time: float = 0.1
 
 const ATTACK_START_VEL = 300
 const ATTACK_END_VEL = 400
-const ATTACK_TIME = 0.2
+var attack_time = 0.2
 
 # I am... sorry
 var input_vect = Vector2.ZERO
@@ -28,14 +29,11 @@ var attack_just_pressed = false
 var last_input_vect = Vector2.RIGHT
 #
 
-# Card controlled offsets
-var dash_time_offset = 0.0
-#
 
 var is_input_chaining = false :
 	set(value):
 		if not value:
-			dash_cooldown_timer = DASH_COOLDOWN
+			dash_cooldown_timer = dash_cooldown
 			input_chain_buffer = INPUT_CHAIN_STARTING_BUFFER
 		is_input_chaining = value
 
@@ -127,11 +125,3 @@ func update_debug_labels():
 		$temp_InputChainLabel.text = "Chain Buffer: " + str(round(input_chain_buffer_timer * 100) / 100)
 	else:
 		$temp_InputChainLabel.text = "Cooldown: " + str(round(dash_cooldown_timer * 100) / 100)
-
-
-func _on_card_pickup_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	var card_pickup: Card = area.get_parent()
-	if card_pickup is Card:
-		DeckManager.add_card(card_pickup)
-		card_pickup.visible = false
-		card_pickup.position = Vector2(100000, 100000) # I'm so sorry

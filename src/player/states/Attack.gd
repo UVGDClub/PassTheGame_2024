@@ -10,7 +10,7 @@ func enter(prev_state_name=null):
 	host.last_input_vect = dash_dir
 	t = create_tween()
 	host.velocity = dash_dir * host.ATTACK_START_VEL
-	t.tween_property(host, "velocity", host.ATTACK_END_VEL * dash_dir, host.ATTACK_TIME)
+	t.tween_property(host, "velocity", host.ATTACK_END_VEL * dash_dir, host.attack_time)
 	host.update_animation("attack", dash_dir)
 
 func exit(new_state_name=null):
