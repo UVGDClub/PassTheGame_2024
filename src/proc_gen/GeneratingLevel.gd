@@ -2,14 +2,14 @@ extends Node2D
 
 @onready var tile_map = $TileMap
 
-const ROOM_SIZE = Vector2(80, 60)
+const ROOM_SIZE = Vector2(48, 27)
 const HALLWAY_LENGTH = Vector2(10, 10)
 
 const START_RECT_SIZE = Vector2(20, 20)
 
 const EXTRA_RECT_NUM = 2
 const EXTRA_RECT_SIZE_MIN = Vector2(10, 10)
-const EXTRA_RECT_SIZE_MAX = Vector2(40, 40)
+const EXTRA_RECT_SIZE_MAX = Vector2(23, 13)
 
 const MAX_ROOMS = 20
 

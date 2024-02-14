@@ -21,3 +21,5 @@ layer_0/name = "0"
 layer_0/tile_data = PackedInt32Array(65537, 0, 0, 4, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_tvj8y")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

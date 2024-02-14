@@ -23,8 +23,8 @@ CardsManager="*res://src/managers/cards_manager.gd"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=576
+window/size/viewport_width=768
+window/size/viewport_height=432
 window/stretch/mode="canvas_items"
 
 [input]
