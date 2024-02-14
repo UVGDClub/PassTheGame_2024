@@ -8,4 +8,4 @@ func play() -> void:
 	var prev_player_dash_cooldown = player.dash_cooldown
 	player.dash_cooldown = 0
 	await DeckManager.get_tree().create_timer(length).timeout
-	player.dash_cooldown -= prev_player_dash_cooldown
+	player.dash_cooldown = prev_player_dash_cooldown
