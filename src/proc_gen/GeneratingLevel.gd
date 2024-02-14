@@ -33,18 +33,29 @@ var camera_tween : Tween
 func _ready():
 	generate_level()
 	display_level()
-	camera_tween = create_tween()
 
-func _physics_process(delta):
+func _process(delta):
 	update_camera()
+
+var currentRoom : Vector2
 
 func update_camera():
 	for room in rooms.values():
-		if abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 16 / 2 and \
-		 abs(player.global_position.y - room.glo_pos.y) < ROOM_SIZE.y * 16 / 2:
-			camera.position = room.glo_pos
+		if is_player_in_room(room):
+			if currentRoom == room.glo_pos: return
+			currentRoom = room.glo_pos
+			var camera_tween = create_tween()
+			camera_tween.tween_property(camera, "position", room.glo_pos, 0.5)
 			return
-	camera.position = player.position
+	currentRoom = Vector2(69420, 69420)
+	var camera_tween = create_tween()
+	camera_tween.tween_property(camera, "position", player.global_position, 0.5)
+	
+func is_player_in_room(room):
+	return (
+		abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 16 / 2 and
+		abs(player.global_position.y - room.glo_pos.y) < ROOM_SIZE.y * 16 / 2
+	)
 
 func generate_level():
 	rooms[Vector2.ZERO] = create_room(Vector2.ZERO)
