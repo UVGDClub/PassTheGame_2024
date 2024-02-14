@@ -13,7 +13,7 @@ const EXTRA_RECT_NUM = 4
 const EXTRA_RECT_SIZE_MIN = Vector2(10, 10)
 const EXTRA_RECT_SIZE_MAX = Vector2(19, 10)
 
-const MAX_ROOMS = 20
+const MAX_ROOMS = 200
 
 const CELL_SIZE = ROOM_SIZE + HALLWAY_LENGTH
 
@@ -127,7 +127,7 @@ func display_level():
 				rect_pos_offset = Vector2((ROOM_SIZE.x + HALLWAY_LENGTH.x)/4 * con.x, room.connection_offsets[con])
 			else:
 				rect_size = Vector2(4, (ROOM_SIZE.y + HALLWAY_LENGTH.y)/2)
-				rect_pos_offset = Vector2(room.connection_offsets[con], (ROOM_SIZE.x + HALLWAY_LENGTH.x)/4 * con.y)
+				rect_pos_offset = Vector2(room.connection_offsets[con], (ROOM_SIZE.y + HALLWAY_LENGTH.y)/4 * con.y)
 			paint_rect(rect_size, room.tile_pos + rect_pos_offset)
 	
 	fill_map()
