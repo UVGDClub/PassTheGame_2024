@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://d3ym2eve3i077"]
+[gd_scene load_steps=32 format=3 uid="uid://d3ym2eve3i077"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_lho8y"]
 [ext_resource type="Script" path="res://src/state_machine/state_machine.gd" id="2_jacng"]
 [ext_resource type="Script" path="res://src/player/states/Walk.gd" id="3_tik4p"]
 [ext_resource type="Script" path="res://src/player/states/Dash.gd" id="4_2x4ls"]
 [ext_resource type="Script" path="res://src/player/states/Attack.gd" id="5_xbnno"]
-[ext_resource type="Texture2D" uid="uid://dovry1wq6dkj6" path="res://assets/art/player/player_NOT_TEMP.png" id="6_d2jl1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccntx"]
 size = Vector2(16, 16)
@@ -14,7 +13,7 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmb70"]
-size = Vector2(16, 32)
+size = Vector2(16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gamxu"]
 
@@ -110,7 +109,6 @@ collision_layer = 5
 script = ExtResource("1_lho8y")
 
 [node name="TerrainShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_ccntx")
 
 [node name="CardPickup" type="Area2D" parent="."]
@@ -178,7 +176,6 @@ libraries = {
 [node name="Flip" type="Node2D" parent="."]
 
 [node name="temp_Sprite" type="Sprite2D" parent="Flip"]
-texture = ExtResource("6_d2jl1")
 
 [node name="Hurtbox" type="Area2D" parent="Flip"]
 collision_layer = 0
@@ -186,5 +183,9 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flip/Hurtbox"]
 shape = SubResource("RectangleShape2D_6118o")
+
+[node name="Polygon2D" type="Polygon2D" parent="Flip"]
+color = Color(0.266667, 1, 0, 1)
+polygon = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [connection signal="area_shape_entered" from="CardPickup" to="." method="_on_card_pickup_area_shape_entered"]

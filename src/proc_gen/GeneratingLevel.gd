@@ -4,7 +4,7 @@ extends Node2D
 @onready var camera = $Camera2D
 @onready var player = $Player
 
-const ROOM_SIZE = Vector2(48, 27)
+const ROOM_SIZE = Vector2(44, 24)
 const HALLWAY_LENGTH = Vector2(15, 15)
 
 const START_RECT_SIZE = Vector2(20, 20)
