@@ -7,10 +7,10 @@ extends Node2D
 const ROOM_SIZE = Vector2(38, 20)
 const HALLWAY_LENGTH = Vector2(15, 15)
 
-const START_RECT_SIZE = Vector2(20, 20)
+const START_RECT_SIZE = Vector2(20, 18)
 
 const EXTRA_RECT_NUM = 2
-const EXTRA_RECT_SIZE_MIN = Vector2(10, 10)
+const EXTRA_RECT_SIZE_MIN = Vector2(15, 12)
 const EXTRA_RECT_SIZE_MAX = Vector2(19, 10)
 
 const MAX_ROOMS = 20

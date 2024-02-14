@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dovry1wq6dkj6" path="res://assets/art/player/player_NOT_TEMP.png" id="6_75jqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccntx"]
-size = Vector2(16, 16)
+size = Vector2(18, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsfch"]
 size = Vector2(16, 16)
