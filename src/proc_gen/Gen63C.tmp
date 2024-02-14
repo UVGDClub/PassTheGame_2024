@@ -819,17 +819,3 @@ layer_0/name = "0"
 [node name="Player" parent="." instance=ExtResource("3_tvj8y")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="UI" type="CanvasLayer" parent="Camera2D" groups=["UI"]]
-
-[node name="TutorialLabel_temp" type="Label" parent="."]
-offset_left = -373.0
-offset_top = -203.0
-offset_right = -1.0
-offset_bottom = -50.0
-text = "WASD to move
-Left click to Attack
-Right click to Dash
-
-Chain attacks and dashes by alternating actions
-(be sure to time your inputs!)"

@@ -13,8 +13,9 @@ var IDLE_FRICTION = MAX_WALK_VEL / 0.05
 const INPUT_CHAIN_STARTING_BUFFER = 1
 var dash_cooldown = 1
 
-const DASH_START_VEL = 1000
-const DASH_END_VEL = 1200
+
+const DASH_START_VEL = 800
+const DASH_END_VEL = 1000
 var dash_time: float = 0.1
 
 const ATTACK_START_VEL = 300
@@ -125,3 +126,4 @@ func update_debug_labels():
 		$temp_InputChainLabel.text = "Chain Buffer: " + str(round(input_chain_buffer_timer * 100) / 100)
 	else:
 		$temp_InputChainLabel.text = "Cooldown: " + str(round(dash_cooldown_timer * 100) / 100)
+

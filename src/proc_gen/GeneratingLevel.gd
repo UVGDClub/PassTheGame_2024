@@ -5,16 +5,16 @@ extends Node2D
 @onready var player = $Player
 @onready var card_pack = load("res://src/cards/card_pack/card_pack_pickup.tscn")
 
-const ROOM_SIZE = Vector2(48, 27)
+const ROOM_SIZE = Vector2(38, 20)
 const HALLWAY_LENGTH = Vector2(15, 15)
 
-const START_RECT_SIZE = Vector2(20, 20)
+const START_RECT_SIZE = Vector2(10, 10)
 
-const EXTRA_RECT_NUM = 2
+const EXTRA_RECT_NUM = 4
 const EXTRA_RECT_SIZE_MIN = Vector2(10, 10)
-const EXTRA_RECT_SIZE_MAX = Vector2(23, 13)
+const EXTRA_RECT_SIZE_MAX = Vector2(19, 10)
 
-const MAX_ROOMS = 20
+const MAX_ROOMS = 200
 
 const CELL_SIZE = ROOM_SIZE + HALLWAY_LENGTH
 
@@ -35,18 +35,29 @@ func _ready():
 	generate_level()
 	display_level()
 	add_packs_to_rooms()
-	camera_tween = create_tween()
 
-func _physics_process(delta):
+func _process(delta):
 	update_camera()
+
+var currentRoom : Vector2
 
 func update_camera():
 	for room in rooms.values():
-		if abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 16 / 2 and \
-		 abs(player.global_position.y - room.glo_pos.y) < ROOM_SIZE.y * 16 / 2:
-			camera.position = room.glo_pos
+		if is_player_in_room(room):
+			if currentRoom == room.glo_pos: return
+			currentRoom = room.glo_pos
+			var camera_tween = create_tween()
+			camera_tween.tween_property(camera, "position", room.glo_pos, 0.5)
 			return
-	camera.position = player.position
+	currentRoom = Vector2(69420, 69420)
+	var camera_tween = create_tween()
+	camera_tween.tween_property(camera, "position", player.global_position, 0.5)
+	
+func is_player_in_room(room):
+	return (
+		abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 16 / 2 and
+		abs(player.global_position.y - room.glo_pos.y) < ROOM_SIZE.y * 16 / 2
+	)
 
 func generate_level():
 	rooms[Vector2.ZERO] = create_room(Vector2.ZERO)
@@ -118,7 +129,7 @@ func display_level():
 				rect_pos_offset = Vector2((ROOM_SIZE.x + HALLWAY_LENGTH.x)/4 * con.x, room.connection_offsets[con])
 			else:
 				rect_size = Vector2(4, (ROOM_SIZE.y + HALLWAY_LENGTH.y)/2)
-				rect_pos_offset = Vector2(room.connection_offsets[con], (ROOM_SIZE.x + HALLWAY_LENGTH.x)/4 * con.y)
+				rect_pos_offset = Vector2(room.connection_offsets[con], (ROOM_SIZE.y + HALLWAY_LENGTH.y)/4 * con.y)
 			paint_rect(rect_size, room.tile_pos + rect_pos_offset)
 	
 	fill_map()
