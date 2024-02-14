@@ -6,7 +6,7 @@ extends Node2D
 @onready var card_pack = load("res://src/cards/card_pack/card_pack_pickup.tscn")
 
 const ROOM_SIZE = Vector2(38, 20)
-const HALLWAY_LENGTH = Vector2(15, 15)
+const HALLWAY_LENGTH = Vector2(20, 15)
 
 const START_RECT_SIZE = Vector2(10, 10)
 
@@ -14,7 +14,7 @@ const EXTRA_RECT_NUM = 4
 const EXTRA_RECT_SIZE_MIN = Vector2(10, 10)
 const EXTRA_RECT_SIZE_MAX = Vector2(19, 10)
 
-const MAX_ROOMS = 200
+const MAX_ROOMS = 20
 
 const CELL_SIZE = ROOM_SIZE + HALLWAY_LENGTH
 
