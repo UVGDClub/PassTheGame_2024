@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fext8rtnf2rt"
-path="res://.godot/imported/outside.png-737abdd75183f1c918d9a3be74ff2bce.ctex"
+uid="uid://wbhbgd7gsobv"
+path="res://.godot/imported/dungeon_in_corners_temp.png-41c215e53b0e8359dbf57bcde09bc618.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/map/outside.png"
-dest_files=["res://.godot/imported/outside.png-737abdd75183f1c918d9a3be74ff2bce.ctex"]
+source_file="res://assets/art/map/dungeon_in_corners_temp.png"
+dest_files=["res://.godot/imported/dungeon_in_corners_temp.png-41c215e53b0e8359dbf57bcde09bc618.ctex"]
 
 [params]
 

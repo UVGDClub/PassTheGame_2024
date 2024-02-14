@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wbhbgd7gsobv"
-path="res://.godot/imported/dungeon_in_corners.png-9411f7cb6a3bee4b76813320d59450d7.ctex"
+uid="uid://bx7d5aamvcrdg"
+path="res://.godot/imported/pixil-frame-0_temp.png-786a6e5054fd6b4fd5118f0c668a4d54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/map/dungeon_in_corners.png"
-dest_files=["res://.godot/imported/dungeon_in_corners.png-9411f7cb6a3bee4b76813320d59450d7.ctex"]
+source_file="res://assets/art/map/pixil-frame-0_temp.png"
+dest_files=["res://.godot/imported/pixil-frame-0_temp.png-786a6e5054fd6b4fd5118f0c668a4d54.ctex"]
 
 [params]
 

@@ -45,6 +45,7 @@ var input_chain_buffer_timer = 0
 var dash_cooldown_timer = 0
 
 func _physics_process(delta):
+	print(dash_time)
 	get_input()
 	state_machine.physics_process(delta)
 	move_and_slide()

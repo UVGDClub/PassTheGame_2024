@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dovry1wq6dkj6" path="res://assets/art/player/player_NOT_TEMP.png" id="6_75jqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccntx"]
-size = Vector2(18, 28)
+size = Vector2(6, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsfch"]
 size = Vector2(16, 16)
@@ -110,6 +110,7 @@ collision_layer = 5
 script = ExtResource("1_lho8y")
 
 [node name="TerrainShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_ccntx")
 
 [node name="CardPickup" type="Area2D" parent="."]
@@ -177,6 +178,7 @@ libraries = {
 [node name="Flip" type="Node2D" parent="."]
 
 [node name="temp_Sprite" type="Sprite2D" parent="Flip"]
+position = Vector2(0, -5)
 texture = ExtResource("6_75jqq")
 
 [node name="Hurtbox" type="Area2D" parent="Flip"]
