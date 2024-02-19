@@ -98,11 +98,7 @@ func draw_card() -> void:
 		full_deck.erase(drawn_card)
 	else:
 		discard_pile.append(drawn_card)
-	
-	if len(draw_pile) <= 0:
-		shuffle_deck()
-	else:
-		timer.start(DRAW_CARD_INTERVAL)
+	timer.start(drawn_card.duration)
 
 
 func _on_timer_timeout():

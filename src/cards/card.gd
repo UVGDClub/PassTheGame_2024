@@ -29,7 +29,7 @@ const CARD_RARITY_BACKGROUND_TEXTURES: Dictionary = {
 @export var rarity: CARD_RARITY
 @export var picture: Texture
 @export var on_card_played_sfx: AudioStream = null
-
+@export var duration: float
 var player: Player
 
 func on_drawn() -> void:

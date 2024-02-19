@@ -12,3 +12,4 @@ card_description = "You become invincible to damage for 10 seconds"
 rarity = 3
 picture = ExtResource("2_jh275")
 on_card_played_sfx = ExtResource("1_nwnyw")
+duration = 10.0
