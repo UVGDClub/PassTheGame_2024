@@ -31,6 +31,7 @@ var discard_pile: Array[Card] = []
 var is_currently_shuffling: bool = false
 var card_cycle_started: bool = false
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
+var drawn_card: Card = null
 
 func _ready():
 	_rng.randomize()
@@ -75,21 +76,28 @@ func remove_card(card: Card) -> void:
 	
 
 func shuffle_deck() -> void:
-	discard_pile = []
-	draw_pile = full_deck.duplicate()
-	draw_pile.shuffle()
-	emit_signal("deck_shuffled")
-	timer.start(SHUFFLE_TIME)
-	is_currently_shuffling = true
-	await get_tree().create_timer(1).timeout
-	SfxManager.play_sfx(shuffle_sfx, 0.1)
+	print(len(full_deck))
+	if len(full_deck) > 0:
+		print("shuffled")
+		discard_pile = []
+		draw_pile = full_deck.duplicate()
+		draw_pile.shuffle()
+		emit_signal("deck_shuffled")
+		timer.start(SHUFFLE_TIME)
+		is_currently_shuffling = true
+		SfxManager.play_sfx(shuffle_sfx, 0.1)
+	else:
+		print("cycle end")
+		card_cycle_started = false
+		drawn_card = null
 
 
 func draw_card() -> void:
 	if len(draw_pile) <= 0:
+		await get_tree().create_timer(1).timeout #this delay is to make sure the last card is removed on time
 		shuffle_deck()
 		return
-	var drawn_card: Card = draw_pile.pop_front()
+	drawn_card= draw_pile.pop_front()
 	
 	drawn_card.on_drawn()
 	drawn_card.play()
@@ -100,6 +108,9 @@ func draw_card() -> void:
 		discard_pile.append(drawn_card)
 	timer.start(drawn_card.duration)
 
+func consume_card() -> void:
+	if !is_currently_shuffling && drawn_card != null:
+		drawn_card.consume()
 
 func _on_timer_timeout():
 	if is_currently_shuffling:

@@ -31,6 +31,7 @@ const CARD_RARITY_BACKGROUND_TEXTURES: Dictionary = {
 @export var on_card_played_sfx: AudioStream = null
 @export var duration: float
 var player: Player
+var consumed: bool
 
 func on_drawn() -> void:
 	if on_card_played_sfx != null:
@@ -38,4 +39,7 @@ func on_drawn() -> void:
 
 func play() -> void:
 	assert(false, "Each card must implement their own play() function.")
+	
+func consume() -> void:
+	assert(false, "Each card must implement their own consume function.")
 

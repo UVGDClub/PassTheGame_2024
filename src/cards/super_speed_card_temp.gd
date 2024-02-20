@@ -7,5 +7,12 @@ class_name SuperSpeedCard extends Card
 func play() -> void:
 	player = DeckManager.get_tree().get_nodes_in_group("Player")[0]
 	player.MAX_WALK_VEL += speed_increase
-	await DeckManager.get_tree().create_timer(super_speed_length).timeout
+	await DeckManager.timer.timeout
 	player.MAX_WALK_VEL -= speed_increase
+	if consumed:
+		DeckManager.remove_card(self)
+		
+func consume() -> void:
+	if not consumed:
+		consumed = true
+		DeckManager.timer.start(duration)

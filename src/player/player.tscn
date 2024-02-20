@@ -170,6 +170,22 @@ label_settings = SubResource("LabelSettings_gamxu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="temp_ActiveEffectLabel" type="Label" parent="."]
+offset_left = -63.0
+offset_top = 43.0
+offset_right = 64.0
+offset_bottom = 66.0
+text = "hi !"
+horizontal_alignment = 1
+
+[node name="tempt_ActiveCardLabel" type="Label" parent="."]
+offset_left = -89.0
+offset_top = 68.0
+offset_right = 84.0
+offset_bottom = 91.0
+text = "hi !"
+horizontal_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qtd45")

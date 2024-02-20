@@ -26,7 +26,7 @@ var attack_time = 0.2
 var input_vect = Vector2.ZERO
 var dash_just_pressed = false
 var attack_just_pressed = false
-
+var consume_just_pressed = false
 var last_input_vect = Vector2.RIGHT
 #
 
@@ -45,8 +45,9 @@ var input_chain_buffer_timer = 0
 var dash_cooldown_timer = 0
 
 func _physics_process(delta):
-	print(dash_time)
 	get_input()
+	if consume_just_pressed:
+		consume_action()
 	state_machine.physics_process(delta)
 	move_and_slide()
 	
@@ -56,7 +57,8 @@ func get_input():
 	input_vect = Input.get_vector("left", "right", "up", "down")
 	dash_just_pressed = Input.is_action_just_pressed("dash")
 	attack_just_pressed = Input.is_action_just_pressed("attack")
-
+	consume_just_pressed = Input.is_action_just_pressed("consume")
+	
 func update_animation(type, vect):
 	if vect == Vector2.ZERO:
 		return
@@ -119,7 +121,9 @@ func update_animation(type, vect):
 	if animation_name and animation_player.current_animation != animation_name:
 		animation_player.play(animation_name)
 
-
+func consume_action():
+	DeckManager.consume_card()
+	
 func update_debug_labels():
 	$temp_StateLabel.text = "State: " + state_machine.current_state.name
 	$temp_AnimationLabel.text = "Animation: " + animation_player.current_animation
@@ -127,4 +131,11 @@ func update_debug_labels():
 		$temp_InputChainLabel.text = "Chain Buffer: " + str(round(input_chain_buffer_timer * 100) / 100)
 	else:
 		$temp_InputChainLabel.text = "Cooldown: " + str(round(dash_cooldown_timer * 100) / 100)
+	if DeckManager.is_currently_shuffling:
+		$temp_ActiveEffectLabel.text = "Shuffle Time: " + str(round(DeckManager.timer.get_time_left() * 100) / 100)
+		$tempt_ActiveCardLabel.text = "Active Card: None"
+	else:
+		$temp_ActiveEffectLabel.text = "Effect Duration: " + str(round(DeckManager.timer.get_time_left() * 100) / 100)
+		if DeckManager.drawn_card != null:
+			$tempt_ActiveCardLabel.text = "Active Card: " + DeckManager.drawn_card.card_name
 

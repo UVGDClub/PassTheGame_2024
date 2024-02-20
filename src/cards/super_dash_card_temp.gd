@@ -7,5 +7,12 @@ class_name SuperDashCard extends Card
 func play() -> void:
 	player = DeckManager.get_tree().get_nodes_in_group("Player")[0]
 	player.dash_time += dash_time_increase
-	await DeckManager.get_tree().create_timer(super_dash_length).timeout
+	await DeckManager.timer.timeout
 	player.dash_time -= dash_time_increase
+	if consumed:
+		DeckManager.remove_card(self)
+		
+func consume() -> void:
+	if not consumed:
+		consumed = true
+		DeckManager.timer.start(duration)

@@ -988,6 +988,6 @@ text = "WASD to move
 Left click to Attack
 Right click to Dash
 E to open inventory
-
+F to consume card(only refresh duration for now)
 Chain attacks and dashes by alternating actions
 (be sure to time your inputs!)"
