@@ -27,6 +27,10 @@ window/size/viewport_height=432
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="PassTheGame_2024"
+
 [input]
 
 attack={
