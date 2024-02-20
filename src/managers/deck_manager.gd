@@ -59,7 +59,8 @@ func start_card_draw_cycle() -> void:
 	discard_pile = []
 	draw_pile = full_deck.duplicate()
 	draw_pile.shuffle()
-	timer.start(DRAW_CARD_INTERVAL)
+	is_currently_shuffling = true
+	timer.start(DRAW_CARD_INTERVAL) #there a 5 seconds delay from picking up the first card and drawing starts
 
 
 func add_card(card: Card) -> void:

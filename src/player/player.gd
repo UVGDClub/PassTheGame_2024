@@ -135,7 +135,10 @@ func update_debug_labels():
 		$temp_ActiveEffectLabel.text = "Shuffle Time: " + str(round(DeckManager.timer.get_time_left() * 100) / 100)
 		$tempt_ActiveCardLabel.text = "Active Card: None"
 	else:
-		$temp_ActiveEffectLabel.text = "Effect Duration: " + str(round(DeckManager.timer.get_time_left() * 100) / 100)
 		if DeckManager.drawn_card != null:
+			$temp_ActiveEffectLabel.text = "Effect Duration: " + str(round(DeckManager.timer.get_time_left() * 100) / 100)
 			$tempt_ActiveCardLabel.text = "Active Card: " + DeckManager.drawn_card.card_name
+		else:
+			$temp_ActiveEffectLabel.text = "Deck Empty" 
+			$tempt_ActiveCardLabel.text = "Active Card: None" 
 
