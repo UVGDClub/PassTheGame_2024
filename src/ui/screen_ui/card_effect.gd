@@ -50,6 +50,6 @@ func _process(delta):
 					duration.add_theme_color_override("font_color",Color("750027"))
 					effect.add_theme_color_override("font_color",Color("750027"))
 				
-	duration.text = str(round(DeckManager.timer.get_time_left() * 100) / 100)
+	duration.text = str(round(DeckManager.timer.get_time_left() * 10) / 10)
 
 
