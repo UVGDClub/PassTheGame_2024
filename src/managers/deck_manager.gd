@@ -19,6 +19,7 @@ var all_uncommon_cards: Array[Card]
 var all_rare_cards: Array[Card]
 var all_legendary_cards: Array[Card]
 var all_ethereal_cards: Array[Card]
+var all_other_cards: Array[Card]
 
 # All the cards in the players deck
 var full_deck: Array[Card] = [] 
@@ -51,6 +52,8 @@ func create_card_lists() -> void:
 				all_rare_cards.append(c)
 			Card.CARD_RARITY.LEGENDARY:
 				all_legendary_cards.append(c)
+			Card.CARD_RARITY.OTHER:
+				all_other_cards.append(c)
 				
 
 

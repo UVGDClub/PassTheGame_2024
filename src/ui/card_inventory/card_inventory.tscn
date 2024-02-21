@@ -236,6 +236,15 @@ layout_mode = 2
 [node name="card_display51" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
+[node name="merge_button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 4.0
+offset_right = 704.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("3_0p7on")
+text = "Merge"
+
 [node name="back_button" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 7.0
@@ -245,4 +254,5 @@ offset_bottom = 36.0
 theme_override_fonts/font = ExtResource("3_0p7on")
 text = "Back"
 
+[connection signal="pressed" from="Panel/merge_button" to="." method="_on_merge_button_pressed"]
 [connection signal="pressed" from="Panel/back_button" to="." method="_on_back_button_pressed"]

@@ -6,6 +6,7 @@ enum CARD_RARITY {
 	RARE,
 	LEGENDARY,
 	ETHEREAL,
+	OTHER
 }
 
 const CARD_RARITY_VALUES: Dictionary = {
@@ -22,6 +23,7 @@ const CARD_RARITY_BACKGROUND_TEXTURES: Dictionary = {
 	CARD_RARITY.RARE: preload("res://assets/art/cards/card_backgrounds/rare_card_background_temp.png"),
 	CARD_RARITY.LEGENDARY: preload("res://assets/art/cards/card_backgrounds/legendary_card_background_temp.png"),
 	CARD_RARITY.ETHEREAL: preload("res://assets/art/cards/card_backgrounds/ethereal_card_background_temp.png"),
+	CARD_RARITY.OTHER: preload("res://assets/art/cards/card_backgrounds/ethereal_card_background_temp.png"),
 }
 
 @export var card_name: String = ""
@@ -33,6 +35,8 @@ const CARD_RARITY_BACKGROUND_TEXTURES: Dictionary = {
 var player: Player
 var consumed: bool
 @export var effect_text: String = ""
+@export var can_merge: bool = false
+var merged_list: Array[String] = []
 
 func on_drawn() -> void:
 	if on_card_played_sfx != null:

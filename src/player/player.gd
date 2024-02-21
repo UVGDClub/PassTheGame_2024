@@ -20,8 +20,8 @@ var attack_dmg = 5
 var defense = 0
 var stamina = 100
 
-const DASH_START_VEL = 800
-const DASH_END_VEL = 1000
+var DASH_START_VEL = 800
+var DASH_END_VEL = 1000
 var dash_time: float = 0.1
 var dash_cooldown = 1
 

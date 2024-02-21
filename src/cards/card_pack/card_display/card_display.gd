@@ -1,6 +1,7 @@
 class_name CardDisplayUI extends Control
 
 signal card_add_button_pressed(card: Card)
+signal card_select_pressed(card: Card)
 
 @export var display_card: Card = null
 
@@ -26,4 +27,6 @@ func set_card(new_card: Card) -> void:
 
 
 func _on_add_card_button_pressed():
+	
+	emit_signal("card_select_pressed", display_card)
 	emit_signal("card_add_button_pressed", display_card)
