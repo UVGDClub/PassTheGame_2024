@@ -19,19 +19,19 @@ var health = 50
 var attack_dmg = 5
 var defense = 0
 var stamina = 100
-var dmg_multiplier = 1.0
+var dmg_multiplier = 1.0 #player damage
 var def_multiplier = 1.0
-
+var hit_multiplier = 1.0 #player recieves damage
 
 var DASH_START_VEL = 800
 var DASH_END_VEL = 1000
 var dash_time: float = 0.1
-var dash_cooldown = 1
+var dash_cooldown = 2
 
 const ATTACK_START_VEL = 300
 const ATTACK_END_VEL = 400
 var attack_time = 0.2
-var attack_cooldown = 1
+var attack_cooldown = 2
 # I am... sorry
 var input_vect = Vector2.ZERO
 var dash_just_pressed = false
@@ -44,8 +44,10 @@ var last_input_vect = Vector2.RIGHT
 var is_input_chaining = false :
 	set(value):
 		if not value:
-			dash_cooldown_timer = dash_cooldown
-			attack_cooldown_timer = attack_cooldown
+			if last_input_chain_was_attack:
+				attack_cooldown_timer = attack_cooldown
+			else:
+				dash_cooldown_timer = dash_cooldown
 			input_chain_buffer = INPUT_CHAIN_STARTING_BUFFER
 		is_input_chaining = value
 
@@ -145,7 +147,7 @@ func update_debug_labels():
 	$temp_InputChainLabel.text = "Chain Buffer: " + str(round(input_chain_buffer_timer * 100) / 100)
 	$temp_Dash_CD_label.text = "Dash Cooldown: " + str(round(dash_cooldown_timer * 100) / 100)
 	$temp_Attack_CD_label.text = "Attack Cooldown: " + str(round(attack_cooldown_timer * 100) / 100)
-	$temp_stats_label.text = "Stamina: " + str(stamina)
+	$temp_stats_label.text = "HP: " + str(health) + " Att: " + str(attack_dmg) + " Def " + str(defense) + " St: " + str(round(stamina))
 	if DeckManager.is_currently_shuffling:
 		$temp_ActiveEffectLabel.text = "Shuffle Time: " + str(round(DeckManager.timer.get_time_left() * 100) / 100)
 		$tempt_ActiveCardLabel.text = "Active Card: None"

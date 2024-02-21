@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://src/managers/deck_manager.gd" id="1_8j68n"]
 [ext_resource type="Resource" uid="uid://j5r0s52bc5wg" path="res://src/cards/card_resources/super_dash_card_temp.tres" id="2_1wnix"]
 [ext_resource type="Resource" uid="uid://0d5hal60uh0" path="res://src/cards/card_resources/super_attack_card_temp.tres" id="3_2clw1"]
-[ext_resource type="Resource" uid="uid://bojxrn0oika2k" path="res://src/cards/card_resources/no_dash_cooldown_ethereal_card_temp.tres" id="4_b6e87"]
-[ext_resource type="Resource" uid="uid://c7x1p1fs83b00" path="res://src/cards/card_resources/invincibility_card_temp.tres" id="5_qgn6s"]
+[ext_resource type="Resource" uid="uid://bm8mq3q76jjlv" path="res://src/cards/card_resources/invincibility_card_temp.tres" id="5_ncay6"]
 [ext_resource type="Resource" uid="uid://bu8pqsnmh4yb7" path="res://src/cards/card_resources/super_speed_card_temp.tres" id="5_v2ucf"]
+[ext_resource type="Resource" uid="uid://bojxrn0oika2k" path="res://src/cards/card_resources/no_dash_cooldown_ethereal_card_temp.tres" id="6_c3tct"]
 
 [node name="DeckManager" type="Node"]
 script = ExtResource("1_8j68n")
-all_cards_list = Array[Resource("res://src/cards/card.gd")]([ExtResource("4_b6e87"), ExtResource("2_1wnix"), ExtResource("3_2clw1"), ExtResource("5_v2ucf"), ExtResource("5_qgn6s")])
+all_cards_list = Array[Resource("res://src/cards/card.gd")]([ExtResource("5_v2ucf"), ExtResource("2_1wnix"), ExtResource("3_2clw1"), ExtResource("5_ncay6"), ExtResource("6_c3tct")])
 
 [node name="timer" type="Timer" parent="."]
 process_callback = 0

@@ -1,7 +1,7 @@
 class_name SuperDashCard extends Card
 
-@export var super_dash_length: float = 4.0
-@export var dash_time_increase: float = 0.4
+
+@export var dash_time_increase: float = 0.2
 
 
 func play() -> void:
@@ -10,9 +10,11 @@ func play() -> void:
 	await DeckManager.timer.timeout
 	player.dash_time -= dash_time_increase
 	if consumed:
+		player.dash_time -= dash_time_increase
 		DeckManager.remove_card(self)
 		
 func consume() -> void:
 	if not consumed:
 		consumed = true
+		player.dash_time += dash_time_increase
 		DeckManager.timer.start(duration)

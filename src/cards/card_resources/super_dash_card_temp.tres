@@ -7,10 +7,11 @@
 [resource]
 script = ExtResource("1_ejubq")
 super_dash_length = 4.0
-dash_time_increase = 0.4
+dash_time_increase = 0.2
 card_name = "Super Dash"
-card_description = "Increases your dash length for 4 seconds."
-rarity = 0
+card_description = "[Active] Increases your dash length for 4 seconds.
+[Consume] Further increase dash"
+rarity = 1
 picture = ExtResource("2_ke276")
 on_card_played_sfx = ExtResource("1_7okml")
 duration = 4.0

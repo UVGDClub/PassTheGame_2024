@@ -26,4 +26,4 @@ func spawn_card():
 
 func _on_hurtbox_area_entered(area):
 	health -= area.hit_damage
-	print("damaged" + str(area.hit_damage))
+	print("damaged " + str(area.hit_damage))

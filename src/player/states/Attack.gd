@@ -18,6 +18,7 @@ func enter(prev_state_name=null):
 
 func exit(new_state_name=null):
 	host.velocity = Vector2.ZERO
+	host.attack_cooldown_timer = host.attack_cooldown
 	if host.is_input_chaining:
 		host.input_chain_buffer_timer = host.input_chain_buffer
 		host.input_chain_buffer = host.input_chain_buffer * 0.8

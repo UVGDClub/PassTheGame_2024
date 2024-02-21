@@ -33,13 +33,13 @@ func is_turning(axis):
 	 (host.input_vect[axis] > 0 and host.velocity[axis] < 0) 
 
 func update_timers(delta):
+	host.dash_cooldown_timer -= delta
+	host.attack_cooldown_timer -= delta
 	if host.is_input_chaining:
 		host.input_chain_buffer_timer -= delta
 		if host.input_chain_buffer_timer <= 0:
 			host.is_input_chaining = false
-	else:
-		host.dash_cooldown_timer -= delta
-		host.attack_cooldown_timer -= delta
+		
 		
 func update_stats(delta):
 	host.stamina = host.stamina + 0.05
