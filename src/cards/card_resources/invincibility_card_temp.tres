@@ -13,3 +13,4 @@ rarity = 3
 picture = ExtResource("2_jh275")
 on_card_played_sfx = ExtResource("1_nwnyw")
 duration = 10.0
+effect_text = "Invincible"

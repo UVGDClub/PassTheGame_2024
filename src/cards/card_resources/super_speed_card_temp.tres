@@ -14,3 +14,4 @@ rarity = 2
 picture = ExtResource("2_sju2y")
 on_card_played_sfx = ExtResource("1_lwuva")
 duration = 10.0
+effect_text = "2x Speed"

@@ -32,6 +32,7 @@ const CARD_RARITY_BACKGROUND_TEXTURES: Dictionary = {
 @export var duration: float
 var player: Player
 var consumed: bool
+@export var effect_text: String = ""
 
 func on_drawn() -> void:
 	if on_card_played_sfx != null:
