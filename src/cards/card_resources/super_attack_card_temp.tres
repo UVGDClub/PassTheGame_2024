@@ -8,7 +8,7 @@
 script = ExtResource("1_tjd85")
 super_attack_length = 4.0
 attack_length_increase = 0.15
-card_name = "Super Attack"
+card_name = "Super Att."
 card_description = "Increases your attack distance for 4 seconds."
 rarity = 1
 picture = ExtResource("2_i3lni")

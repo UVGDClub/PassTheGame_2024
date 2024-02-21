@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bm03rko2ejhlp"]
 
 [ext_resource type="Script" path="res://src/ui/screen_ui/card_effect.gd" id="1_4pih7"]
-[ext_resource type="Texture2D" uid="uid://vhfa0xxtkrgd" path="res://assets/art/ui/UI backgrounds/common_bg.svg" id="1_oywk3"]
-[ext_resource type="FontFile" uid="uid://rwidue26o0fh" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
+[ext_resource type="Texture2D" uid="uid://dt1g7jtrcbwrg" path="res://assets/art/ui/UI backgrounds/common_bg.png" id="2_6eij7"]
+[ext_resource type="FontFile" uid="uid://dlrx6eleqtnl6" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
 
 [node name="Card_Effect_UI" type="Control"]
 layout_mode = 3
@@ -19,15 +19,15 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 768.0
 offset_bottom = 431.0
-texture = ExtResource("1_oywk3")
+texture = ExtResource("2_6eij7")
 expand_mode = 1
 
 [node name="Card_Name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 695.0
-offset_top = 336.0
-offset_right = 776.0
-offset_bottom = 363.0
+offset_left = 685.0
+offset_top = 345.0
+offset_right = 779.0
+offset_bottom = 372.0
 rotation = -0.654498
 theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_fonts/font = ExtResource("2_fpyqm")
@@ -50,10 +50,10 @@ vertical_alignment = 2
 
 [node name="Effect_Description" type="Label" parent="."]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 336.0
-offset_right = 761.0
-offset_bottom = 369.0
+offset_left = 450.0
+offset_top = 344.0
+offset_right = 766.0
+offset_bottom = 377.0
 theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
 theme_override_colors/font_shadow_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_fonts/font = ExtResource("2_fpyqm")

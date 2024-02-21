@@ -1,10 +1,10 @@
 extends Control
 
-@onready var common_bg = load("res://assets/art/ui/UI backgrounds/common_bg.svg")
-@onready var uncommon_bg = load("res://assets/art/ui/UI backgrounds/uncommon_bg.svg")
-@onready var rare_bg = load("res://assets/art/ui/UI backgrounds/rare_bg.svg")
-@onready var legendary_bg = load("res://assets/art/ui/UI backgrounds/legendary_bg.svg")
-@onready var ethereal_bg = load("res://assets/art/ui/UI backgrounds/ethereal_bg.svg")
+@onready var common_bg = load("res://assets/art/ui/UI backgrounds/common_bg.png")
+@onready var uncommon_bg = load("res://assets/art/ui/UI backgrounds/uncommon_bg.png")
+@onready var rare_bg = load("res://assets/art/ui/UI backgrounds/rare_bg.png")
+@onready var legendary_bg = load("res://assets/art/ui/UI backgrounds/legendary_bg.png")
+@onready var ethereal_bg = load("res://assets/art/ui/UI backgrounds/ethereal_bg.png")
 @onready var effect_bg = $Rarity_Bg
 @onready var title = $Card_Name
 @onready var duration = $Effect_Duration
