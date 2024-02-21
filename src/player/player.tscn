@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d3ym2eve3i077"]
+[gd_scene load_steps=36 format=3 uid="uid://d3ym2eve3i077"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_lho8y"]
 [ext_resource type="Script" path="res://src/state_machine/state_machine.gd" id="2_jacng"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/player/states/Attack.gd" id="5_xbnno"]
 [ext_resource type="Texture2D" uid="uid://dovry1wq6dkj6" path="res://assets/art/player/player_NOT_TEMP.png" id="6_75jqq"]
 [ext_resource type="Texture2D" uid="uid://dmvxayli78tri" path="res://assets/art/player/attack_temp.png" id="7_6q76q"]
+[ext_resource type="Script" path="res://src/player/Hitbox_temp.gd" id="7_84n8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccntx"]
 size = Vector2(6, 5)
@@ -394,6 +395,7 @@ position = Vector2(16, 0)
 collision_layer = 4
 collision_mask = 0
 monitorable = false
+script = ExtResource("7_84n8a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flip/Hitbox"]
 visible = false
