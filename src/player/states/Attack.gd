@@ -12,6 +12,9 @@ func enter(prev_state_name=null):
 	host.velocity = dash_dir * host.ATTACK_START_VEL
 	t.tween_property(host, "velocity", host.ATTACK_END_VEL * dash_dir, host.attack_time)
 	host.update_animation("attack", dash_dir)
+	host.hitbox.monitorable = true
+	host.hit_anim.visible = true 
+	#host.collision_shape.visible = true #uncomment to get hitbox debug
 
 func exit(new_state_name=null):
 	host.velocity = Vector2.ZERO
@@ -19,6 +22,9 @@ func exit(new_state_name=null):
 		host.input_chain_buffer_timer = host.input_chain_buffer
 		host.input_chain_buffer = host.input_chain_buffer * 0.8
 		host.last_input_chain_was_attack = true
+		host.hitbox.monitorable = false
+		host.hit_anim.visible = false
+		host.collision_shape.visible = false
 
 func process(delta):
 	pass

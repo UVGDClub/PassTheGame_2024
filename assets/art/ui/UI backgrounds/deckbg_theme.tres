@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://clmipikp5y4xp"]
+
+[ext_resource type="Texture2D" uid="uid://bpj021u0btxef" path="res://assets/art/ui/UI backgrounds/card_deck_bg.png" id="1_axcmn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l24cd"]
+texture = ExtResource("1_axcmn")
+region_rect = Rect2(971.823, 184.285, 6069.52, 4067.08)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_l24cd")

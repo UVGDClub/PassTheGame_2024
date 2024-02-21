@@ -4,6 +4,9 @@ class_name Player extends CharacterBody2D
 @onready var flip = $Flip
 @onready var animation_player = $AnimationPlayer
 @onready var hurtbox = $Flip/Hurtbox
+@onready var hitbox = $Flip/Hitbox
+@onready var collision_shape = $Flip/Hitbox/CollisionShape2D
+@onready var hit_anim = $Flip/Hitbox/Sprite2D
 
 var MAX_WALK_VEL = 200
 var WALK_ACC = MAX_WALK_VEL / 0.1 # time to reach full speed in seconds
@@ -123,6 +126,7 @@ func update_animation(type, vect):
 
 func consume_action():
 	DeckManager.consume_card()
+	
 	
 func update_debug_labels():
 	$temp_StateLabel.text = "State: " + state_machine.current_state.name

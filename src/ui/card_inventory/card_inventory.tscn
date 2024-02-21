@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://doqkk4asrw2yh"]
+[gd_scene load_steps=5 format=3 uid="uid://doqkk4asrw2yh"]
 
 [ext_resource type="Script" path="res://src/ui/card_inventory/card_inventory.gd" id="1_mc0xr"]
 [ext_resource type="PackedScene" uid="uid://dwvcw8ov07o52" path="res://src/cards/card_pack/card_display/card_display.tscn" id="2_p8euf"]
+[ext_resource type="Theme" uid="uid://clmipikp5y4xp" path="res://assets/art/ui/UI backgrounds/deckbg_theme.tres" id="2_u7a7i"]
+[ext_resource type="FontFile" uid="uid://rwidue26o0fh" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="3_0p7on"]
 
 [node name="CardInventory" type="Control"]
 process_mode = 3
@@ -26,6 +28,7 @@ offset_right = 361.0
 offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_u7a7i")
 
 [node name="title" type="Label" parent="Panel"]
 layout_mode = 1
@@ -37,6 +40,7 @@ offset_top = 12.0
 offset_right = 20.0
 offset_bottom = 35.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_0p7on")
 text = "Current Deck"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
@@ -49,14 +53,17 @@ theme_override_constants/separation = 92
 
 [node name="cards_in_deck_lable" type="Label" parent="Panel/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0p7on")
 text = "Deck Size: "
 
 [node name="cards_in_draw_pile" type="Label" parent="Panel/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0p7on")
 text = "Current Draw Pile Size: "
 
 [node name="shuffle_timer" type="Label" parent="Panel/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0p7on")
 text = "Time until shuffle finished: "
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
@@ -235,6 +242,7 @@ offset_left = 7.0
 offset_top = 5.0
 offset_right = 64.0
 offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("3_0p7on")
 text = "Back"
 
 [connection signal="pressed" from="Panel/back_button" to="." method="_on_back_button_pressed"]

@@ -8,7 +8,7 @@ signal deck_shuffled()
 
 @onready var timer = $timer
 @onready var shuffle_sfx: AudioStream = load("res://assets/audio/sfx/shuffle_deck_temp.wav")
-
+@onready var consume_sfx: AudioStream = load("res://assets/audio/sfx/card_consume_temp.wav")
 # How much time between each card draw
 const DRAW_CARD_INTERVAL: float = 5.0
 # How long shuffling takes
@@ -110,6 +110,7 @@ func draw_card() -> void:
 	timer.start(drawn_card.duration)
 
 func consume_card() -> void:
+	SfxManager.play_sfx(consume_sfx, 0.1)
 	if !is_currently_shuffling && drawn_card != null:
 		drawn_card.consume()
 

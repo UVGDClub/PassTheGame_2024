@@ -978,9 +978,9 @@ layer_0/name = "0"
 
 [node name="UI" type="CanvasLayer" parent="Camera2D" groups=["UI"]]
 
-[node name="CardInventory" parent="Camera2D/UI" instance=ExtResource("4_esyt6")]
-
 [node name="Card_Effect" parent="Camera2D/UI" instance=ExtResource("9_seakg")]
+
+[node name="CardInventory" parent="Camera2D/UI" instance=ExtResource("4_esyt6")]
 
 [node name="TutorialLabel_temp" type="Label" parent="."]
 offset_left = -373.0

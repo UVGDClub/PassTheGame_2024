@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui/screen_ui/card_effect.gd" id="1_4pih7"]
 [ext_resource type="Texture2D" uid="uid://dt1g7jtrcbwrg" path="res://assets/art/ui/UI backgrounds/common_bg.png" id="2_6eij7"]
-[ext_resource type="FontFile" uid="uid://dlrx6eleqtnl6" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
+[ext_resource type="FontFile" uid="uid://rwidue26o0fh" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
 
 [node name="Card_Effect_UI" type="Control"]
 layout_mode = 3

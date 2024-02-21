@@ -49,6 +49,9 @@ func _process(delta):
 					title.add_theme_color_override("font_color",Color("ff0058"))
 					duration.add_theme_color_override("font_color",Color("750027"))
 					effect.add_theme_color_override("font_color",Color("750027"))
+		else:
+			title.text = ""
+			effect.text = "Deck Empty"
 				
 	duration.text = str(round(DeckManager.timer.get_time_left() * 10) / 10)
 
