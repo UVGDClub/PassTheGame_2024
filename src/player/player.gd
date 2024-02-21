@@ -14,17 +14,21 @@ var WALK_TURN_ACC = MAX_WALK_VEL / 0.04
 var IDLE_FRICTION = MAX_WALK_VEL / 0.05
 
 const INPUT_CHAIN_STARTING_BUFFER = 1
-var dash_cooldown = 1
 
+var health = 50
+var attack_dmg = 5
+var defense = 0
+var stamina = 100
 
 const DASH_START_VEL = 800
 const DASH_END_VEL = 1000
 var dash_time: float = 0.1
+var dash_cooldown = 1
 
 const ATTACK_START_VEL = 300
 const ATTACK_END_VEL = 400
 var attack_time = 0.2
-
+var attack_cooldown = 1
 # I am... sorry
 var input_vect = Vector2.ZERO
 var dash_just_pressed = false
@@ -38,6 +42,7 @@ var is_input_chaining = false :
 	set(value):
 		if not value:
 			dash_cooldown_timer = dash_cooldown
+			attack_cooldown_timer = attack_cooldown
 			input_chain_buffer = INPUT_CHAIN_STARTING_BUFFER
 		is_input_chaining = value
 
@@ -46,7 +51,7 @@ var input_chain_buffer = INPUT_CHAIN_STARTING_BUFFER
 
 var input_chain_buffer_timer = 0
 var dash_cooldown_timer = 0
-
+var attack_cooldown_timer = 0
 func _physics_process(delta):
 	get_input()
 	if consume_just_pressed:
@@ -131,10 +136,10 @@ func consume_action():
 func update_debug_labels():
 	$temp_StateLabel.text = "State: " + state_machine.current_state.name
 	$temp_AnimationLabel.text = "Animation: " + animation_player.current_animation
-	if is_input_chaining:
-		$temp_InputChainLabel.text = "Chain Buffer: " + str(round(input_chain_buffer_timer * 100) / 100)
-	else:
-		$temp_InputChainLabel.text = "Cooldown: " + str(round(dash_cooldown_timer * 100) / 100)
+	$temp_InputChainLabel.text = "Chain Buffer: " + str(round(input_chain_buffer_timer * 100) / 100)
+	$temp_Dash_CD_label.text = "Dash Cooldown: " + str(round(dash_cooldown_timer * 100) / 100)
+	$temp_Attack_CD_label.text = "Attack Cooldown: " + str(round(attack_cooldown_timer * 100) / 100)
+	$temp_stats_label.text = "Stamina: " + str(stamina)
 	if DeckManager.is_currently_shuffling:
 		$temp_ActiveEffectLabel.text = "Shuffle Time: " + str(round(DeckManager.timer.get_time_left() * 100) / 100)
 		$tempt_ActiveCardLabel.text = "Active Card: None"

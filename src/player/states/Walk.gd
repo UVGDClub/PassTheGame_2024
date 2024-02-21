@@ -17,6 +17,7 @@ func physics_process(delta):
 		host.update_animation("walk", host.input_vect)
 	else:
 		host.update_animation("idle", host.last_input_vect)
+	update_stats(delta)
 	update_timers(delta)
 
 func compute_axis(axis, delta):
@@ -38,18 +39,28 @@ func update_timers(delta):
 			host.is_input_chaining = false
 	else:
 		host.dash_cooldown_timer -= delta
-
+		host.attack_cooldown_timer -= delta
+		
+func update_stats(delta):
+	host.stamina = host.stamina + 0.05
+	
 func check_transition():
 	if host.dash_just_pressed:
-		if (not host.is_input_chaining and host.dash_cooldown_timer <= 0) or \
-		 (host.is_input_chaining and host.last_input_chain_was_attack):
+		if host.is_input_chaining:
+			if(( host.last_input_chain_was_attack)and host.stamina >= 10):
+				state_machine.transition_states("Dash")
+				host.stamina -= 10
+			else:
+				host.is_input_chaining = false
+		if host.dash_cooldown_timer <= 0:
 			state_machine.transition_states("Dash")
-		elif host.is_input_chaining:
-			host.is_input_chaining = false
 	
 	elif host.attack_just_pressed:
-		if (not host.is_input_chaining and host.dash_cooldown_timer <= 0) or \
-		 (host.is_input_chaining and not host.last_input_chain_was_attack):
+		if host.is_input_chaining:
+			if(( not host.last_input_chain_was_attack)and host.stamina >= 10):
+				state_machine.transition_states("Attack")
+				host.stamina -= 10
+			else:
+				host.is_input_chaining = false
+		if host.attack_cooldown_timer <= 0:
 			state_machine.transition_states("Attack")
-		elif host.is_input_chaining:
-			host.is_input_chaining = false
