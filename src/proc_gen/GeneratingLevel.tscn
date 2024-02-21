@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cd4lkys1wh1vn"]
+[gd_scene load_steps=16 format=3 uid="uid://cd4lkys1wh1vn"]
 
 [ext_resource type="Script" path="res://src/proc_gen/GeneratingLevel.gd" id="1_xd3a0"]
 [ext_resource type="Texture2D" uid="uid://di478fqpjmgjb" path="res://assets/art/map/dungeon_tiles_temp.png" id="2_8jqqr"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://wbhbgd7gsobv" path="res://assets/art/map/dungeon_in_corners_temp.png" id="5_p5uun"]
 [ext_resource type="Texture2D" uid="uid://6p304aqagvsm" path="res://assets/art/map/pixel-80x16_temp.png" id="6_1juw1"]
 [ext_resource type="PackedScene" uid="uid://bm03rko2ejhlp" path="res://src/ui/screen_ui/card_effect.tscn" id="9_seakg"]
-[ext_resource type="PackedScene" uid="uid://chx0o7wxt1k3d" path="res://src/enemies/slime_temp.tscn" id="10_xdisf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8817"]
 texture = ExtResource("2_8jqqr")
@@ -995,6 +994,3 @@ E to open inventory
 F to consume card(only refresh duration for now)
 Chain attacks and dashes by alternating actions
 (be sure to time your inputs!)"
-
-[node name="slime" parent="." instance=ExtResource("10_xdisf")]
-position = Vector2(54, -2)

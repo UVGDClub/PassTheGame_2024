@@ -19,9 +19,6 @@ var health = 50
 var attack_dmg = 5
 var defense = 0
 var stamina = 100
-var dmg_multiplier = 1.0
-var def_multiplier = 1.0
-
 
 var DASH_START_VEL = 800
 var DASH_END_VEL = 1000
@@ -57,7 +54,6 @@ var dash_cooldown_timer = 0
 var attack_cooldown_timer = 0
 func _physics_process(delta):
 	get_input()
-	update_hitbox()
 	if consume_just_pressed:
 		consume_action()
 	state_machine.physics_process(delta)
@@ -135,9 +131,7 @@ func update_animation(type, vect):
 
 func consume_action():
 	DeckManager.consume_card()
-
-func update_hitbox():
-	hitbox.hit_damage = attack_dmg * dmg_multiplier
+	
 	
 func update_debug_labels():
 	$temp_StateLabel.text = "State: " + state_machine.current_state.name
