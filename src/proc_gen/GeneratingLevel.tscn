@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd4lkys1wh1vn"]
+[gd_scene load_steps=16 format=3 uid="uid://cd4lkys1wh1vn"]
 
 [ext_resource type="Script" path="res://src/proc_gen/GeneratingLevel.gd" id="1_xd3a0"]
 [ext_resource type="Texture2D" uid="uid://di478fqpjmgjb" path="res://assets/art/map/dungeon_tiles_temp.png" id="2_8jqqr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://doqkk4asrw2yh" path="res://src/ui/card_inventory/card_inventory.tscn" id="4_esyt6"]
 [ext_resource type="Texture2D" uid="uid://wbhbgd7gsobv" path="res://assets/art/map/dungeon_in_corners_temp.png" id="5_p5uun"]
 [ext_resource type="Texture2D" uid="uid://6p304aqagvsm" path="res://assets/art/map/pixel-80x16_temp.png" id="6_1juw1"]
+[ext_resource type="PackedScene" uid="uid://bm03rko2ejhlp" path="res://src/ui/screen_ui/card_effect.tscn" id="9_seakg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8817"]
 texture = ExtResource("2_8jqqr")
@@ -978,6 +979,8 @@ layer_0/name = "0"
 [node name="UI" type="CanvasLayer" parent="Camera2D" groups=["UI"]]
 
 [node name="CardInventory" parent="Camera2D/UI" instance=ExtResource("4_esyt6")]
+
+[node name="Card_Effect" parent="Camera2D/UI" instance=ExtResource("9_seakg")]
 
 [node name="TutorialLabel_temp" type="Label" parent="."]
 offset_left = -373.0
