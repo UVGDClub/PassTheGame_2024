@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwvcw8ov07o52"]
+[gd_scene load_steps=5 format=3 uid="uid://dwvcw8ov07o52"]
 
 [ext_resource type="Script" path="res://src/cards/card_pack/card_display/card_display.gd" id="1_kfvnv"]
 [ext_resource type="Texture2D" uid="uid://jvuwlialq2ky" path="res://assets/art/cards/card_backgrounds/common_card_background_temp.png" id="1_q6rb1"]
 [ext_resource type="FontFile" uid="uid://dslvmccm7rnqy" path="res://assets/fonts/Tuffy_Bold_Italic_temp/Tuffy_Bold_Italic.otf" id="3_11eos"]
 [ext_resource type="Texture2D" uid="uid://cak2ifpspl4kh" path="res://assets/art/ui/card_pack/add_card_button_hover.png" id="4_b14mp"]
-[ext_resource type="Texture2D" uid="uid://sfvcbcr80hgf" path="res://assets/art/ui/card_pack/selected_button.png" id="5_bg0su"]
 
 [node name="card_display" type="CenterContainer"]
 anchors_preset = 15
@@ -59,6 +58,5 @@ texture_focused = ExtResource("4_b14mp")
 [node name="Sprite2D" type="Sprite2D" parent="background_sprite"]
 visible = false
 position = Vector2(32, 45)
-texture = ExtResource("5_bg0su")
 
 [connection signal="pressed" from="background_sprite/add_card_button" to="." method="_on_add_card_button_pressed"]
