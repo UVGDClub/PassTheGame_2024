@@ -5,10 +5,16 @@ extends Control
 @onready var rare_bg = load("res://assets/art/ui/UI backgrounds/rare_bg.png")
 @onready var legendary_bg = load("res://assets/art/ui/UI backgrounds/legendary_bg.png")
 @onready var ethereal_bg = load("res://assets/art/ui/UI backgrounds/ethereal_bg.png")
+@onready var common_healthBG = load("res://assets/art/ui/UI backgrounds/common_healthBG.png")
+@onready var uncommon_healthBG = load("res://assets/art/ui/UI backgrounds/uncommon_healthBG.png")
+@onready var rare_healthBG = load("res://assets/art/ui/UI backgrounds/rare_healthBG.png")
+@onready var legendary_healthBG = load("res://assets/art/ui/UI backgrounds/legendary_healthBG.png")
+@onready var ethereal_healthBG = load("res://assets/art/ui/UI backgrounds/ethereal_healthBG.png")
 @onready var effect_bg = $Rarity_Bg
 @onready var title = $Card_Name
 @onready var duration = $Effect_Duration
 @onready var effect = $Effect_Description
+@onready var effect_health_bg = $Health_BG
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -26,26 +32,31 @@ func _process(delta):
 			match DeckManager.drawn_card.rarity:
 				Card.CARD_RARITY.ETHEREAL:
 					effect_bg.texture = ethereal_bg
+					effect_health_bg.texture = ethereal_healthBG
 					title.add_theme_color_override("font_color",Color("00e7ff"))
 					duration.add_theme_color_override("font_color",Color("004175"))
 					effect.add_theme_color_override("font_color",Color("004175"))
 				Card.CARD_RARITY.COMMON:
 					effect_bg.texture = common_bg
+					effect_health_bg.texture = common_healthBG
 					title.add_theme_color_override("font_color",Color("c7c7c7"))
 					duration.add_theme_color_override("font_color",Color("272727"))
 					effect.add_theme_color_override("font_color",Color("272727"))
 				Card.CARD_RARITY.UNCOMMON:
 					effect_bg.texture = uncommon_bg
+					effect_health_bg.texture = uncommon_healthBG
 					title.add_theme_color_override("font_color",Color("ff5700"))
 					duration.add_theme_color_override("font_color",Color("640505"))
 					effect.add_theme_color_override("font_color",Color("640505"))
 				Card.CARD_RARITY.RARE:
 					effect_bg.texture = rare_bg
+					effect_health_bg.texture = rare_healthBG
 					title.add_theme_color_override("font_color",Color("7500ff"))
 					duration.add_theme_color_override("font_color",Color("400040"))
 					effect.add_theme_color_override("font_color",Color("400040"))
 				Card.CARD_RARITY.LEGENDARY:
 					effect_bg.texture = legendary_bg
+					effect_health_bg.texture = legendary_healthBG
 					title.add_theme_color_override("font_color",Color("ff0058"))
 					duration.add_theme_color_override("font_color",Color("750027"))
 					effect.add_theme_color_override("font_color",Color("750027"))

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm03rko2ejhlp"]
+[gd_scene load_steps=5 format=3 uid="uid://bm03rko2ejhlp"]
 
 [ext_resource type="Script" path="res://src/ui/screen_ui/card_effect.gd" id="1_4pih7"]
 [ext_resource type="Texture2D" uid="uid://dt1g7jtrcbwrg" path="res://assets/art/ui/UI backgrounds/common_bg.png" id="2_6eij7"]
-[ext_resource type="FontFile" uid="uid://rwidue26o0fh" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
+[ext_resource type="FontFile" uid="uid://dlrx6eleqtnl6" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
+[ext_resource type="Texture2D" uid="uid://bex6lk1y56dxb" path="res://assets/art/ui/UI backgrounds/common_healthBG.png" id="4_n1bqg"]
 
 [node name="Card_Effect_UI" type="Control"]
 layout_mode = 3
@@ -20,6 +21,14 @@ offset_top = 2.0
 offset_right = 768.0
 offset_bottom = 431.0
 texture = ExtResource("2_6eij7")
+expand_mode = 1
+
+[node name="Health_BG" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 768.0
+offset_bottom = 431.0
+texture = ExtResource("4_n1bqg")
 expand_mode = 1
 
 [node name="Card_Name" type="Label" parent="."]
