@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7xeb4lxg3umm"]
+[gd_scene load_steps=8 format=3 uid="uid://c7xeb4lxg3umm"]
 
 [ext_resource type="Script" path="res://src/managers/deck_manager.gd" id="1_8j68n"]
 [ext_resource type="Resource" uid="uid://j5r0s52bc5wg" path="res://src/cards/card_resources/super_dash_card_temp.tres" id="2_1wnix"]
@@ -6,26 +6,11 @@
 [ext_resource type="Resource" uid="uid://bm8mq3q76jjlv" path="res://src/cards/card_resources/invincibility_card_temp.tres" id="5_ncay6"]
 [ext_resource type="Resource" uid="uid://bu8pqsnmh4yb7" path="res://src/cards/card_resources/super_speed_card_temp.tres" id="5_v2ucf"]
 [ext_resource type="Resource" uid="uid://bojxrn0oika2k" path="res://src/cards/card_resources/no_dash_cooldown_ethereal_card_temp.tres" id="6_c3tct"]
-[ext_resource type="Script" path="res://src/cards/merged_card_temp.gd" id="7_wxk2m"]
-
-[sub_resource type="Resource" id="Resource_b7l4t"]
-script = ExtResource("7_wxk2m")
-super_attack_length = 4.0
-attack_length_increase = 0.15
-super_dash_length = 4.0
-dash_time_increase = 0.4
-super_speed_length = 10.0
-speed_increase = 200.0
-card_name = ""
-card_description = ""
-rarity = 0
-duration = 0.0
-effect_text = ""
-can_merge = false
+[ext_resource type="Resource" uid="uid://bgf0x81uct0oh" path="res://src/cards/card_resources/merged_card_temp.tres" id="7_phope"]
 
 [node name="DeckManager" type="Node"]
 script = ExtResource("1_8j68n")
-all_cards_list = Array[Resource("res://src/cards/card.gd")]([ExtResource("5_v2ucf"), ExtResource("2_1wnix"), ExtResource("3_2clw1"), ExtResource("5_ncay6"), ExtResource("6_c3tct"), SubResource("Resource_b7l4t")])
+all_cards_list = Array[Resource("res://src/cards/card.gd")]([ExtResource("5_v2ucf"), ExtResource("2_1wnix"), ExtResource("3_2clw1"), ExtResource("5_ncay6"), ExtResource("6_c3tct"), ExtResource("7_phope")])
 
 [node name="timer" type="Timer" parent="."]
 process_callback = 0

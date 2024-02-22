@@ -8,6 +8,10 @@
 script = ExtResource("1_p4r3n")
 super_attack_length = 4.0
 attack_length_increase = 0.15
+super_dash_length = 4.0
+dash_time_increase = 0.4
+super_speed_length = 10.0
+speed_increase = 200.0
 card_name = "Merged card"
 card_description = "Merged card"
 rarity = 5

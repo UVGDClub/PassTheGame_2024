@@ -59,7 +59,7 @@ func _on_back_button_pressed():
 
 
 func _on_merge_button_pressed():
-	if selected_cards.size() >= 2:
+	if DeckManager.is_currently_shuffling && (selected_cards.size() >= 2):
 		var merged_card: Card = DeckManager.all_other_cards[0]
 		var effects: String   = "effect: "
 		var description: String   = "Merged: "
