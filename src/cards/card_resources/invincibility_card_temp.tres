@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InvincibilityCard" load_steps=4 format=3 uid="uid://c7x1p1fs83b00"]
+[gd_resource type="Resource" script_class="InvincibilityCard" load_steps=4 format=3 uid="uid://bm8mq3q76jjlv"]
 
 [ext_resource type="Script" path="res://src/cards/invinciblility_card_temp.gd" id="1_8qro6"]
 [ext_resource type="AudioStream" uid="uid://dqcu50yy01bfe" path="res://assets/audio/sfx/on_invincibility_card_drawn_temp.wav" id="1_nwnyw"]
@@ -6,7 +6,6 @@
 
 [resource]
 script = ExtResource("1_8qro6")
-length = 10.0
 card_name = "Neo Mode"
 card_description = "[Active] You become invincible to damage for 5 seconds
 [Consumne] Reset effect duration "
@@ -15,3 +14,4 @@ picture = ExtResource("2_jh275")
 on_card_played_sfx = ExtResource("1_nwnyw")
 duration = 5.0
 effect_text = "Invincible"
+can_merge = false

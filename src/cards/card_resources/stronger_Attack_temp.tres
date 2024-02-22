@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Stronger_Attack" load_steps=2 format=3 uid="uid://d1er6iib2rwjc"]
+
+[ext_resource type="Script" path="res://src/cards/Stronger_Attack.gd" id="1_wmq0m"]
+
+[resource]
+script = ExtResource("1_wmq0m")
+card_name = "Strength++"
+card_description = "[Passive] +10 attack as long as card in deck
+[Consume] Gain +2 attack PERMANENTLY"
+rarity = 1
+duration = 5.0
+effect_text = ""
+can_merge = false

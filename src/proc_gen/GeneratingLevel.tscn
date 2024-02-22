@@ -992,9 +992,13 @@ text = "WASD to move
 Left click to Attack
 Right click to Dash
 E to open inventory
-F to consume card(only refresh duration for now)
-Chain attacks and dashes by alternating actions
-(be sure to time your inputs!)"
+F to consume card
+Chain attacks and dashes by and swapping alternating actions and consume stamina
+Key word:
+-[Active]: Has effect when drawn
+-[Passive]: Has effect while in deck
+-[Consume]: Has effect when discarded
+Enemies drop card when defeated"
 
 [node name="slime" parent="." instance=ExtResource("10_xdisf")]
 position = Vector2(54, -2)

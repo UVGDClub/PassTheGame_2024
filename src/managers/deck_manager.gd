@@ -90,6 +90,7 @@ func shuffle_deck() -> void:
 		timer.start(SHUFFLE_TIME)
 		is_currently_shuffling = true
 		SfxManager.play_sfx(shuffle_sfx, 0.1)
+		check_passive()
 	else:
 		print("cycle end")
 		card_cycle_started = false
@@ -117,6 +118,11 @@ func consume_card() -> void:
 	if !is_currently_shuffling && drawn_card != null:
 		drawn_card.consume()
 
+func check_passive():
+	for c in full_deck:
+		if c is PassiveCard:
+			c.apply_passive()
+	
 func _on_timer_timeout():
 	if is_currently_shuffling:
 		is_currently_shuffling = false

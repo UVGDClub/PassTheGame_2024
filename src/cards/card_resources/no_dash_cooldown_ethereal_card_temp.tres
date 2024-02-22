@@ -16,3 +16,4 @@ picture = ExtResource("2_jbwme")
 on_card_played_sfx = ExtResource("1_v7g6l")
 duration = 10.0
 effect_text = "No Dash Cooldown"
+can_merge = false

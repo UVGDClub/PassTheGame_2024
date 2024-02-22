@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Heal_Card" load_steps=2 format=3 uid="uid://b0sram2qen4pj"]
+
+[ext_resource type="Script" path="res://src/cards/heal_card_temp.gd" id="1_45ltt"]
+
+[resource]
+script = ExtResource("1_45ltt")
+consume_duration = 0.0
+card_name = "Med Deck"
+card_description = "[Consume] Heal 1 heart"
+rarity = 0
+duration = 5.0
+effect_text = "Heal!"
+can_merge = false

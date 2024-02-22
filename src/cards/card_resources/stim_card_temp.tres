@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Stim_Card" load_steps=2 format=3 uid="uid://dh057qgua2fu1"]
+
+[ext_resource type="Script" path="res://src/cards/Stim_Shot_Card_temp.gd" id="1_e3fuw"]
+
+[resource]
+script = ExtResource("1_e3fuw")
+consume_duration = 5.0
+card_name = "Stim Shot"
+card_description = "[Consume] Double damage for 5 seconds"
+rarity = 2
+duration = 5.0
+effect_text = "Use!"
+can_merge = false

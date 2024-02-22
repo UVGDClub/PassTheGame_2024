@@ -15,3 +15,4 @@ picture = ExtResource("2_i3lni")
 on_card_played_sfx = ExtResource("1_bl1oo")
 duration = 4.0
 effect_text = "4x Attack Distant"
+can_merge = false

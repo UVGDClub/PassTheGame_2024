@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://bm8mq3q76jjlv" path="res://src/cards/card_resources/invincibility_card_temp.tres" id="5_ncay6"]
 [ext_resource type="Resource" uid="uid://bu8pqsnmh4yb7" path="res://src/cards/card_resources/super_speed_card_temp.tres" id="5_v2ucf"]
 [ext_resource type="Resource" uid="uid://bojxrn0oika2k" path="res://src/cards/card_resources/no_dash_cooldown_ethereal_card_temp.tres" id="6_c3tct"]
-[ext_resource type="Resource" uid="uid://bgf0x81uct0oh" path="res://src/cards/card_resources/merged_card_temp.tres" id="7_phope"]
+[ext_resource type="Resource" uid="uid://cpi5gqngdwwph" path="res://src/cards/card_resources/merged_card_temp.tres" id="7_phope"]
 
 [node name="DeckManager" type="Node"]
 script = ExtResource("1_8j68n")

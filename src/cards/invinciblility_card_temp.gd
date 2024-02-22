@@ -1,6 +1,6 @@
 class_name InvincibilityCard extends Card
 
-@export var length: float = 10.0
+
 
 
 func play() -> void:
