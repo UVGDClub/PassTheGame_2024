@@ -15,6 +15,8 @@ var verbose_duration: float = 1.0
 func play() -> void:
 	player = DeckManager.get_tree().get_nodes_in_group("Player")[0]
 
+	# the merge effect template
+	# can be whatever but currently i just added the effect
 	# technically this can be made generic by adding a on/off_effect_start in card.gd
 	# with less freedom of how things should work
 
