@@ -6,7 +6,6 @@
 
 [resource]
 script = ExtResource("1_tjd85")
-super_attack_length = 4.0
 attack_length_increase = 0.15
 card_name = "Super Att."
 card_description = "[Active] Increases your attack distance for 4 seconds.
@@ -16,4 +15,3 @@ picture = ExtResource("2_i3lni")
 on_card_played_sfx = ExtResource("1_bl1oo")
 duration = 4.0
 effect_text = "4x Attack Distant"
-can_merge = true

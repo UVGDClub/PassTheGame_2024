@@ -10,6 +10,9 @@ extends Control
 @onready var rare_healthBG = load("res://assets/art/ui/UI backgrounds/rare_healthBG.png")
 @onready var legendary_healthBG = load("res://assets/art/ui/UI backgrounds/legendary_healthBG.png")
 @onready var ethereal_healthBG = load("res://assets/art/ui/UI backgrounds/ethereal_healthBG.png")
+@onready var heart = load("res://assets/art/ui/UI backgrounds/heart.png")
+@onready var hearts_2 = load("res://assets/art/ui/UI backgrounds/hearts 2.png")
+@onready var hearts_3 = load("res://assets/art/ui/UI backgrounds/hearts 3.png")
 @onready var effect_bg = $Rarity_Bg
 @onready var title = $Card_Name
 @onready var duration = $Effect_Duration

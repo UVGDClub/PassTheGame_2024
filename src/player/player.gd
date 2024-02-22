@@ -15,7 +15,7 @@ var IDLE_FRICTION = MAX_WALK_VEL / 0.05
 
 const INPUT_CHAIN_STARTING_BUFFER = 1
 
-var health = 50
+var health = 3
 var attack_dmg = 5
 var defense = 0
 var stamina = 100

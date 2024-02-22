@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("3_uuu63")
+super_speed_length = 10.0
 speed_increase = 100.0
 card_name = "Sprinter"
 card_description = "[Active] Gain super speed for 5 seconds.
@@ -15,4 +16,3 @@ picture = ExtResource("2_sju2y")
 on_card_played_sfx = ExtResource("1_lwuva")
 duration = 5.0
 effect_text = "2x Speed"
-can_merge = true
