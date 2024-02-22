@@ -1,0 +1,12 @@
+NOTE:
+
+- Card merging needs an icon that hasn't been made yet
+- Card types still need to be implemented correctly (specifically passive and consumables)
+- The text on the bottom right of the screen has a shadow applied that is permanenetly grey. If that can be changed so that the color fits the background color it would look better.
+- The life system is not finished. All of the right icons have been added for use though. 
+- The blue hollow shape underneath the hearts is a stamina bar. This bar should display how much stamina the player has. This feature has not been implemented yet. 
+- All of the UI elements can be found and edited as necesary on the affinity designer file provided in the game's files. Simply click on the Affinity Files folder. 
+- The timer at the bottom right of the screen currently flickers a bit (since the text is aligning itself to the right). If this can be fixed it would make the text a lot less distracting to the eyes.
+
+Good luck! We certainly needed it :)
+
