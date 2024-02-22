@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MergedCard" load_steps=4 format=3 uid="uid://bgf0x81uct0oh"]
+
+[ext_resource type="AudioStream" uid="uid://dqcu50yy01bfe" path="res://assets/audio/sfx/on_invincibility_card_drawn_temp.wav" id="1_7coor"]
+[ext_resource type="Script" path="res://src/cards/merged_card_temp.gd" id="1_p4r3n"]
+[ext_resource type="Texture2D" uid="uid://c4boyspf27j30" path="res://assets/art/cards/card_images/invincibility_card_image_temp.png" id="2_hkj30"]
+
+[resource]
+script = ExtResource("1_p4r3n")
+super_attack_length = 4.0
+attack_length_increase = 0.15
+card_name = "Merged card"
+card_description = "Merged card"
+rarity = 5
+picture = ExtResource("2_hkj30")
+on_card_played_sfx = ExtResource("1_7coor")
+duration = 4.0
+effect_text = "None"
+can_merge = false
