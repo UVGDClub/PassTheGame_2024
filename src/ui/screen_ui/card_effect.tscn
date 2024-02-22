@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui/screen_ui/card_effect.gd" id="1_4pih7"]
 [ext_resource type="Texture2D" uid="uid://dt1g7jtrcbwrg" path="res://assets/art/ui/UI backgrounds/common_bg.png" id="2_6eij7"]
-[ext_resource type="FontFile" uid="uid://dlrx6eleqtnl6" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
+[ext_resource type="FontFile" uid="uid://rwidue26o0fh" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
 [ext_resource type="Texture2D" uid="uid://dwfjvdnwhedia" path="res://assets/art/ui/UI backgrounds/hearts 3.png" id="4_dbjbf"]
 [ext_resource type="Texture2D" uid="uid://bex6lk1y56dxb" path="res://assets/art/ui/UI backgrounds/common_healthBG.png" id="4_n1bqg"]
 [ext_resource type="Texture2D" uid="uid://bpkcb0b2o2omd" path="res://assets/art/ui/UI backgrounds/stamina_bar.png" id="5_cq4e1"]
@@ -26,6 +26,7 @@ texture = ExtResource("2_6eij7")
 expand_mode = 1
 
 [node name="Health_BG" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = -1.0
 offset_right = 766.0
 offset_bottom = 428.0
@@ -33,6 +34,7 @@ texture = ExtResource("4_n1bqg")
 expand_mode = 1
 
 [node name="Hearts" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = -2.0
 offset_right = 766.0
 offset_bottom = 427.0
@@ -40,6 +42,7 @@ texture = ExtResource("4_dbjbf")
 expand_mode = 1
 
 [node name="Stamina Bar" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = -2.0
 offset_right = 766.0
 offset_bottom = 427.0

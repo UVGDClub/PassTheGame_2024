@@ -15,9 +15,13 @@ var IDLE_FRICTION = MAX_WALK_VEL / 0.05
 
 const INPUT_CHAIN_STARTING_BUFFER = 1
 
+var base_health = 3
 var health = 3
+var base_dmg = 5
 var attack_dmg = 5
+var base_defense = 5
 var defense = 0
+var base_stamina = 100
 var stamina = 100
 var dmg_multiplier = 1.0 #player damage
 var def_multiplier = 1.0
@@ -140,6 +144,18 @@ func consume_action():
 
 func update_hitbox():
 	hitbox.hit_damage = attack_dmg * dmg_multiplier
+
+func update_stats():
+	health = base_health
+	attack_dmg = base_dmg
+	stamina = base_stamina
+	defense = base_defense
+
+
+
+
+func on_DeckManager_deck_shuffled():
+	update_stats()
 	
 func update_debug_labels():
 	$temp_StateLabel.text = "State: " + state_machine.current_state.name

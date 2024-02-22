@@ -1,7 +1,7 @@
 class_name Stronger_Attack extends PassiveCard
 
 func play() -> void:
-	await DeckManager.timer.start(duration)
+	await DeckManager.timer.timeout
 
 
 func consume() ->void:

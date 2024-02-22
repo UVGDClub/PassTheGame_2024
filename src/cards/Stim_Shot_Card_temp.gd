@@ -1,8 +1,7 @@
 class_name Stim_Card extends ConsumeCard
 
 func play() -> void:
-	player = DeckManager.get_tree().get_nodes_in_group("Player")[0]
-	await DeckManager.timer.start(duration)
+	await DeckManager.timer.timeout
 
 
 func consume() -> void:
