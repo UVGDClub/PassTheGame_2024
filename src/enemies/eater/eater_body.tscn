@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://wi3e0q1nrlkd"]
+
+[ext_resource type="Texture2D" uid="uid://cd8onnywfgj7r" path="res://assets/art/enemies/eater/eater-body.png" id="1_iutbh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7q0y3"]
+
+[node name="GlorbBody" type="Sprite2D"]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_iutbh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7q0y3")

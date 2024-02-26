@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://f47dabv2ajui"]
+
+[ext_resource type="Script" path="res://src/enemies/eater/eater.gd" id="1_f35ug"]
+[ext_resource type="Script" path="res://src/state_machine/state_machine.gd" id="2_qmuxo"]
+[ext_resource type="Script" path="res://src/enemies/eater/Burrow.gd" id="4_x2vle"]
+[ext_resource type="Script" path="res://src/enemies/eater/Attack.gd" id="5_bdodn"]
+[ext_resource type="Script" path="res://src/enemies/eater/Hide.gd" id="6_thng1"]
+[ext_resource type="Texture2D" uid="uid://cel15lonahgbu" path="res://assets/art/enemies/eater/eater.png" id="6_ydpjp"]
+
+[node name="Glorb" type="Node2D"]
+script = ExtResource("1_f35ug")
+health = 10.0
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_qmuxo")
+
+[node name="Burrow" type="Node" parent="StateMachine"]
+script = ExtResource("4_x2vle")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("5_bdodn")
+
+[node name="Hide" type="Node" parent="StateMachine"]
+script = ExtResource("6_thng1")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="GlorbFace" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("6_ydpjp")
+hframes = 5

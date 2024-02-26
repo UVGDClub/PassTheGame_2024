@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cd4lkys1wh1vn"]
+[gd_scene load_steps=18 format=3 uid="uid://cd4lkys1wh1vn"]
 
 [ext_resource type="Script" path="res://src/proc_gen/GeneratingLevel.gd" id="1_xd3a0"]
 [ext_resource type="Texture2D" uid="uid://di478fqpjmgjb" path="res://assets/art/map/dungeon_tiles_temp.png" id="2_8jqqr"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://6p304aqagvsm" path="res://assets/art/map/pixel-80x16_temp.png" id="6_1juw1"]
 [ext_resource type="PackedScene" uid="uid://bm03rko2ejhlp" path="res://src/ui/screen_ui/card_effect.tscn" id="9_seakg"]
 [ext_resource type="PackedScene" uid="uid://chx0o7wxt1k3d" path="res://src/enemies/slime_temp.tscn" id="10_xdisf"]
+[ext_resource type="PackedScene" uid="uid://f47dabv2ajui" path="res://src/enemies/eater/eater.tscn" id="11_i6n1w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8817"]
 texture = ExtResource("2_8jqqr")
@@ -976,6 +977,7 @@ layer_0/name = "0"
 [node name="Player" parent="." instance=ExtResource("3_tvj8y")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
 
 [node name="UI" type="CanvasLayer" parent="Camera2D" groups=["UI"]]
 
@@ -1002,3 +1004,6 @@ Enemies drop card when defeated"
 
 [node name="slime" parent="." instance=ExtResource("10_xdisf")]
 position = Vector2(54, -2)
+
+[node name="Glorb" parent="." instance=ExtResource("11_i6n1w")]
+position = Vector2(2.08165e-12, 2.08165e-12)
