@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://f47dabv2ajui"]
+[gd_scene load_steps=12 format=3 uid="uid://f47dabv2ajui"]
 
 [ext_resource type="Script" path="res://src/enemies/eater/eater.gd" id="1_f35ug"]
 [ext_resource type="Script" path="res://src/state_machine/state_machine.gd" id="2_qmuxo"]
@@ -9,16 +9,22 @@
 [ext_resource type="Script" path="res://src/enemies/eater/Hide.gd" id="6_thng1"]
 [ext_resource type="Texture2D" uid="uid://cel15lonahgbu" path="res://assets/art/enemies/eater/eater.png" id="6_ydpjp"]
 [ext_resource type="Script" path="res://src/enemies/eater/Chase.gd" id="7_skpur"]
+[ext_resource type="Script" path="res://src/enemies/eater/Wander.gd" id="9_kcsp1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pbtvl"]
 
 [node name="Eater" type="Node2D"]
 script = ExtResource("1_f35ug")
-health = 10.0
+damage = 1.0
 
 [node name="State" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Health" type="Label" parent="."]
+offset_top = 30.0
+offset_right = 40.0
+offset_bottom = 53.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_qmuxo")
@@ -57,6 +63,9 @@ script = ExtResource("7_skpur")
 [node name="BurrowTimer" type="Timer" parent="StateMachine/Chase"]
 one_shot = true
 
+[node name="Wander" type="Node" parent="StateMachine"]
+script = ExtResource("9_kcsp1")
+
 [node name="Body" type="Node2D" parent="."]
 
 [node name="EaterFace" type="Sprite2D" parent="."]
@@ -73,8 +82,13 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_pbtvl")
 
+[node name="HitCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="StateMachine/Burrow/BurrowDelayTimer" to="StateMachine/Burrow" method="_on_burrow_delay_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Hide/SurfaceTimer" to="StateMachine/Hide" method="_on_surface_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Surface/DigDelayTimer" to="StateMachine/Surface" method="_on_dig_delay_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/BurrowTimer" to="StateMachine/Chase" method="_on_burrow_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="on_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="on_face_hit_area"]

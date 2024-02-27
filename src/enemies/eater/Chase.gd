@@ -2,6 +2,7 @@ extends State
 
 @export var burrow_timer_range : Vector2 = Vector2(3, 5)
 @export var attack_range : float = 30
+@export var lose_player_distance : float = 500
 
 @onready var burrow_timer : Timer = $BurrowTimer
 
@@ -13,7 +14,7 @@ func set_burrow_timer():
 	burrow_timer.start(wait_time)
 	
 func exit(new_state_name=null):
-	pass
+	burrow_timer.stop()
 
 func process(delta):
 	pass
@@ -36,39 +37,16 @@ func physics_process(delta):
 	var movement : Vector2 = host.facing_dir * host.speed * delta + wiggle_movement
 	host.global_position += movement
 	
-	face_direction(target)
-
-func face_direction(dir : Vector2):
-	var angle = dir.angle() + PI / 2 + 2 * PI
-	var flipped = angle < 2 * PI or angle > 3 * PI
-	# ensure the angle is within 0 (up) to pi (down)
-	angle = abs(fmod(angle, 2 * PI))
-	
-	var facing_frame = 0
-	
-	if angle < PI / 8 or angle > 15 * PI / 8:
-		facing_frame = 4
-		flipped = false
-	elif angle < 3 * PI / 8 or angle > 13 * PI / 8:
-		facing_frame = 3
-	elif angle < 5 * PI / 8 or angle > 11 * PI / 8:
-		facing_frame = 2
-	elif angle < 7 * PI / 8 or angle > 9 * PI / 8:
-		facing_frame = 1
-	elif angle < 9 * PI / 8:
-		facing_frame = 0
-		flipped = false
-	
-	host.face.frame = facing_frame
-	host.face.flip_h = flipped
-
+	host.face_direction(target)
 
 func check_transition():
-	return
 	var player : Player = get_tree().get_first_node_in_group("Player")
 	if player == null: return
 	var vec_to_player = player.position - host.position
 	var dist : float = vec_to_player.length()
 	if dist <= attack_range:
 		state_machine.transition_states("Attack")
+		
+	if dist >= lose_player_distance:
+		state_machine.transition_states("Wander")
 

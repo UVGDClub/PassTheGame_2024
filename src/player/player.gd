@@ -151,9 +151,6 @@ func update_stats():
 	stamina = base_stamina
 	defense = base_defense
 
-
-
-
 func on_DeckManager_deck_shuffled():
 	update_stats()
 	

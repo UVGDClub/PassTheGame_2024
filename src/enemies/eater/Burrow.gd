@@ -4,14 +4,14 @@ extends State
 @onready var burrow_delay_timer : Timer = $BurrowDelayTimer
 
 func enter(prev_state_name=null):
-	dig_particles.emitting = false
+	dig_particles.emitting = true
+	dig_particles.global_position = host.global_position
 	burrow_delay_timer.start()
 	pass
 
 func exit(new_state_name=null):
-	dig_particles.emitting = true
+	dig_particles.emitting = false
 	host.hide_bodies()
-	pass
 
 func process(delta):
 	var timer_completeness = (burrow_delay_timer.wait_time - burrow_delay_timer.time_left) / burrow_delay_timer.wait_time
