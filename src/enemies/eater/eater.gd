@@ -1,14 +1,17 @@
 class_name Eater extends Enemies
 
 @onready var body = $Body
-@onready var face : Sprite2D = $GlorbFace
-@export var speed : float = 50
-const max_dist = 1
+@onready var face : Sprite2D = $EaterFace
+@export var speed : float = 100
+@export var oscillation_amplitude = 1.5
+@export var change_direction_weight = 0.05
+
 const eater_body = preload("res://src/enemies/eater/eater_body.tscn")
 const MAX_BODIES = 10
-const POSITION_DELAY = 10
-# 0 for down, 1 for down-right, etc. 8 total.
-var facing_quadrant = 0
+const POSITION_DELAY = 5
+
+var facing_frame = 0
+var facing_dir = Vector2.DOWN
 
 var bodies = []
 var positions = []
@@ -23,44 +26,30 @@ func _ready():
 func on_body_entered(body : Node2D):
 	pass
 	
-func add_body():
+func add_body() -> Node:
 	var new_eater_body = eater_body.instantiate()
 	var eater_collider : Area2D = new_eater_body.get_child(0)
 	eater_collider.connect("area_entered", on_body_entered)
 	body.add_child(new_eater_body)
 	bodies.append(new_eater_body)
+	return new_eater_body
 
 func _physics_process(delta):
 	var player = get_tree().get_first_node_in_group("Player")
 	if player == null: return
-	var dir = (player.position - self.position).normalized()
+	
+	var target = (player.position - self.position).normalized()
+	var dir = facing_dir.slerp(target, change_direction_weight)
+	facing_dir = dir.normalized()
+	
 	var perpendicular_direction = dir.rotated(PI / 2)
-	var wiggle_amount = sin(Time.get_ticks_msec() * 0.001)
+	var wiggle_amount = oscillation_amplitude * sin(Time.get_ticks_msec() * 0.001)
 	var wiggle_movement = perpendicular_direction * wiggle_amount
 	
-	var movement : Vector2 = dir.normalized() * speed * delta + wiggle_movement
-	
+	var movement : Vector2 = facing_dir * speed * delta + wiggle_movement
 	self.global_position += movement
 	
-	var angle = dir.angle()
-	angle = fmod(angle + 2 * PI, 2 * PI) # Ensure angle is within 0 to 2*PI range
-	facing_quadrant = int(angle / (PI / 4))
-	
-	
-	face.flip_h = facing_quadrant < 6 or facing_quadrant > 9
-	var frame = 0
-	match facing_quadrant:
-		0, 1: 
-			frame = 0 # South
-		2: 
-			frame = 1 # South-East
-		3, 4: 
-			frame = 2 # East
-		5: 
-			frame = 3 # North-East
-		6, 7:
-			frame = 4 # North
-	face.frame = frame
+	face_direction(target)
 	
 	positions.push_front(self.global_position)
 
@@ -68,53 +57,25 @@ func _physics_process(delta):
 		bodies[i].global_position  = positions[i * POSITION_DELAY]
 	if len(positions) > MAX_POSITIONS_LENGTH:
 		positions.pop_back()
-"""
-class_name Eater extends Enemies
 
-@onready var body = $Body
-@export var speed : float = 30
-const MAX_DIST = 10
-const eater_body = preload("res://src/enemies/eater/eater_body.tscn")
-const MAX_BODIES = 10
-
-var bodies = []
-
-func _ready():
-	bodies.append(self)
-	for i in range(0, 10):
-		add_body()
-
-func on_body_entered(body : Node2D):
-	print("body entered")
-	pass
+func face_direction(dir : Vector2):
+	var angle = dir.angle() + PI / 2 + 2 * PI
+	var flipped = angle < 2 * PI or angle > 3 * PI
+	# ensure the angle is within 0 (up) to pi (down)
+	angle = abs(fmod(angle, 2 * PI))
 	
-func add_body():
-	var new_eater_body = eater_body.instantiate()
-	var eater_collider : Area2D = new_eater_body.get_child(0)
-	eater_collider.connect("area_entered", on_body_entered)
-	body.add_child(new_eater_body)
-	bodies.append(new_eater_body)
-
-func _physics_process(delta):
-	var dir = Vector2.RIGHT
-	var perpendicular_direction = dir.rotated(PI / 2)
-	var wiggle_amount = sin(Time.get_ticks_msec() * 0.001)
-	var wiggle_movement = perpendicular_direction * wiggle_amount
+	if angle < PI / 8 or angle > 15 * PI / 8:
+		facing_frame = 4
+		flipped = false
+	elif angle < 3 * PI / 8 or angle > 13 * PI / 8:
+		facing_frame = 3
+	elif angle < 5 * PI / 8 or angle > 11 * PI / 8:
+		facing_frame = 2
+	elif angle < 7 * PI / 8 or angle > 9 * PI / 8:
+		facing_frame = 1
+	elif angle < 9 * PI / 8:
+		facing_frame = 0
+		flipped = false
 	
-	var movement = dir.normalized() * speed * delta + wiggle_movement
-	
-	self.global_position += movement
-	$RigidBody2D.linear_velocity = movement
-	return
-	
-	for i in range(1, len(bodies)):
-		var target_pos : Vector2 = bodies[i-1].position
-		var cur_pos : Vector2 = bodies[i].position
-		var dist = cur_pos.distance_to(target_pos)
-		if dist > MAX_DIST:
-			var direction : Vector2 = (target_pos - cur_pos).normalized()
-			# var body_speed = (target_pos - cur_pos).length()
-			
-			var move_amount = min(speed * delta, dist - MAX_DIST)
-			bodies[i].global_position += direction * move_amount
-"""
+	face.frame = facing_frame
+	face.flip_h = flipped

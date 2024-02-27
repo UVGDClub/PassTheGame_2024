@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://src/enemies/eater/Hide.gd" id="6_thng1"]
 [ext_resource type="Texture2D" uid="uid://cel15lonahgbu" path="res://assets/art/enemies/eater/eater.png" id="6_ydpjp"]
 
-[node name="Glorb" type="Node2D"]
+[node name="Eater" type="Node2D"]
 script = ExtResource("1_f35ug")
 health = 10.0
 
@@ -25,7 +25,7 @@ script = ExtResource("6_thng1")
 
 [node name="Body" type="Node2D" parent="."]
 
-[node name="GlorbFace" type="Sprite2D" parent="."]
+[node name="EaterFace" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("6_ydpjp")
