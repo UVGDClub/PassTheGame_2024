@@ -1,21 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://f47dabv2ajui"]
+[gd_scene load_steps=11 format=3 uid="uid://f47dabv2ajui"]
 
 [ext_resource type="Script" path="res://src/enemies/eater/eater.gd" id="1_f35ug"]
 [ext_resource type="Script" path="res://src/state_machine/state_machine.gd" id="2_qmuxo"]
+[ext_resource type="PackedScene" uid="uid://bhvsr4bg04vov" path="res://src/enemies/eater/dig_particles.tscn" id="4_7tva4"]
 [ext_resource type="Script" path="res://src/enemies/eater/Burrow.gd" id="4_x2vle"]
 [ext_resource type="Script" path="res://src/enemies/eater/Attack.gd" id="5_bdodn"]
+[ext_resource type="Script" path="res://src/enemies/eater/Surface.gd" id="6_q0h7h"]
 [ext_resource type="Script" path="res://src/enemies/eater/Hide.gd" id="6_thng1"]
 [ext_resource type="Texture2D" uid="uid://cel15lonahgbu" path="res://assets/art/enemies/eater/eater.png" id="6_ydpjp"]
+[ext_resource type="Script" path="res://src/enemies/eater/Chase.gd" id="7_skpur"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pbtvl"]
 
 [node name="Eater" type="Node2D"]
 script = ExtResource("1_f35ug")
 health = 10.0
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="State" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_qmuxo")
+initial_state = NodePath("Hide")
 
 [node name="Burrow" type="Node" parent="StateMachine"]
 script = ExtResource("4_x2vle")
+
+[node name="DigParticles" parent="StateMachine/Burrow" instance=ExtResource("4_7tva4")]
+emitting = false
+
+[node name="BurrowDelayTimer" type="Timer" parent="StateMachine/Burrow"]
+one_shot = true
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("5_bdodn")
@@ -23,10 +39,42 @@ script = ExtResource("5_bdodn")
 [node name="Hide" type="Node" parent="StateMachine"]
 script = ExtResource("6_thng1")
 
+[node name="SurfaceTimer" type="Timer" parent="StateMachine/Hide"]
+one_shot = true
+
+[node name="Surface" type="Node" parent="StateMachine"]
+script = ExtResource("6_q0h7h")
+
+[node name="DigParticles" parent="StateMachine/Surface" instance=ExtResource("4_7tva4")]
+emitting = false
+
+[node name="DigDelayTimer" type="Timer" parent="StateMachine/Surface"]
+one_shot = true
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("7_skpur")
+
+[node name="BurrowTimer" type="Timer" parent="StateMachine/Chase"]
+one_shot = true
+
 [node name="Body" type="Node2D" parent="."]
 
 [node name="EaterFace" type="Sprite2D" parent="."]
+visible = false
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("6_ydpjp")
 hframes = 5
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pbtvl")
+
+[connection signal="timeout" from="StateMachine/Burrow/BurrowDelayTimer" to="StateMachine/Burrow" method="_on_burrow_delay_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Hide/SurfaceTimer" to="StateMachine/Hide" method="_on_surface_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Surface/DigDelayTimer" to="StateMachine/Surface" method="_on_dig_delay_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Chase/BurrowTimer" to="StateMachine/Chase" method="_on_burrow_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="on_body_entered"]

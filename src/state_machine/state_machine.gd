@@ -32,6 +32,7 @@ func physics_process(delta):
 		current_state.check_transition()
 
 func transition_states(new_state_name):
+	print("Transitioning to ", new_state_name)
 	var new_state = states.get(new_state_name)
 	if not new_state:
 		return

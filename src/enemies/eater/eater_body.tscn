@@ -5,11 +5,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7q0y3"]
 
 [node name="GlorbBody" type="Sprite2D"]
+visible = false
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("1_iutbh")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_7q0y3")
