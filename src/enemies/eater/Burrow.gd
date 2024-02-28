@@ -2,12 +2,13 @@ extends State
 
 @onready var dig_particles : CPUParticles2D = $DigParticles
 @onready var burrow_delay_timer : Timer = $BurrowDelayTimer
+@onready var burrowing_rumble = preload("res://assets/audio/sfx/rumble1.ogg")
 
 func enter(prev_state_name=null):
 	dig_particles.emitting = true
 	dig_particles.global_position = host.global_position
 	burrow_delay_timer.start()
-	pass
+	SfxManager.play_sfx(burrowing_rumble, 0.1)
 
 func exit(new_state_name=null):
 	dig_particles.emitting = false

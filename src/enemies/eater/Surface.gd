@@ -5,6 +5,7 @@ extends State
 var spawn_point = Vector2.ZERO
 @onready var dig_particles : CPUParticles2D = $DigParticles
 @onready var dig_delay_timer : Timer = $DigDelayTimer
+@onready var surfacing_rumble = preload("res://assets/audio/sfx/rumble3.ogg")
 
 func enter(prev_state_name=null):
 	var player : Player = get_tree().get_first_node_in_group("Player")
@@ -14,6 +15,8 @@ func enter(prev_state_name=null):
 	dig_delay_timer.start()
 	dig_particles.global_position = host.global_position
 	dig_particles.emitting = true
+	SfxManager.play_sfx(surfacing_rumble, 0.1)
+
 
 func exit(new_state_name=null):
 	dig_particles.emitting = false
