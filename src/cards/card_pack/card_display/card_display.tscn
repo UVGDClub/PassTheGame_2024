@@ -51,12 +51,13 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 72.0
 offset_bottom = 98.0
+toggle_mode = true
 texture_pressed = ExtResource("4_b14mp")
 texture_hover = ExtResource("4_b14mp")
-texture_focused = ExtResource("4_b14mp")
 
 [node name="Sprite2D" type="Sprite2D" parent="background_sprite"]
 visible = false
 position = Vector2(32, 45)
 
 [connection signal="pressed" from="background_sprite/add_card_button" to="." method="_on_add_card_button_pressed"]
+[connection signal="toggled" from="background_sprite/add_card_button" to="." method="_on_add_card_button_toggled"]

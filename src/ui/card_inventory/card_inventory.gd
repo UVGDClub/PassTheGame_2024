@@ -12,7 +12,7 @@ const SHUFFLE_TIMER_STRING: String = "Time until shuffle finished: "
 
 var inventory_open: bool = false
 
-var selected_cards: Dictionary = {}
+var selected_cards: Array = []
 
 func _ready():
 	visible = false
@@ -38,7 +38,7 @@ func open_inventory() -> void:
 		var new_display_card = display_card.instantiate()
 		card_grid.add_child(new_display_card)
 		new_display_card.set_card(c)
-		new_display_card.card_select_pressed.connect(_on_select_card_button_pressed)
+		new_display_card.card_select_toggled.connect(_on_select_card_button_toggled)
 	total_cards_label.text = TOTAL_CARDS_STRING + str(len(DeckManager.full_deck))
 	total_card_in_draw_pile_label.text = TOTAL_CARDS_IN_DRAW_PILE_STRING + str(len(DeckManager.draw_pile))
 	shuffle_timer_label.visible = DeckManager.is_currently_shuffling
@@ -64,7 +64,7 @@ func _on_merge_button_pressed():
 		var effects: String   = "effect: "
 		var description: String   = "Merged: "
 		merged_card.merged_list = []
-		for card: Card in selected_cards.values():
+		for card: Card in selected_cards:
 			description += card.card_name + " "
 			effects += card.effect_text + " "
 			merged_card.merged_list.append(card.effect_text)
@@ -80,17 +80,12 @@ func _on_merge_button_pressed():
 			var new_display_card = display_card.instantiate()
 			card_grid.add_child(new_display_card)
 			new_display_card.set_card(c)
-			new_display_card.card_select_pressed.connect(_on_select_card_button_pressed)
+			new_display_card.card_select_toggled.connect(_on_select_card_button_toggled)
 
 		selected_cards.clear()
 
-func _on_select_card_button_pressed(card: Card):
-	selected_cards[card.card_name] = card
-
-	# optional size 3, doesnt have to be
-	if selected_cards.size() > 3:
-		selected_cards.erase(selected_cards.keys()[0])
-	print("selected: ", selected_cards.keys())
-
-#	attempting to add / remove select_border but this isnt the card_display object
-#	card.get_node("select_border").visible = true
+func _on_select_card_button_toggled(card: Card, toggled_on: bool):
+	if toggled_on:
+		selected_cards.push_back(card)
+	else:
+		selected_cards.erase(card)
