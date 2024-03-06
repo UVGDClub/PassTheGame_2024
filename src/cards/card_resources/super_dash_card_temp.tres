@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://causwrfaklwgg" path="res://assets/audio/sfx/on_super_dash_card_drawn_temp.wav" id="1_7okml"]
 [ext_resource type="Script" path="res://src/cards/super_dash_card_temp.gd" id="1_ejubq"]
-[ext_resource type="Texture2D" uid="uid://ua67285ivi2y" path="res://assets/art/cards/card_images/super_dash_card_image_temp.png" id="2_ke276"]
+[ext_resource type="Texture2D" uid="uid://binscdv5de6g" path="res://assets/art/cards/cards/unimplemented_tmp.png" id="2_mx74w"]
 
 [resource]
 script = ExtResource("1_ejubq")
@@ -11,7 +11,7 @@ card_name = "Super Dash"
 card_description = "[Active] Increases your dash length for 4 seconds.
 [Consume] Further increase dash"
 rarity = 1
-picture = ExtResource("2_ke276")
+picture = ExtResource("2_mx74w")
 on_card_played_sfx = ExtResource("1_7okml")
 duration = 4.0
 effect_text = "4x Dash Length"

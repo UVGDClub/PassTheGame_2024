@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5s5cntckh3af"
-path="res://.godot/imported/neo_card_mode_sm.png-484958ae4e1a277f5ba4c26580478dcf.ctex"
+uid="uid://b626k6nlm711o"
+path="res://.godot/imported/zoom.png-5f59844cdeb283ade835f1fee68a6769.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/cards/neo_card_mode_sm.png"
-dest_files=["res://.godot/imported/neo_card_mode_sm.png-484958ae4e1a277f5ba4c26580478dcf.ctex"]
+source_file="res://assets/art/cards/cards/zoom.png"
+dest_files=["res://.godot/imported/zoom.png-5f59844cdeb283ade835f1fee68a6769.ctex"]
 
 [params]
 

@@ -5,11 +5,11 @@ signal card_select_toggled(card: Card, toggled_on: bool)
 
 @export var display_card: Card = null
 
-@onready var background_sprite = $background_sprite
-@onready var card_image_sprite = $background_sprite/card_image
-@onready var name_label = $background_sprite/name_label
-@onready var description_label = $background_sprite/description_label
-@onready var add_card_button = $background_sprite/add_card_button
+@onready var background_sprite = $card_image/background_image
+@onready var card_image_sprite = $card_image
+@onready var name_label = $card_image/name_label
+@onready var description_label = $card_image/description_label
+@onready var add_card_button = $card_image/add_card_button
 
 func _ready():
 	if display_card != null:

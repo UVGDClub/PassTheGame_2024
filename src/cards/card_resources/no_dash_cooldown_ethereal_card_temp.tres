@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/cards/no_dash_cooldown_ethereal_card_temp.gd" id="1_8gecu"]
 [ext_resource type="AudioStream" uid="uid://co0tua87772i5" path="res://assets/audio/sfx/on_zoom_card_drawn_temp.wav" id="1_v7g6l"]
-[ext_resource type="Texture2D" uid="uid://b8jpwm6xoivxf" path="res://assets/art/cards/card_images/zoom_card_image_temp.png" id="2_jbwme"]
+[ext_resource type="Texture2D" uid="uid://b626k6nlm711o" path="res://assets/art/cards/cards/zoom.png" id="2_52tn5"]
 
 [resource]
 script = ExtResource("1_8gecu")
@@ -12,7 +12,7 @@ card_description = "[Active] You have no dash cooldown for 10 seconds.
 [Consume] Refresh the duration, however take double damage while active
 Ethereal: Removed from deck once used."
 rarity = 4
-picture = ExtResource("2_jbwme")
+picture = ExtResource("2_52tn5")
 on_card_played_sfx = ExtResource("1_v7g6l")
 duration = 10.0
 effect_text = "No Dash Cooldown"

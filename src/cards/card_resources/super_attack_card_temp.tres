@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://cpqr4iscweot5" path="res://assets/audio/sfx/on_super_attack_card_drawn_temp.wav" id="1_bl1oo"]
 [ext_resource type="Script" path="res://src/cards/super_attack_card_temp.gd" id="1_tjd85"]
-[ext_resource type="Texture2D" uid="uid://q4flofp6gkg7" path="res://assets/art/cards/card_images/super_attack_card_image_temp.png" id="2_i3lni"]
+[ext_resource type="Texture2D" uid="uid://c0qa1rynsobho" path="res://assets/art/cards/cards/super_attack.png" id="2_qjcdr"]
 
 [resource]
 script = ExtResource("1_tjd85")
@@ -11,7 +11,7 @@ card_name = "Super Att."
 card_description = "[Active] Increases your attack distance for 4 seconds.
 [Consume] Increase attack damage by 2 "
 rarity = 0
-picture = ExtResource("2_i3lni")
+picture = ExtResource("2_qjcdr")
 on_card_played_sfx = ExtResource("1_bl1oo")
 duration = 4.0
 effect_text = "4x Attack Distant"

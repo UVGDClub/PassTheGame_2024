@@ -15,16 +15,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_kfvnv")
 
-[node name="background_sprite" type="TextureRect" parent="."]
+[node name="card_image" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("1_q6rb1")
 
-[node name="card_image" type="TextureRect" parent="background_sprite"]
+[node name="background_image" type="TextureRect" parent="card_image"]
+visible = false
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 42.0
 
-[node name="name_label" type="Label" parent="background_sprite"]
+[node name="name_label" type="Label" parent="card_image"]
+visible = false
 layout_mode = 1
 offset_right = 12.0
 offset_bottom = 6.0
@@ -33,7 +35,8 @@ theme_override_fonts/font = ExtResource("3_11eos")
 theme_override_font_sizes/font_size = 5
 text = "name"
 
-[node name="description_label" type="Label" parent="background_sprite"]
+[node name="description_label" type="Label" parent="card_image"]
+visible = false
 layout_mode = 2
 offset_left = 4.0
 offset_top = 43.0
@@ -45,7 +48,7 @@ theme_override_font_sizes/font_size = 5
 text = "description"
 autowrap_mode = 3
 
-[node name="add_card_button" type="TextureButton" parent="background_sprite"]
+[node name="add_card_button" type="TextureButton" parent="card_image"]
 layout_mode = 2
 offset_left = -8.0
 offset_top = -8.0
@@ -55,9 +58,9 @@ toggle_mode = true
 texture_pressed = ExtResource("4_b14mp")
 texture_hover = ExtResource("4_b14mp")
 
-[node name="Sprite2D" type="Sprite2D" parent="background_sprite"]
+[node name="Sprite2D" type="Sprite2D" parent="card_image"]
 visible = false
 position = Vector2(32, 45)
 
-[connection signal="pressed" from="background_sprite/add_card_button" to="." method="_on_add_card_button_pressed"]
-[connection signal="toggled" from="background_sprite/add_card_button" to="." method="_on_add_card_button_toggled"]
+[connection signal="pressed" from="card_image/add_card_button" to="." method="_on_add_card_button_pressed"]
+[connection signal="toggled" from="card_image/add_card_button" to="." method="_on_add_card_button_toggled"]
