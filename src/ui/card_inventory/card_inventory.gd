@@ -4,7 +4,8 @@ const TOTAL_CARDS_STRING: String = "Deck Size: "
 const TOTAL_CARDS_IN_DRAW_PILE_STRING: String = "Current Draw Pile Size: "
 const SHUFFLE_TIMER_STRING: String = "Time until shuffle finished: "
 
-@onready var card_grid: GridContainer = $Panel/ScrollContainer/GridContainer
+@onready var tooltip: RichTextLabel = $Panel/tooltip;
+@onready var card_grid: GridContainer = $Panel/ScrollContainer/MarginContainer/GridContainer
 @onready var total_cards_label: Label = $Panel/HBoxContainer/cards_in_deck_lable
 @onready var total_card_in_draw_pile_label: Label = $Panel/HBoxContainer/cards_in_draw_pile
 @onready var shuffle_timer_label: Label = $Panel/HBoxContainer/shuffle_timer
@@ -16,14 +17,14 @@ var selected_cards: Array = []
 
 func _ready():
 	visible = false
-	$Panel/tooltip.text = ""
-	$Panel/ScrollContainer/GridContainer.child_entered_tree.connect(on_GridContainer_child_entered_tree)
+	tooltip.text = ""
+	card_grid.child_entered_tree.connect(on_GridContainer_child_entered_tree)
 
 func on_GridContainer_child_entered_tree(child: CardDisplayUI):
 	child.card_add_button_pressed.connect(_on_card_add_button_pressed)
 
 func _on_card_add_button_pressed(card: Card):
-	$Panel/tooltip.text = card.card_name + "\n\n" + card.card_description
+	tooltip.text = card.card_name + "\n\n" + card.card_description
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("inventory"):

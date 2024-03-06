@@ -78,163 +78,170 @@ offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-columns = 10
+columns = 8
 metadata/_edit_lock_ = true
 
-[node name="card_display" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display2" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display2" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display3" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display3" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display4" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display4" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display5" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display5" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display6" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display6" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display7" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display7" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display8" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display8" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display9" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display9" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display10" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display10" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display11" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display11" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display12" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display12" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display13" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display13" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display19" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display19" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display20" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display20" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display21" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display21" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display22" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display22" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display23" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display23" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display24" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display24" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display25" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display25" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display26" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display26" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display27" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display27" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display28" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display28" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display29" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display29" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display30" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display30" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display14" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display14" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display15" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display15" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display16" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display16" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display17" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display17" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display18" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display18" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display31" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display31" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display32" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display32" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display33" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display33" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display34" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display34" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display35" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display35" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display36" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display36" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display37" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display37" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display38" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display38" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display39" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display39" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display40" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display40" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display41" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display41" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display42" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display42" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display43" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display43" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display44" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display44" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display45" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display45" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display46" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display46" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display47" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display47" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display48" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display48" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display49" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display49" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display50" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display50" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
-[node name="card_display51" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
+[node name="card_display51" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
 
 [node name="tooltip" type="RichTextLabel" parent="Panel"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwvcw8ov07o52"]
+[gd_scene load_steps=6 format=3 uid="uid://dwvcw8ov07o52"]
 
 [ext_resource type="Script" path="res://src/cards/card_pack/card_display/card_display.gd" id="1_kfvnv"]
-[ext_resource type="Texture2D" uid="uid://jvuwlialq2ky" path="res://assets/art/cards/card_backgrounds/common_card_background_temp.png" id="1_q6rb1"]
+[ext_resource type="Texture2D" uid="uid://binscdv5de6g" path="res://assets/art/cards/cards/unimplemented_tmp.png" id="2_y665h"]
 [ext_resource type="FontFile" uid="uid://dslvmccm7rnqy" path="res://assets/fonts/Tuffy_Bold_Italic_temp/Tuffy_Bold_Italic.otf" id="3_11eos"]
-[ext_resource type="Texture2D" uid="uid://cak2ifpspl4kh" path="res://assets/art/ui/card_pack/add_card_button_hover.png" id="4_b14mp"]
+[ext_resource type="Texture2D" uid="uid://covj33obny8oo" path="res://assets/art/cards/cards/card_active.png" id="4_247di"]
+[ext_resource type="Texture2D" uid="uid://dgflj84lofmq7" path="res://assets/art/cards/cards/card_hover.png" id="5_d0ide"]
 
 [node name="card_display" type="CenterContainer"]
 anchors_preset = 15
@@ -17,7 +18,7 @@ script = ExtResource("1_kfvnv")
 
 [node name="card_image" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_q6rb1")
+texture = ExtResource("2_y665h")
 
 [node name="background_image" type="TextureRect" parent="card_image"]
 visible = false
@@ -50,13 +51,13 @@ autowrap_mode = 3
 
 [node name="add_card_button" type="TextureButton" parent="card_image"]
 layout_mode = 2
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 72.0
-offset_bottom = 98.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 60.0
+offset_bottom = 77.0
 toggle_mode = true
-texture_pressed = ExtResource("4_b14mp")
-texture_hover = ExtResource("4_b14mp")
+texture_pressed = ExtResource("4_247di")
+texture_hover = ExtResource("5_d0ide")
 
 [node name="Sprite2D" type="Sprite2D" parent="card_image"]
 visible = false
