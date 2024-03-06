@@ -71,12 +71,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
+offset_left = 8.0
 offset_top = 42.0
-offset_right = -170.0
+offset_right = -168.0
 offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(52, 63)
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
@@ -88,7 +89,7 @@ theme_override_constants/margin_bottom = 2
 [node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-columns = 8
+columns = 7
 metadata/_edit_lock_ = true
 
 [node name="card_display" parent="Panel/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_p8euf")]
