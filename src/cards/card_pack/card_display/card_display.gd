@@ -11,11 +11,9 @@ signal card_select_toggled(card: Card, toggled_on: bool)
 @onready var description_label = $background_sprite/description_label
 @onready var add_card_button = $background_sprite/add_card_button
 
-
 func _ready():
 	if display_card != null:
 		set_card(display_card)
-
 
 func set_card(new_card: Card) -> void:
 	display_card = new_card
@@ -24,10 +22,8 @@ func set_card(new_card: Card) -> void:
 	name_label.text = display_card.card_name
 	description_label.text = display_card.card_description
 
-
-
 func _on_add_card_button_pressed():
-	emit_signal("card_add_button_pressed", display_card)
+	card_add_button_pressed.emit(display_card)
 
 func _on_add_card_button_toggled(toggled_on: bool):
-	emit_signal("card_select_toggled", display_card, toggled_on)
+	card_select_toggled.emit(display_card, toggled_on)

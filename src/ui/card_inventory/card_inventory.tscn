@@ -73,7 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
 offset_top = 42.0
-offset_right = -12.0
+offset_right = -170.0
 offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -82,6 +82,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 10
+metadata/_edit_lock_ = true
 
 [node name="card_display" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
@@ -235,6 +236,21 @@ layout_mode = 2
 
 [node name="card_display51" parent="Panel/ScrollContainer/GridContainer" instance=ExtResource("2_p8euf")]
 layout_mode = 2
+
+[node name="tooltip" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 565.0
+offset_top = 41.0
+offset_right = -15.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.709804, 0.709804, 0.709804, 1)
+theme_override_fonts/normal_font = ExtResource("3_0p7on")
+text = "Temp text; card descriptions go here"
 
 [node name="merge_button" type="Button" parent="Panel"]
 layout_mode = 0

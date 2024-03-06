@@ -16,6 +16,14 @@ var selected_cards: Array = []
 
 func _ready():
 	visible = false
+	$Panel/tooltip.text = ""
+	$Panel/ScrollContainer/GridContainer.child_entered_tree.connect(on_GridContainer_child_entered_tree)
+
+func on_GridContainer_child_entered_tree(child: CardDisplayUI):
+	child.card_add_button_pressed.connect(_on_card_add_button_pressed)
+
+func _on_card_add_button_pressed(card: Card):
+	$Panel/tooltip.text = card.card_name + "\n\n" + card.card_description
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("inventory"):
