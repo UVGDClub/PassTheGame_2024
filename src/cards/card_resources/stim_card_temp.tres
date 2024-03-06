@@ -7,7 +7,8 @@
 script = ExtResource("1_e3fuw")
 consume_duration = 5.0
 card_name = "Stim Shot"
-card_description = "[Consume] Double damage for 5 seconds"
+card_description = "[Consume] 
+Double damage for 5 seconds"
 rarity = 2
 picture = ExtResource("1_1npcq")
 duration = 5.0

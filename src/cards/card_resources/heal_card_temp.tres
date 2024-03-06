@@ -7,7 +7,8 @@
 script = ExtResource("1_45ltt")
 consume_duration = 0.0
 card_name = "Med Deck"
-card_description = "[Consume] Heal 1 heart"
+card_description = "[Consume] 
+Heal 1 heart"
 rarity = 0
 picture = ExtResource("1_kn126")
 duration = 5.0

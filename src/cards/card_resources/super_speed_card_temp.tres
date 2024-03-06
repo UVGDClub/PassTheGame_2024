@@ -8,8 +8,10 @@
 script = ExtResource("3_uuu63")
 speed_increase = 100.0
 card_name = "Sprinter"
-card_description = "[Active] Gain super speed for 5 seconds.
-[Consume] Gain even more speed "
+card_description = "[Active] 
+Gain super speed for 5 seconds.
+[Consume] 
+Gain even more speed for the remaining duration."
 rarity = 2
 picture = ExtResource("2_exdl1")
 on_card_played_sfx = ExtResource("1_lwuva")
