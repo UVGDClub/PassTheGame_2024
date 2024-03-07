@@ -13,7 +13,9 @@ dash_time_increase = 0.4
 super_speed_length = 10.0
 speed_increase = 200.0
 card_name = "Merged card"
-card_description = "Merged card"
+card_description = "[Merged Card]
+
+"
 rarity = 5
 picture = ExtResource("2_67x4q")
 on_card_played_sfx = ExtResource("1_7coor")

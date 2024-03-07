@@ -10,8 +10,10 @@ length = 12.0
 card_name = "Zoom"
 card_description = "[Active] 
 No dash cooldown for 10 seconds.
+
 [Consume] 
 Refresh duration, but take double damage while active
+
 [Ethereal]
 Removed from deck once used."
 rarity = 4

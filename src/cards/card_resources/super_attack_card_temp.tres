@@ -10,6 +10,7 @@ attack_length_increase = 0.15
 card_name = "Super Att."
 card_description = "[Active] 
 Increases your attack distance for 4 seconds.
+
 [Consume] 
 Increase attack damage by 2 for 4 seconds."
 rarity = 0

@@ -8,6 +8,7 @@ script = ExtResource("1_wmq0m")
 card_name = "Strength++"
 card_description = "[Passive] 
 Gain +10 attack as long as this card is in your deck.
+
 [Consume] 
 Gain +2 attack PERMANENTLY."
 rarity = 1

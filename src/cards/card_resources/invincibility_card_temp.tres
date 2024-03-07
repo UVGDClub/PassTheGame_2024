@@ -9,6 +9,7 @@ script = ExtResource("1_8qro6")
 card_name = "Neo Mode"
 card_description = "[Active] 
 Become invincible to damage for 5 seconds.
+
 [Consume] 
 Reset effect duration."
 rarity = 3
