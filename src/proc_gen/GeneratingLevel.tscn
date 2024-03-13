@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cd4lkys1wh1vn"]
+[gd_scene load_steps=20 format=3 uid="uid://cd4lkys1wh1vn"]
 
 [ext_resource type="Script" path="res://src/proc_gen/GeneratingLevel.gd" id="1_xd3a0"]
 [ext_resource type="Texture2D" uid="uid://di478fqpjmgjb" path="res://assets/art/map/dungeon_tiles_temp.png" id="2_8jqqr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://doqkk4asrw2yh" path="res://src/ui/card_inventory/card_inventory.tscn" id="4_esyt6"]
 [ext_resource type="Texture2D" uid="uid://wbhbgd7gsobv" path="res://assets/art/map/dungeon_in_corners_temp.png" id="5_p5uun"]
 [ext_resource type="Texture2D" uid="uid://6p304aqagvsm" path="res://assets/art/map/pixel-80x16_temp.png" id="6_1juw1"]
+[ext_resource type="Texture2D" uid="uid://bcxxs3xs8y8na" path="res://assets/art/map/water anim.png" id="7_q64rj"]
 [ext_resource type="PackedScene" uid="uid://bm03rko2ejhlp" path="res://src/ui/screen_ui/card_effect.tscn" id="9_seakg"]
 [ext_resource type="PackedScene" uid="uid://chx0o7wxt1k3d" path="res://src/enemies/slime_temp.tscn" id="10_xdisf"]
 [ext_resource type="PackedScene" uid="uid://f47dabv2ajui" path="res://src/enemies/eater/eater.tscn" id="11_i6n1w"]
@@ -60,9 +61,6 @@ texture = ExtResource("2_8jqqr")
 16:2/0 = 0
 16:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:2/0/physics_layer_0/angular_velocity = 0.0
-17:2/0 = 0
-17:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-17:2/0/physics_layer_0/angular_velocity = 0.0
 18:2/0 = 0
 18:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:2/0/physics_layer_0/angular_velocity = 0.0
@@ -114,18 +112,6 @@ texture = ExtResource("2_8jqqr")
 15:3/0 = 0
 15:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:3/0/physics_layer_0/angular_velocity = 0.0
-16:3/0 = 0
-16:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-16:3/0/physics_layer_0/angular_velocity = 0.0
-17:3/0 = 0
-17:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-17:3/0/physics_layer_0/angular_velocity = 0.0
-18:3/0 = 0
-18:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-18:3/0/physics_layer_0/angular_velocity = 0.0
-19:3/0 = 0
-19:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-19:3/0/physics_layer_0/angular_velocity = 0.0
 20:3/0 = 0
 20:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:3/0/physics_layer_0/angular_velocity = 0.0
@@ -810,6 +796,17 @@ texture = ExtResource("2_8jqqr")
 5:22/0 = 0
 5:22/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:22/0/physics_layer_0/angular_velocity = 0.0
+17:2/0 = 0
+17:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+17:2/0/physics_layer_0/angular_velocity = 0.0
+16:3/animation_columns = 4
+16:3/animation_frame_0/duration = 1.0
+16:3/animation_frame_1/duration = 1.0
+16:3/animation_frame_2/duration = 1.0
+16:3/animation_frame_3/duration = 1.0
+16:3/0 = 0
+16:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+16:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2jdsn"]
 texture = ExtResource("3_b311p")
@@ -957,6 +954,13 @@ texture = ExtResource("6_1juw1")
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vcs05"]
+texture = ExtResource("7_q64rj")
+0:0/animation_speed = 5.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_ul41q"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
@@ -965,6 +969,7 @@ sources/1 = SubResource("TileSetAtlasSource_2jdsn")
 sources/4 = SubResource("TileSetAtlasSource_fvbj8")
 sources/5 = SubResource("TileSetAtlasSource_yxgm4")
 sources/3 = SubResource("TileSetAtlasSource_ga64y")
+sources/6 = SubResource("TileSetAtlasSource_vcs05")
 
 [node name="GeneratingLevel" type="Node2D"]
 script = ExtResource("1_xd3a0")
