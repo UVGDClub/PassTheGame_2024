@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="NoDashCooldownEtherealCard" load_steps=4 format=3 uid="uid://bojxrn0oika2k"]
 
 [ext_resource type="Script" path="res://src/cards/no_dash_cooldown_ethereal_card_temp.gd" id="1_8gecu"]
-[ext_resource type="AudioStream" uid="uid://co0tua87772i5" path="res://assets/audio/sfx/on_zoom_card_drawn_temp.wav" id="1_v7g6l"]
+[ext_resource type="AudioStream" uid="uid://daqlc2w7br3oq" path="res://assets/audio/sfx/zoom.wav" id="1_k21y8"]
 [ext_resource type="Texture2D" uid="uid://b626k6nlm711o" path="res://assets/art/cards/cards/zoom.png" id="2_52tn5"]
 
 [resource]
@@ -18,7 +18,7 @@ Refresh duration, but take double damage while active
 Removed from deck once used."
 rarity = 4
 picture = ExtResource("2_52tn5")
-on_card_played_sfx = ExtResource("1_v7g6l")
+on_card_played_sfx = ExtResource("1_k21y8")
 duration = 10.0
 effect_text = "No Dash Cooldown"
 can_merge = false

@@ -37,6 +37,7 @@ func _unhandled_input(event: InputEvent):
 
 func open_inventory() -> void:
 	get_tree().paused = true
+	get_node("/root/SfxManager/music").stream_paused = false
 	inventory_open = true
 	selected_cards.clear()
 	

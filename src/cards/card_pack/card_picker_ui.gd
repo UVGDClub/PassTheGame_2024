@@ -7,6 +7,7 @@ const NUM_CARDS_TO_OFFER: int = 3
 
 func _ready():
 	get_tree().paused = true
+	get_node("/root/SfxManager/music").stream_paused = false
 	for i in range(NUM_CARDS_TO_OFFER):
 		var new_card_display = card_display.instantiate()
 		card_display_hbox.add_child(new_card_display)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dokjmcu8k1iyh"]
+[gd_scene load_steps=3 format=3 uid="uid://dokjmcu8k1iyh"]
 
 [ext_resource type="Script" path="res://src/managers/sfx_manager.gd" id="1_8enty"]
+[ext_resource type="AudioStream" uid="uid://cvxfmrwct80yy" path="res://assets/audio/Music/metal loop v3.wav" id="2_yqi3n"]
 
 [node name="SfxManager" type="Node"]
 script = ExtResource("1_8enty")
@@ -49,3 +50,7 @@ bus = &"SFX"
 
 [node name="AudioStreamPlayer15" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yqi3n")
+autoplay = true

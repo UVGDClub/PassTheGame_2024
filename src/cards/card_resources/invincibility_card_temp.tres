@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InvincibilityCard" load_steps=4 format=3 uid="uid://bm8mq3q76jjlv"]
 
+[ext_resource type="AudioStream" uid="uid://dn3n8kh3omq77" path="res://assets/audio/sfx/invincibility.wav" id="1_3ywai"]
 [ext_resource type="Script" path="res://src/cards/invinciblility_card_temp.gd" id="1_8qro6"]
-[ext_resource type="AudioStream" uid="uid://dqcu50yy01bfe" path="res://assets/audio/sfx/on_invincibility_card_drawn_temp.wav" id="1_nwnyw"]
 [ext_resource type="Texture2D" uid="uid://c0npj5cd4ym6c" path="res://assets/art/cards/cards/neo_mode.png" id="2_43ur3"]
 
 [resource]
@@ -14,7 +14,7 @@ Become invincible to damage for 5 seconds.
 Reset effect duration."
 rarity = 3
 picture = ExtResource("2_43ur3")
-on_card_played_sfx = ExtResource("1_nwnyw")
+on_card_played_sfx = ExtResource("1_3ywai")
 duration = 5.0
 effect_text = "Invincible"
 can_merge = false

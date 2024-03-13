@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cd4lkys1wh1vn"]
+[gd_scene load_steps=18 format=3 uid="uid://cd4lkys1wh1vn"]
 
 [ext_resource type="Script" path="res://src/proc_gen/GeneratingLevel.gd" id="1_xd3a0"]
 [ext_resource type="Texture2D" uid="uid://di478fqpjmgjb" path="res://assets/art/map/dungeon_tiles_temp.png" id="2_8jqqr"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://doqkk4asrw2yh" path="res://src/ui/card_inventory/card_inventory.tscn" id="4_esyt6"]
 [ext_resource type="Texture2D" uid="uid://wbhbgd7gsobv" path="res://assets/art/map/dungeon_in_corners_temp.png" id="5_p5uun"]
 [ext_resource type="Texture2D" uid="uid://6p304aqagvsm" path="res://assets/art/map/pixel-80x16_temp.png" id="6_1juw1"]
-[ext_resource type="AudioStream" uid="uid://cvxfmrwct80yy" path="res://assets/audio/Music/metal loop v3.wav" id="8_5qdo2"]
 [ext_resource type="PackedScene" uid="uid://bm03rko2ejhlp" path="res://src/ui/screen_ui/card_effect.tscn" id="9_seakg"]
 [ext_resource type="PackedScene" uid="uid://chx0o7wxt1k3d" path="res://src/enemies/slime_temp.tscn" id="10_xdisf"]
 [ext_resource type="PackedScene" uid="uid://f47dabv2ajui" path="res://src/enemies/eater/eater.tscn" id="11_i6n1w"]
@@ -977,10 +976,6 @@ layer_0/name = "0"
 
 [node name="Player" parent="." instance=ExtResource("3_tvj8y")]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("8_5qdo2")
-autoplay = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
 
@@ -993,8 +988,8 @@ process_callback = 0
 [node name="TutorialLabel_temp" type="Label" parent="."]
 offset_left = -373.0
 offset_top = -203.0
-offset_right = -1.0
-offset_bottom = -50.0
+offset_right = 282.0
+offset_bottom = 80.0
 text = "WASD to move
 Left click to Attack
 Right click to Dash

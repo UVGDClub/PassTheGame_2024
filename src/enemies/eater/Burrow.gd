@@ -2,7 +2,7 @@ extends State
 
 @onready var dig_particles : CPUParticles2D = $DigParticles
 @onready var burrow_delay_timer : Timer = $BurrowDelayTimer
-@onready var burrowing_rumble = preload("res://assets/audio/sfx/rumble1.ogg")
+@onready var burrowing_rumble = preload("res://assets/audio/sfx/rumble1.wav")
 
 func enter(prev_state_name=null):
 	dig_particles.emitting = true

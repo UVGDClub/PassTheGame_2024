@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SuperSpeedCard" load_steps=4 format=3 uid="uid://bu8pqsnmh4yb7"]
 
-[ext_resource type="AudioStream" uid="uid://dpj7lx40tfe" path="res://assets/audio/sfx/on_super_speed_card_drawn_temp.wav" id="1_lwuva"]
+[ext_resource type="AudioStream" uid="uid://lhhur6vvegwi" path="res://assets/audio/sfx/super_speed.wav" id="1_0xh4l"]
 [ext_resource type="Texture2D" uid="uid://2bm6pks1fjch" path="res://assets/art/cards/cards/sprinter_card.png" id="2_exdl1"]
 [ext_resource type="Script" path="res://src/cards/super_speed_card_temp.gd" id="3_uuu63"]
 
@@ -15,7 +15,7 @@ Gain super speed for 5 seconds.
 Gain even more speed for the remaining duration."
 rarity = 2
 picture = ExtResource("2_exdl1")
-on_card_played_sfx = ExtResource("1_lwuva")
+on_card_played_sfx = ExtResource("1_0xh4l")
 duration = 5.0
 effect_text = "2x Speed"
 can_merge = false

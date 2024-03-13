@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SuperDashCard" load_steps=4 format=3 uid="uid://j5r0s52bc5wg"]
 
-[ext_resource type="AudioStream" uid="uid://causwrfaklwgg" path="res://assets/audio/sfx/on_super_dash_card_drawn_temp.wav" id="1_7okml"]
+[ext_resource type="AudioStream" uid="uid://cuv4xthgck4wl" path="res://assets/audio/sfx/super_dash.wav" id="1_cfsg7"]
 [ext_resource type="Script" path="res://src/cards/super_dash_card_temp.gd" id="1_ejubq"]
 [ext_resource type="Texture2D" uid="uid://kqcr28r0u5lw" path="res://assets/art/cards/cards/super_dash.png" id="2_tkn27"]
 
@@ -15,7 +15,7 @@ Increases your dash length for 4 seconds.
 Further increase dash length for the remainder of the time."
 rarity = 1
 picture = ExtResource("2_tkn27")
-on_card_played_sfx = ExtResource("1_7okml")
+on_card_played_sfx = ExtResource("1_cfsg7")
 duration = 4.0
 effect_text = "4x Dash Length"
 can_merge = false
