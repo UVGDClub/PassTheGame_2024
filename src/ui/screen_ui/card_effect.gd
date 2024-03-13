@@ -67,6 +67,6 @@ func _process(delta):
 			title.text = ""
 			effect.text = "Deck Empty"
 				
-	duration.text = str(round(DeckManager.timer.get_time_left() * 10) / 10)
+	duration.text = "%2.1f" %(round(DeckManager.timer.get_time_left() * 10) / 10)
 
 

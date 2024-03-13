@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://src/ui/screen_ui/card_effect.gd" id="1_4pih7"]
 [ext_resource type="Texture2D" uid="uid://dt1g7jtrcbwrg" path="res://assets/art/ui/UI backgrounds/common_bg.png" id="2_6eij7"]
-[ext_resource type="FontFile" uid="uid://rwidue26o0fh" path="res://assets/fonts/ShortXurkit-2Xdv.ttf" id="2_fpyqm"]
 [ext_resource type="Texture2D" uid="uid://dwfjvdnwhedia" path="res://assets/art/ui/UI backgrounds/hearts 3.png" id="4_dbjbf"]
 [ext_resource type="Texture2D" uid="uid://bex6lk1y56dxb" path="res://assets/art/ui/UI backgrounds/common_healthBG.png" id="4_n1bqg"]
 [ext_resource type="Texture2D" uid="uid://bpkcb0b2o2omd" path="res://assets/art/ui/UI backgrounds/stamina_bar.png" id="5_cq4e1"]
+[ext_resource type="FontFile" uid="uid://ciysvdrcrvcn6" path="res://assets/fonts/EP-Boxi-Bold.otf" id="7_ub3ty"]
 
 [node name="Card_Effect_UI" type="Control"]
 layout_mode = 3
@@ -51,27 +51,29 @@ expand_mode = 1
 
 [node name="Card_Name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 685.0
-offset_top = 345.0
-offset_right = 779.0
-offset_bottom = 372.0
+offset_left = 606.0
+offset_top = 388.0
+offset_right = 791.0
+offset_bottom = 415.0
 rotation = -0.654498
 theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
-theme_override_fonts/font = ExtResource("2_fpyqm")
+theme_override_fonts/font = ExtResource("7_ub3ty")
+theme_override_font_sizes/font_size = 12
 text = "title"
 horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Effect_Duration" type="Label" parent="."]
 layout_mode = 0
-offset_left = 547.0
-offset_top = 365.0
-offset_right = 769.0
-offset_bottom = 444.0
+offset_left = 476.0
+offset_top = 343.0
+offset_right = 764.0
+offset_bottom = 422.0
 theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
 theme_override_colors/font_shadow_color = Color(0.780392, 0.780392, 0.780392, 1)
-theme_override_fonts/font = ExtResource("2_fpyqm")
-theme_override_font_sizes/font_size = 75
-text = "  9.99"
+theme_override_fonts/font = ExtResource("7_ub3ty")
+theme_override_font_sizes/font_size = 40
+text = "30.0"
 horizontal_alignment = 2
 vertical_alignment = 2
 
@@ -83,7 +85,7 @@ offset_right = 766.0
 offset_bottom = 377.0
 theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
 theme_override_colors/font_shadow_color = Color(0.780392, 0.780392, 0.780392, 1)
-theme_override_fonts/font = ExtResource("2_fpyqm")
+theme_override_fonts/font = ExtResource("7_ub3ty")
 theme_override_font_sizes/font_size = 20
 text = "effect"
 horizontal_alignment = 2
