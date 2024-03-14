@@ -13,7 +13,8 @@ config_version=5
 config/name="PassTheGame_2024"
 run/main_scene="res://src/proc_gen/GeneratingLevel.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://uvicGameDev2.png"
+config/icon="res://icon.png"
 
 [autoload]
 
