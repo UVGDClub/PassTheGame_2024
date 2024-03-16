@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm03rko2ejhlp"]
+[gd_scene load_steps=8 format=3 uid="uid://bm03rko2ejhlp"]
 
 [ext_resource type="Script" path="res://src/ui/screen_ui/card_effect.gd" id="1_4pih7"]
 [ext_resource type="Texture2D" uid="uid://dt1g7jtrcbwrg" path="res://assets/art/ui/UI backgrounds/common_bg.png" id="2_6eij7"]
 [ext_resource type="Texture2D" uid="uid://dwfjvdnwhedia" path="res://assets/art/ui/UI backgrounds/hearts 3.png" id="4_dbjbf"]
 [ext_resource type="Texture2D" uid="uid://bex6lk1y56dxb" path="res://assets/art/ui/UI backgrounds/common_healthBG.png" id="4_n1bqg"]
 [ext_resource type="Texture2D" uid="uid://bpkcb0b2o2omd" path="res://assets/art/ui/UI backgrounds/stamina_bar.png" id="5_cq4e1"]
+[ext_resource type="Texture2D" uid="uid://be3kphpxeobt5" path="res://assets/art/ui/UI backgrounds/stamina_bar_fill_texture.png" id="6_6lhbj"]
 [ext_resource type="FontFile" uid="uid://ciysvdrcrvcn6" path="res://assets/fonts/EP-Boxi-Bold.otf" id="7_ub3ty"]
 
 [node name="Card_Effect_UI" type="Control"]
@@ -48,6 +49,21 @@ offset_right = 766.0
 offset_bottom = 427.0
 texture = ExtResource("5_cq4e1")
 expand_mode = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Stamina Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 83.0
+offset_top = 29.0
+offset_right = 418.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.095, 0.095)
+value = 100.0
+texture_progress = ExtResource("6_6lhbj")
 
 [node name="Card_Name" type="Label" parent="."]
 layout_mode = 0
