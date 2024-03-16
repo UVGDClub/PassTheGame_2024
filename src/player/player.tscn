@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/player/states/Walk.gd" id="3_tik4p"]
 [ext_resource type="Script" path="res://src/player/states/Dash.gd" id="4_2x4ls"]
 [ext_resource type="Script" path="res://src/player/states/Attack.gd" id="5_xbnno"]
-[ext_resource type="Texture2D" uid="uid://dovry1wq6dkj6" path="res://assets/art/player/player_NOT_TEMP.png" id="6_75jqq"]
+[ext_resource type="Texture2D" uid="uid://dnlcl340dl0qm" path="res://assets/art/player/Character_Animation_Full-Sheet.png" id="6_3fy3t"]
 [ext_resource type="Texture2D" uid="uid://dmvxayli78tri" path="res://assets/art/player/attack_temp.png" id="7_6q76q"]
 [ext_resource type="Script" path="res://src/player/Hitbox_temp.gd" id="7_84n8a"]
 
@@ -175,9 +175,33 @@ resource_name = "IdleDownSide"
 
 [sub_resource type="Animation" id="Animation_xgqwp"]
 resource_name = "IdleSide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/temp_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_uh51d"]
 resource_name = "IdleUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/temp_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_uvdjj"]
 resource_name = "IdleUpSide"
@@ -376,7 +400,9 @@ libraries = {
 
 [node name="temp_Sprite" type="Sprite2D" parent="Flip"]
 position = Vector2(0, -5)
-texture = ExtResource("6_75jqq")
+texture = ExtResource("6_3fy3t")
+hframes = 54
+frame = 22
 
 [node name="Hurtbox" type="Area2D" parent="Flip"]
 collision_layer = 0
