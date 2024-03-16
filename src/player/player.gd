@@ -135,8 +135,11 @@ func update_animation(type, vect):
 				animation_name = "AttackDownSide"
 			else:
 				animation_name = "AttackSide"
+				
+			
+				
 	
-	if animation_name and animation_player.current_animation != animation_name:
+	if animation_name and animation_player.current_animation != animation_name and !animation_player.is_playing():
 		animation_player.play(animation_name)
 
 func consume_action():

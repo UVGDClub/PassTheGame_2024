@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/player/states/Walk.gd" id="3_tik4p"]
 [ext_resource type="Script" path="res://src/player/states/Dash.gd" id="4_2x4ls"]
 [ext_resource type="Script" path="res://src/player/states/Attack.gd" id="5_xbnno"]
-[ext_resource type="Texture2D" uid="uid://dnlcl340dl0qm" path="res://assets/art/player/Character_Animation_Full-Sheet.png" id="6_3fy3t"]
+[ext_resource type="Texture2D" uid="uid://cl05onti83lp7" path="res://assets/art/player/Character_Sheet_real_finalbuild_fortnite_sprite-Sheet.png" id="6_pi377"]
 [ext_resource type="Texture2D" uid="uid://dmvxayli78tri" path="res://assets/art/player/attack_temp.png" id="7_6q76q"]
 [ext_resource type="Script" path="res://src/player/Hitbox_temp.gd" id="7_84n8a"]
 
@@ -19,6 +19,8 @@ size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_jss6w"]
 resource_name = "AttackDown"
+length = 0.8
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,14 +40,27 @@ tracks/1/path = NodePath("Flip/Hitbox/Sprite2D:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(2, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Character_Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.65, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 23, 24, 25, 26, 27]
+}
 
 [sub_resource type="Animation" id="Animation_ok08f"]
 resource_name = "AttackDownSide"
+length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,14 +80,28 @@ tracks/1/path = NodePath("Flip/Hitbox/Sprite2D:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(4, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Character_Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [46, 47, 48, 49, 50, 51, 52]
+}
 
 [sub_resource type="Animation" id="Animation_3ms8x"]
 resource_name = "AttackSide"
+length = 3.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -92,14 +121,27 @@ tracks/1/path = NodePath("Flip/Hitbox/Sprite2D:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Character_Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.25, 0.4, 0.7, 1, 1.3, 1.6, 1.9, 2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
+}
 
 [sub_resource type="Animation" id="Animation_g883u"]
 resource_name = "AttackUp"
+length = 1.12
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -119,14 +161,27 @@ tracks/1/path = NodePath("Flip/Hitbox/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Character_Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.7, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [28, 29, 30, 31, 32, 33, 34, 35, 36]
+}
 
 [sub_resource type="Animation" id="Animation_pan10"]
 resource_name = "AttackUpSide"
+length = 0.85
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -146,10 +201,22 @@ tracks/1/path = NodePath("Flip/Hitbox/Sprite2D:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(3, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Character_Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [37, 38, 39, 40, 41, 42, 43, 44, 45]
 }
 
 [sub_resource type="Animation" id="Animation_en7hj"]
@@ -169,31 +236,11 @@ resource_name = "DashUpSide"
 
 [sub_resource type="Animation" id="Animation_rhv12"]
 resource_name = "IdleDown"
-
-[sub_resource type="Animation" id="Animation_s1y77"]
-resource_name = "IdleDownSide"
-
-[sub_resource type="Animation" id="Animation_xgqwp"]
-resource_name = "IdleSide"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/temp_Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_uh51d"]
-resource_name = "IdleUp"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/temp_Sprite:frame")
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -203,8 +250,70 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_s1y77"]
+resource_name = "IdleDownSide"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_xgqwp"]
+resource_name = "IdleSide"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [53]
+}
+
+[sub_resource type="Animation" id="Animation_uh51d"]
+resource_name = "IdleUp"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="Animation" id="Animation_uvdjj"]
 resource_name = "IdleUpSide"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
 
 [sub_resource type="Animation" id="Animation_por6y"]
 length = 0.001
@@ -247,18 +356,88 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_4su5r"]
 resource_name = "WalkDown"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6]
+}
 
 [sub_resource type="Animation" id="Animation_x7ilt"]
 resource_name = "WalkDownSide"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18, 19, 20]
+}
 
 [sub_resource type="Animation" id="Animation_8kaw7"]
 resource_name = "WalkSide"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [53, 54, 55, 56, 57]
+}
 
 [sub_resource type="Animation" id="Animation_g3hnx"]
 resource_name = "WalkUp"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10]
+}
 
 [sub_resource type="Animation" id="Animation_ysp5k"]
 resource_name = "WalkUpSide"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Character_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qtd45"]
 _data = {
@@ -398,11 +577,11 @@ libraries = {
 
 [node name="Flip" type="Node2D" parent="."]
 
-[node name="temp_Sprite" type="Sprite2D" parent="Flip"]
+[node name="Character_Sprite" type="Sprite2D" parent="Flip"]
 position = Vector2(0, -5)
-texture = ExtResource("6_3fy3t")
-hframes = 54
-frame = 22
+texture = ExtResource("6_pi377")
+hframes = 69
+frame = 13
 
 [node name="Hurtbox" type="Area2D" parent="Flip"]
 collision_layer = 0
