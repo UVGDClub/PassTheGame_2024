@@ -19,17 +19,47 @@ extends Control
 @onready var effect = $Effect_Description
 @onready var effect_health_bg = $Health_BG
 
+# UI and Player interaction variables
 @onready var stamina_fill : TextureProgressBar = get_node("Stamina Bar/TextureProgressBar")
 @onready var player_node : CharacterBody2D = get_node("../../../Player")
+@onready var health_fills = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_node.stamina_update.connect(update_stamina)
+	player_node.health_update.connect(update_health)
+	health_fills.append(get_node("Hearts/BigTextureProgressBar"))
+	health_fills.append(get_node("Hearts/MediumTextureProgressBar"))
+	health_fills.append(get_node("Hearts/SmallTextureProgressBar"))
 
 # This will be called like every physics process lol
 func update_stamina(new_stamina, max_stamina):
 	stamina_fill.value = (new_stamina / max_stamina) * 100
-	#print("STAMINA!!")
+
+# TODO: have sombody send a signal which is recieved to call this func
+# TODO ALSO: actually test this thing lol
+# This func expects floats such as 1.25, 1.5, 2.75, etc
+func update_health(new_health):
+	# These elses are a bit gross - feel free to refactor into something like this:
+	#health_fills[int(new_health) - 1 if int(new_health) - 1 > -1 else 0] = new_health - int(new_health)
+	if new_health > 3:
+		pass
+	elif new_health > 2:
+		health_fills[0].value = 100
+		health_fills[1].value = 100
+		health_fills[2].value = (new_health - 3) * 100
+	elif new_health > 1:
+		health_fills[0].value = 100
+		health_fills[1].value = (new_health - 2) * 100
+		health_fills[2].value = 0
+	elif new_health > 0:
+		health_fills[0].value = (new_health - 1) * 100
+		health_fills[1].value = 0
+		health_fills[2].value = 0
+	else:
+		health_fills[0].value = 0
+		health_fills[1].value = 0
+		health_fills[2].value = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

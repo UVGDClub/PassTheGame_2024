@@ -1,13 +1,15 @@
-[gd_scene load_steps=37 format=3 uid="uid://d3ym2eve3i077"]
+[gd_scene load_steps=39 format=3 uid="uid://d3ym2eve3i077"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_lho8y"]
 [ext_resource type="Script" path="res://src/state_machine/state_machine.gd" id="2_jacng"]
 [ext_resource type="Script" path="res://src/player/states/Walk.gd" id="3_tik4p"]
 [ext_resource type="Script" path="res://src/player/states/Dash.gd" id="4_2x4ls"]
 [ext_resource type="Script" path="res://src/player/states/Attack.gd" id="5_xbnno"]
+[ext_resource type="Texture2D" uid="uid://d8jc8uside01" path="res://assets/art/combo_bar_frame_temp.png" id="6_6b4fk"]
 [ext_resource type="AudioStream" uid="uid://bqj3ngdiljpaq" path="res://assets/audio/Music/speical_song.mp3" id="6_7np64"]
 [ext_resource type="Texture2D" uid="uid://cl05onti83lp7" path="res://assets/art/player/Character_Sheet_real_finalbuild_fortnite_sprite-Sheet.png" id="6_pi377"]
 [ext_resource type="Texture2D" uid="uid://dmvxayli78tri" path="res://assets/art/player/attack_temp.png" id="7_6q76q"]
+[ext_resource type="Texture2D" uid="uid://vkb2ocealsml" path="res://assets/art/combo_bar_fill_temp.png" id="7_8ti2j"]
 [ext_resource type="Script" path="res://src/player/Hitbox_temp.gd" id="7_84n8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccntx"]
@@ -501,9 +503,9 @@ script = ExtResource("5_xbnno")
 
 [node name="temp_StateLabel" type="Label" parent="."]
 offset_left = -33.0
-offset_top = -49.0
+offset_top = -61.0
 offset_right = 33.0
-offset_bottom = -12.0
+offset_bottom = -24.0
 text = "hi !"
 label_settings = SubResource("LabelSettings_gamxu")
 horizontal_alignment = 1
@@ -511,9 +513,9 @@ vertical_alignment = 1
 
 [node name="temp_AnimationLabel" type="Label" parent="."]
 offset_left = -90.0
-offset_top = -78.0
+offset_top = -85.0
 offset_right = 90.0
-offset_bottom = -41.0
+offset_bottom = -48.0
 text = "hi !"
 label_settings = SubResource("LabelSettings_gamxu")
 horizontal_alignment = 1
@@ -521,9 +523,9 @@ vertical_alignment = 1
 
 [node name="temp_Attack_CD_label" type="Label" parent="."]
 offset_left = -61.0
-offset_top = 37.0
+offset_top = 39.0
 offset_right = 59.0
-offset_bottom = 63.0
+offset_bottom = 65.0
 text = "hi!"
 horizontal_alignment = 1
 
@@ -570,6 +572,16 @@ offset_right = 84.0
 offset_bottom = 91.0
 text = "hi !"
 horizontal_alignment = 1
+
+[node name="ComboBar" type="TextureProgressBar" parent="."]
+offset_left = -26.0
+offset_top = -32.0
+offset_right = 1007.0
+offset_bottom = 258.0
+scale = Vector2(0.05, 0.03)
+value = 100.0
+texture_over = ExtResource("6_6b4fk")
+texture_progress = ExtResource("7_8ti2j")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_7np64")

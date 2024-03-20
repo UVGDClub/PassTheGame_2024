@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bm03rko2ejhlp"]
+[gd_scene load_steps=11 format=3 uid="uid://bm03rko2ejhlp"]
 
 [ext_resource type="Script" path="res://src/ui/screen_ui/card_effect.gd" id="1_4pih7"]
 [ext_resource type="Texture2D" uid="uid://dt1g7jtrcbwrg" path="res://assets/art/ui/UI backgrounds/common_bg.png" id="2_6eij7"]
 [ext_resource type="Texture2D" uid="uid://dwfjvdnwhedia" path="res://assets/art/ui/UI backgrounds/hearts 3.png" id="4_dbjbf"]
 [ext_resource type="Texture2D" uid="uid://bex6lk1y56dxb" path="res://assets/art/ui/UI backgrounds/common_healthBG.png" id="4_n1bqg"]
+[ext_resource type="Texture2D" uid="uid://bkqwlbhu1fsyk" path="res://assets/art/ui/UI backgrounds/big_heart_fill.png" id="5_3k18f"]
 [ext_resource type="Texture2D" uid="uid://bpkcb0b2o2omd" path="res://assets/art/ui/UI backgrounds/stamina_bar.png" id="5_cq4e1"]
 [ext_resource type="Texture2D" uid="uid://be3kphpxeobt5" path="res://assets/art/ui/UI backgrounds/stamina_bar_fill_texture.png" id="6_6lhbj"]
+[ext_resource type="Texture2D" uid="uid://bh7mjtbprk6g0" path="res://assets/art/ui/UI backgrounds/medium_heart_fill.png" id="6_n7ngg"]
+[ext_resource type="Texture2D" uid="uid://01m71vbeyyb8" path="res://assets/art/ui/UI backgrounds/small_heart_fill.png" id="7_1ojn1"]
 [ext_resource type="FontFile" uid="uid://ciysvdrcrvcn6" path="res://assets/fonts/EP-Boxi-Bold.otf" id="7_ub3ty"]
 
 [node name="Card_Effect_UI" type="Control"]
@@ -41,6 +44,45 @@ offset_right = 766.0
 offset_bottom = 427.0
 texture = ExtResource("4_dbjbf")
 expand_mode = 1
+
+[node name="BigTextureProgressBar" type="TextureProgressBar" parent="Hearts"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 685.0
+offset_bottom = 580.0
+scale = Vector2(0.095, 0.095)
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("5_3k18f")
+radial_initial_angle = 350.6
+radial_center_offset = Vector2(22, 0)
+
+[node name="MediumTextureProgressBar" type="TextureProgressBar" parent="Hearts"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 14.0
+offset_right = 753.0
+offset_bottom = 573.0
+scale = Vector2(0.095, 0.095)
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("6_n7ngg")
+radial_initial_angle = 351.6
+radial_center_offset = Vector2(11, 0)
+
+[node name="MediumTextureProgressBar2" type="TextureProgressBar" parent="Hearts"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 9.0
+offset_right = 799.0
+offset_bottom = 568.0
+scale = Vector2(0.094, 0.094)
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("7_1ojn1")
+radial_initial_angle = 350.0
+radial_center_offset = Vector2(9, 0)
 
 [node name="Stamina Bar" type="TextureRect" parent="."]
 layout_mode = 0

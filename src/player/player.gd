@@ -40,7 +40,6 @@ const ATTACK_END_VEL = 400
 var attack_time = 0.2
 var attack_cooldown = 1.5 #this use to be 2 but put it down cause too slow, if this causes any bugs idk, just change it back to 2
 # I am... sorry
-
 var input_vect = Vector2.ZERO
 var dash_just_pressed = false
 var attack_just_pressed = false
@@ -49,6 +48,7 @@ var everest_climbed = false
 var last_input_vect = Vector2.RIGHT
 #
 signal stamina_update(curr_stamina, max_stamina)
+signal health_update(new_health) # Accepts floats!
 
 var is_input_chaining = false :
 	set(value):
