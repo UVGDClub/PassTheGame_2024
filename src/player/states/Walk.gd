@@ -1,8 +1,5 @@
 extends State
 
-@onready var combo_bar : TextureProgressBar = get_node("../../ComboBar")
-#signal combo_update(curr_buff)
-
 func enter(prev_state_name=null):
 	pass
 
@@ -40,19 +37,12 @@ func update_timers(delta):
 	host.attack_cooldown_timer -= delta
 	if host.is_input_chaining:
 		host.input_chain_buffer_timer -= delta
-		combo_bar.value = (host.input_chain_buffer_timer / host.INPUT_CHAIN_STARTING_BUFFER) * 100
-		#emit_signal("combo_update", host.input_chain_buffer_timer)
 		if host.input_chain_buffer_timer <= 0:
 			host.is_input_chaining = false
-			combo_bar.value = 0
-			#emit_signal("combo_update", 0)
 		
 		
 func update_stats(delta):
-	#print("STemAINA?")
-	if host.stamina < host.base_stamina:
-		host.stamina = host.stamina + host.stamina_regen
-
+	host.stamina = host.stamina + 0.05
 	
 func check_transition():
 	if host.dash_just_pressed:
@@ -61,11 +51,9 @@ func check_transition():
 				state_machine.transition_states("Dash")
 				host.stamina -= 10
 			else:
-				combo_bar.tint_progress = Color.BLACK
 				host.is_input_chaining = false
 		if host.dash_cooldown_timer <= 0:
 			state_machine.transition_states("Dash")
-			host.stamina -= 10
 	
 	elif host.attack_just_pressed:
 		if host.is_input_chaining:
@@ -73,8 +61,6 @@ func check_transition():
 				state_machine.transition_states("Attack")
 				host.stamina -= 10
 			else:
-				combo_bar.tint_progress = Color.BLACK
 				host.is_input_chaining = false
 		if host.attack_cooldown_timer <= 0:
 			state_machine.transition_states("Attack")
-			host.stamina -= 10

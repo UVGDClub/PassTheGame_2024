@@ -5,7 +5,7 @@ var t : Tween
 
 func enter(prev_state_name=null):
 	host.is_input_chaining = true
-	combo_bar.tint_progress = Color.WHITE
+	#combo_bar.tint_progress = Color.WHITE
 	var dash_dir = host.get_local_mouse_position().normalized()
 	if dash_dir == Vector2.ZERO:
 		dash_dir = Vector2.RIGHT

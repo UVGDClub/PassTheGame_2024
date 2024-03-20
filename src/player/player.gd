@@ -38,13 +38,9 @@ var dash_cooldown = 2
 const ATTACK_START_VEL = 300
 const ATTACK_END_VEL = 400
 var attack_time = 0.2
-<<<<<<< HEAD
 var attack_cooldown = 1.5 #this use to be 2 but put it down cause too slow, if this causes any bugs idk, just change it back to 2
 # I am... sorry
-=======
-var attack_cooldown = 2
-# I am... sorry (<--- got no clue what this person is on about)
->>>>>>> 49d4103bf22719a8b8a1a369d0113c4c769acf5d
+
 var input_vect = Vector2.ZERO
 var dash_just_pressed = false
 var attack_just_pressed = false
