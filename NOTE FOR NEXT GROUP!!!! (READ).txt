@@ -3,11 +3,11 @@ NOTE:
 - Card merging needs an icon that hasn't been made yet (is this feature even needed?)
 - Card types still need to be implemented correctly (specifically passive and consumables)
 - The text on the bottom right of the screen has a shadow applied that is permanenetly grey. If that can be changed so that the color fits the background color it would look better.
-- The life system is not finished. All of the right icons have been added for use though. 
-- The blue hollow shape underneath the hearts is a stamina bar. This bar should display how much stamina the player has. This feature has not been implemented yet. 
-- All of the UI elements can be found and edited as necesary on the affinity designer file provided in the game's files. Simply click on the Affinity Files folder. 
+- The life system is not finished. But it does have UI implementation.
+- All of the UI elements can be found and edited as necesary on the affinity designer file provided in the game's files. Simply click on the Affinity Files folder.
+        ^ bro if only I had the PAID PROGRAM to open those files (or maybe there's like a Godot extension to download? I didn't think of that oops, too late)
 - If someone is adventerous enough to mess with the tilemap, there are new sprites in the assets folder, I just couldn't figure out how to change the current tilemap without it breaking so I just pasted the new tiles over the old ones as a temp fix
 
-
 Good luck! We certainly needed it :)
-
+- this file was from a previous group, not the group who came before you though
+- well i guess to be absolutely correct i edited it a bit so that it wasn't completely out of date
