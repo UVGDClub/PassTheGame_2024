@@ -35,12 +35,13 @@ var dash_cooldown = 2
 const ATTACK_START_VEL = 300
 const ATTACK_END_VEL = 400
 var attack_time = 0.2
-var attack_cooldown = 2
+var attack_cooldown = 1.5 #this use to be 2 but put it down cause too slow, if this causes any bugs idk, just change it back to 2
 # I am... sorry
 var input_vect = Vector2.ZERO
 var dash_just_pressed = false
 var attack_just_pressed = false
 var consume_just_pressed = false
+var everest_climbed = false
 var last_input_vect = Vector2.RIGHT
 #
 
@@ -70,12 +71,15 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	update_debug_labels()
+	
+	begin_the_climb_to_everest()
 
 func get_input():
 	input_vect = Input.get_vector("left", "right", "up", "down")
 	dash_just_pressed = Input.is_action_just_pressed("dash")
 	attack_just_pressed = Input.is_action_just_pressed("attack")
 	consume_just_pressed = Input.is_action_just_pressed("consume")
+	everest_climbed = Input.is_action_just_pressed("ClimbEverest")
 	
 func update_animation(type, vect):
 	if vect == Vector2.ZERO:
@@ -135,13 +139,10 @@ func update_animation(type, vect):
 				animation_name = "AttackDownSide"
 			else:
 				animation_name = "AttackSide"
-				
-			
-				
-	
-	if animation_name and animation_player.current_animation != animation_name and !animation_player.is_playing():
+	if animation_name and animation_player.current_animation != animation_name:
 		animation_player.play(animation_name)
-
+		await animation_player.animation_finished
+		#this does not work propperly for the finishing animation but screw it time's almost up
 func consume_action():
 	DeckManager.consume_card()
 
@@ -175,3 +176,14 @@ func update_debug_labels():
 			$temp_ActiveEffectLabel.text = "Deck Empty" 
 			$tempt_ActiveCardLabel.text = "Active Card: None" 
 
+
+func begin_the_climb_to_everest():
+	#HAHA This is NOT a temp, u cannot delete this
+	if everest_climbed:
+		get_node("/root/SfxManager/music").stream_paused = true
+		$AudioStreamPlayer.play()
+		everest_climbed = false
+	else:
+		if not $AudioStreamPlayer.playing:
+			everest_climbed = false  
+			get_node("/root/SfxManager/music").stream_paused = false

@@ -2,7 +2,7 @@ extends Node
 
 @onready var audio_players_list = get_children()
 
-const DEFAULT_SOUND_FX_VOLUME: float = -4.0
+const DEFAULT_SOUND_FX_VOLUME: float = -6.0
 
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
