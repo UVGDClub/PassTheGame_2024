@@ -21,8 +21,11 @@ var base_dmg = 5
 var attack_dmg = 5
 var base_defense = 5
 var defense = 0
-var base_stamina = 100
-var stamina = 100
+# Stamina is handled by the Walk state, where it gates state transisions and regens over time
+var base_stamina = 100 # conisdered the max stamina
+var stamina = 100 # current stamina at any time
+var stamina_regen = 0.2 # rate at which stamina increases
+# Markipliers
 var dmg_multiplier = 1.0 #player damage
 var def_multiplier = 1.0
 var hit_multiplier = 1.0 #player recieves damage
@@ -35,8 +38,13 @@ var dash_cooldown = 2
 const ATTACK_START_VEL = 300
 const ATTACK_END_VEL = 400
 var attack_time = 0.2
+<<<<<<< HEAD
 var attack_cooldown = 1.5 #this use to be 2 but put it down cause too slow, if this causes any bugs idk, just change it back to 2
 # I am... sorry
+=======
+var attack_cooldown = 2
+# I am... sorry (<--- got no clue what this person is on about)
+>>>>>>> 49d4103bf22719a8b8a1a369d0113c4c769acf5d
 var input_vect = Vector2.ZERO
 var dash_just_pressed = false
 var attack_just_pressed = false
@@ -44,7 +52,7 @@ var consume_just_pressed = false
 var everest_climbed = false
 var last_input_vect = Vector2.RIGHT
 #
-
+signal stamina_update(curr_stamina, max_stamina)
 
 var is_input_chaining = false :
 	set(value):
@@ -69,10 +77,11 @@ func _physics_process(delta):
 		consume_action()
 	state_machine.physics_process(delta)
 	move_and_slide()
-	
 	update_debug_labels()
-	
+
 	begin_the_climb_to_everest()
+
+	emit_signal("stamina_update", stamina, base_stamina)
 
 func get_input():
 	input_vect = Input.get_vector("left", "right", "up", "down")

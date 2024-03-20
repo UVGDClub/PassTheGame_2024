@@ -18,10 +18,18 @@ extends Control
 @onready var duration = $Effect_Duration
 @onready var effect = $Effect_Description
 @onready var effect_health_bg = $Health_BG
+
+@onready var stamina_fill : TextureProgressBar = get_node("Stamina Bar/TextureProgressBar")
+@onready var player_node : CharacterBody2D = get_node("../../../Player")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	player_node.stamina_update.connect(update_stamina)
 
+# This will be called like every physics process lol
+func update_stamina(new_stamina, max_stamina):
+	stamina_fill.value = (new_stamina / max_stamina) * 100
+	#print("STAMINA!!")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
