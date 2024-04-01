@@ -1011,4 +1011,4 @@ Enemies drop card when defeated"
 position = Vector2(54, -2)
 
 [node name="Eater" parent="." instance=ExtResource("11_i6n1w")]
-position = Vector2(2.08165e-12, 2.08165e-12)
+position = Vector2(56, 40)

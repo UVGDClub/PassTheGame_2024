@@ -632,3 +632,5 @@ visible = false
 texture = ExtResource("7_6q76q")
 hframes = 5
 frame = 1
+
+[connection signal="area_entered" from="Flip/Hurtbox" to="." method="_on_hurtbox_area_entered"]
