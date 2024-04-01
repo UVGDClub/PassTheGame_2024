@@ -71,7 +71,7 @@ texture_progress = ExtResource("6_n7ngg")
 radial_initial_angle = 351.6
 radial_center_offset = Vector2(11, 0)
 
-[node name="MediumTextureProgressBar2" type="TextureProgressBar" parent="Hearts"]
+[node name="SmallTextureProgressBar" type="TextureProgressBar" parent="Hearts"]
 layout_mode = 0
 offset_left = 127.0
 offset_top = 9.0
