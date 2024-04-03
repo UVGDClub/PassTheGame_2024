@@ -36,30 +36,23 @@ func _ready():
 func update_stamina(new_stamina, max_stamina):
 	stamina_fill.value = (new_stamina / max_stamina) * 100
 
-# TODO: have sombody send a signal which is recieved to call this func
-# TODO ALSO: actually test this thing lol
 # This func expects floats such as 1.25, 1.5, 2.75, etc
 func update_health(new_health):
-	# These elses are a bit gross - feel free to refactor into something like this:
-	#health_fills[int(new_health) - 1 if int(new_health) - 1 > -1 else 0] = new_health - int(new_health)
-	if new_health > 3:
-		pass
-	elif new_health > 2:
-		health_fills[0].value = 100
-		health_fills[1].value = 100
-		health_fills[2].value = (new_health - 3) * 100
-	elif new_health > 1:
-		health_fills[0].value = 100
-		health_fills[1].value = (new_health - 2) * 100
-		health_fills[2].value = 0
-	elif new_health > 0:
-		health_fills[0].value = (new_health - 1) * 100
-		health_fills[1].value = 0
-		health_fills[2].value = 0
-	else:
-		health_fills[0].value = 0
-		health_fills[1].value = 0
-		health_fills[2].value = 0
+	var health_as_int: int = clamp(floor(new_health), 0, 3)
+	print (health_as_int)
+	var x; var y; var z;
+	match health_as_int:
+		3: 
+			x = 100; y = 100; z = 100
+		2:
+			x = 100; y = 100; z = (new_health - 2) * 100
+		1:
+			x = 100; y = (new_health - 1) * 100; z = 0 
+		0:
+			x = (new_health - 2) * 100; y = 0; z = 0
+	health_fills[0].value = x
+	health_fills[1].value = y
+	health_fills[2].value = z
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

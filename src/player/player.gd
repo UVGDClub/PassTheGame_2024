@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @onready var hitbox = $Flip/Hitbox
 @onready var collision_shape = $Flip/Hitbox/CollisionShape2D
 @onready var hit_anim = $Flip/Hitbox/Sprite2D
+@onready var character_sprite: Sprite2D = $Flip/Character_Sprite
 
 var MAX_WALK_VEL = 200
 var WALK_ACC = MAX_WALK_VEL / 0.1 # time to reach full speed in seconds
@@ -14,6 +15,8 @@ var WALK_TURN_ACC = MAX_WALK_VEL / 0.04
 var IDLE_FRICTION = MAX_WALK_VEL / 0.05
 
 const INPUT_CHAIN_STARTING_BUFFER = 1
+
+var take_damage_cooldown = 4
 
 var base_health = 3
 var health = 3
@@ -66,6 +69,7 @@ var input_chain_buffer = INPUT_CHAIN_STARTING_BUFFER
 var input_chain_buffer_timer = 0
 var dash_cooldown_timer = 0
 var attack_cooldown_timer = 0
+var take_damage_cooldown_timer = 0
 func _physics_process(delta):
 	get_input()
 	update_hitbox()
@@ -76,6 +80,13 @@ func _physics_process(delta):
 	update_debug_labels()
 
 	begin_the_climb_to_everest()
+	
+	if take_damage_cooldown_timer >= 0:
+		take_damage_cooldown_timer -= delta
+		if take_damage_cooldown_timer <= 0:
+			took_damage = false
+			hurtbox.set_deferred("monitorable", false)
+			character_sprite.modulate.a = 1
 
 	emit_signal("stamina_update", stamina, base_stamina)
 
@@ -192,3 +203,17 @@ func begin_the_climb_to_everest():
 		if not $AudioStreamPlayer.playing:
 			everest_climbed = false  
 			get_node("/root/SfxManager/music").stream_paused = false
+
+var took_damage = false
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if took_damage: return
+	took_damage = true
+	
+	print ("Take Damage")
+	#print (area.get_parent().get_name())
+	# This is going to cause a bug when a user takes damage dright before being invulnerable but i dont care
+	take_damage_cooldown_timer = take_damage_cooldown
+	hurtbox.set_deferred("monitorable", false)
+	character_sprite.modulate.a = 0.3
+	health -= 0.5
+	emit_signal("health_update", health)

@@ -5,7 +5,6 @@ NOTE:
 - The text on the bottom right of the screen has a shadow applied that is permanenetly grey. If that can be changed so that the color fits the background color it would look better.
 - The life system is not finished. But it does have UI implementation.
 - All of the UI elements can be found and edited as necesary on the affinity designer file provided in the game's files. Simply click on the Affinity Files folder.
-        ^ bro if only I had the PAID PROGRAM to open those files (or maybe there's like a Godot extension to download? I didn't think of that oops, too late)
 - If someone is adventerous enough to mess with the tilemap, there are new sprites in the assets folder, I just couldn't figure out how to change the current tilemap without it breaking so I just pasted the new tiles over the old ones as a temp fix
 
 Good luck! We certainly needed it :)
