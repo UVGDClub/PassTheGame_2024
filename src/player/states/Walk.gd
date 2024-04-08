@@ -35,8 +35,9 @@ func is_turning(axis):
 	 (host.input_vect[axis] > 0 and host.velocity[axis] < 0) 
 
 func update_timers(delta):
-	host.dash_cooldown_timer -= delta
-	host.attack_cooldown_timer -= delta
+	if(host.dash_cooldown_timer > 0): host.dash_cooldown_timer -= delta
+	if(host.attack_cooldown_timer > 0): host.attack_cooldown_timer -= delta
+	
 	if host.is_input_chaining:
 		host.input_chain_buffer_timer -= delta
 		combo_bar.value = (host.input_chain_buffer_timer / host.INPUT_CHAIN_STARTING_BUFFER) * 100

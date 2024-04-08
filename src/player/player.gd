@@ -206,7 +206,8 @@ func begin_the_climb_to_everest():
 
 var took_damage = false
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if took_damage: return
+	if (state_machine.current_state.name == "Attack"): return;
+	if took_damage: return #i frames
 	took_damage = true
 	
 	print ("Take Damage")

@@ -41,6 +41,7 @@ func update_health(new_health):
 	var health_as_int: int = clamp(floor(new_health), 0, 3)
 	print (health_as_int)
 	var x; var y; var z;
+	# what in the world is this? -BC
 	match health_as_int:
 		3: 
 			x = 100; y = 100; z = 100
@@ -49,7 +50,7 @@ func update_health(new_health):
 		1:
 			x = 100; y = (new_health - 1) * 100; z = 0 
 		0:
-			x = (new_health - 2) * 100; y = 0; z = 0
+			x = (new_health - 0) * 100; y = 0; z = 0
 	health_fills[0].value = x
 	health_fills[1].value = y
 	health_fills[2].value = z
