@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://6xodqk7o4qoo"]
+
+[ext_resource type="Texture2D" uid="uid://b72wlv4w3ybef" path="res://assets/art/map/exit_inactive.png" id="1_nhtya"]
+[ext_resource type="Script" path="res://src/proc_gen/exit.gd" id="2_7gglf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ry7sa"]
+radius = 30.0666
+
+[node name="exit" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_nhtya")
+script = ExtResource("2_7gglf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ry7sa")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

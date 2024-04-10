@@ -5,6 +5,7 @@ class_name CardPackPickup extends Node2D
 func open_pack() -> void:
 	var ui = DeckManager.get_tree().get_nodes_in_group("UI")[0]
 	var new_picker = card_picker_ui.instantiate()
+	DeckManager.cards_collected += 1
 	ui.add_child(new_picker)
 	queue_free()
 

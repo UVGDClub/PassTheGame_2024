@@ -7,6 +7,7 @@ extends Node2D
 @onready var spawner = $enemy_spawner
 
 @onready var card_pack = load("res://src/cards/card_pack/card_pack_pickup.tscn")
+@onready var exit = load("res://src/proc_gen/exit.tscn")
 
 const ROOM_SIZE = Vector2(30, 16)
 const HALLWAY_LENGTH = Vector2(20, 15)
@@ -36,10 +37,12 @@ var rooms = Dictionary()
 var walls = []
 var camera_tween : Tween
 
+var exit_exists : bool = false
 func _ready():
 	generate_level()
 	display_level()
 	add_packs_to_rooms()
+	add_exit()
 
 func _process(delta):
 	update_camera()
@@ -74,9 +77,10 @@ func update_gates():
 			
 			currentRoomWall = room.glo_pos
 			tile_map_wall.global_position = room.glo_pos
-
-			var random_number_tiny = randi_range(0,3)
-			var random_number_small = randi_range(0,2)
+			if room.room_cleared: return
+			
+			var random_number_tiny = randi_range(0,4)
+			var random_number_small = randi_range(0,3)
 			var random_number_medium = randi_range(0,1)
 			var random_number_large = randi_range(0,5)
 			
@@ -86,7 +90,7 @@ func update_gates():
 			spawner.spawn_enemies(random_number_small, 0, 1, room.glo_pos)
 			spawner.spawn_enemies(random_number_medium, 0, 2, room.glo_pos)
 			spawner.spawn_enemies(random_number_large, 0, 3, room.glo_pos)
-			
+			room.room_cleared = true
 			return
 func is_player_in_room(room):
 	return (
@@ -246,6 +250,21 @@ func add_packs_to_rooms() -> void:
 			var new_card_pack = card_pack.instantiate()
 			new_card_pack.global_position = r.glo_pos
 			add_child(new_card_pack)
+
+func add_exit() -> void:
+	for r in rooms.values():
+
+		if exit_exists: return
+		if (randi_range(1, rooms.size()) == 1):
+			
+			var new_exit = exit.instantiate()
+			new_exit.global_position = r.glo_pos
+			add_child(new_exit)
+			exit_exists = true
+	if not exit_exists:
+		var new_exit = card_pack.instantiate()
+		new_exit.global_position = player.global_position
+		add_child(new_exit)
 
 func adj_to_floor(coord) -> bool:
 	var dirs = [Vector2(1,1),Vector2(0,1),Vector2(1,0),Vector2(-1,0),Vector2(0,-1),Vector2(-1,-1),Vector2(-1,1),Vector2(1,-1)]

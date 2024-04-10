@@ -21,6 +21,7 @@ var all_legendary_cards: Array[Card]
 var all_ethereal_cards: Array[Card]
 var all_other_cards: Array[Card]
 
+var cards_collected = 0
 # All the cards in the players deck
 var full_deck: Array[Card] = [] 
 
