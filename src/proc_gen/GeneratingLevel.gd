@@ -4,6 +4,7 @@ extends Node2D
 @onready var tile_map_wall = $TileWall
 @onready var camera = $Camera2D
 @onready var player = $Player
+@onready var spawner = $enemy_spawner
 
 @onready var card_pack = load("res://src/cards/card_pack/card_pack_pickup.tscn")
 
@@ -45,6 +46,7 @@ func _process(delta):
 	update_gates()
 
 var currentRoom : Vector2
+var currentRoomWall : Vector2
 
 func update_camera():
 	# Beautiful tweening system is courtesy of Inbesticorp™️©️®️ 🔥🔥🔥
@@ -60,13 +62,30 @@ func update_camera():
 	camera_tween.set_ease(2).tween_property(camera, "position", player.global_position, 0.5)
 
 func update_gates():
+	if (spawner.enemies <= 0):
+		tile_map_wall.visible = false
+	else:
+		tile_map_wall.visible = true
 	for room in rooms.values():
 		if is_player_in_room(room):
-			tile_map_wall.global_position = room.glo_pos
-			if currentRoom == room.glo_pos: return
-			currentRoom = room.glo_pos
+			if (currentRoomWall == room.glo_pos): return
 			
-	currentRoom = Vector2(69420, 69420)
+			currentRoomWall = room.glo_pos
+			tile_map_wall.global_position = room.glo_pos
+
+			var random_number_tiny = randi_range(0,3)
+			var random_number_small = randi_range(0,2)
+			var random_number_medium = randi_range(0,1)
+			var random_number_large = randi_range(0,5)
+			
+			if (random_number_large > 1): random_number_large = 0
+			
+			spawner.spawn_enemies(random_number_tiny, 0, 0, room.glo_pos)
+			spawner.spawn_enemies(random_number_small, 0, 1, room.glo_pos)
+			spawner.spawn_enemies(random_number_medium, 0, 2, room.glo_pos)
+			spawner.spawn_enemies(random_number_large, 0, 3, room.glo_pos)
+			
+			return
 func is_player_in_room(room):
 	return (
 		abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 20 / 2 and

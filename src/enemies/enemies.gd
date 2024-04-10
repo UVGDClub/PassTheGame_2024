@@ -5,9 +5,12 @@ class_name Enemies extends Node
 @export var max_health : float
 @export var health: float
 @export var damage : float
+
+signal death
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = max_health
+	var spawner = get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -16,6 +19,8 @@ func _process(delta):
 
 func handle_death():
 	spawn_card()
+	emit_signal("death")
+	print("signal")
 
 func spawn_card():
 	var new_pick_up = pick_up.instantiate()
