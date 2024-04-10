@@ -502,6 +502,7 @@ script = ExtResource("4_2x4ls")
 script = ExtResource("5_xbnno")
 
 [node name="temp_StateLabel" type="Label" parent="."]
+visible = false
 offset_left = -33.0
 offset_top = -61.0
 offset_right = 33.0
@@ -512,6 +513,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="temp_AnimationLabel" type="Label" parent="."]
+visible = false
 offset_left = -90.0
 offset_top = -85.0
 offset_right = 90.0
@@ -522,6 +524,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="temp_Attack_CD_label" type="Label" parent="."]
+visible = false
 offset_left = -61.0
 offset_top = 39.0
 offset_right = 59.0
@@ -530,6 +533,7 @@ text = "hi!"
 horizontal_alignment = 1
 
 [node name="temp_Dash_CD_label" type="Label" parent="."]
+visible = false
 offset_left = -57.0
 offset_top = 65.0
 offset_right = 54.0
@@ -538,6 +542,7 @@ text = "hi!"
 horizontal_alignment = 1
 
 [node name="temp_InputChainLabel" type="Label" parent="."]
+visible = false
 offset_left = -70.0
 offset_top = 6.0
 offset_right = 69.0
@@ -548,6 +553,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="temp_stats_label" type="Label" parent="."]
+visible = false
 offset_left = -77.0
 offset_top = 88.0
 offset_right = 76.0

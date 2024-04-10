@@ -218,3 +218,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	character_sprite.modulate.a = 0.3
 	health -= 0.5
 	emit_signal("health_update", health)
+	if (health <= 0): player_death() #calls player death when player reaches 0 health
+
+func player_death() -> void:
+	get_tree().reload_current_scene() #replace this with main menu / death screen
