@@ -195,13 +195,13 @@ func assignWalls():
 			12:
 				tile_map.set_cell(0, wall, 1, Vector2(0, 4))
 			0:
-				if tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y - 1)) == Vector2i(-1, -1):
+				if tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y - 1)) == VOID_TILE_SET_ATLAS_COORDS:
 					tile_map.set_cell(0, wall, 4, Vector2(2, 2))
-				elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y + 1)) == Vector2i(-1, -1):
+				elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y + 1)) == VOID_TILE_SET_ATLAS_COORDS:
 					tile_map.set_cell(0, wall, 4, Vector2(0, 0))
-				elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y + 1)) == Vector2i(-1, -1):
+				elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x - 1, wall.y + 1)) == VOID_TILE_SET_ATLAS_COORDS:
 					tile_map.set_cell(0, wall, 4, Vector2(2, 0))
-				elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y - 1)) == Vector2i(-1, -1):
+				elif tile_map.get_cell_atlas_coords(0, Vector2(wall.x + 1, wall.y - 1)) == VOID_TILE_SET_ATLAS_COORDS:
 					tile_map.set_cell(0, wall, 4, Vector2(0, 2))
 				else: tile_map.set_cell(0, wall, 1, Vector2(1, 1))
 
