@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var tile_map = $TileMap
+@onready var tile_map_wall = $TileWall
 @onready var camera = $Camera2D
 @onready var player = $Player
 
@@ -41,6 +42,7 @@ func _ready():
 
 func _process(delta):
 	update_camera()
+	update_gates()
 
 var currentRoom : Vector2
 
@@ -56,7 +58,15 @@ func update_camera():
 	currentRoom = Vector2(69420, 69420)
 	var camera_tween = create_tween()
 	camera_tween.set_ease(2).tween_property(camera, "position", player.global_position, 0.5)
-	
+
+func update_gates():
+	for room in rooms.values():
+		if is_player_in_room(room):
+			tile_map_wall.global_position = room.glo_pos
+			if currentRoom == room.glo_pos: return
+			currentRoom = room.glo_pos
+			
+	currentRoom = Vector2(69420, 69420)
 func is_player_in_room(room):
 	return (
 		abs(player.global_position.x - room.glo_pos.x) < ROOM_SIZE.x * 20 / 2 and
@@ -82,7 +92,7 @@ func add_connections(room) -> Array:
 	if room.original_connection != Vector2.ZERO:
 		vects.erase(room.original_connection)
 		connect_num -= 1
-	
+
 	for i in range(connect_num):
 		var dir = vects.pick_random()
 		vects.erase(dir)
