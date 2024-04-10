@@ -128,5 +128,5 @@ stream = ExtResource("13_qhbsx")
 [connection signal="timeout" from="StateMachine/Hide/SurfaceTimer" to="StateMachine/Hide" method="_on_surface_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Surface/DigDelayTimer" to="StateMachine/Surface" method="_on_dig_delay_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/BurrowTimer" to="StateMachine/Chase" method="_on_burrow_timer_timeout"]
-[connection signal="area_entered" from="Area2D" to="." method="on_body_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="on_face_hit_area"]
+[connection signal="area_entered" from="Area2D" to="." method="on_body_entered"]

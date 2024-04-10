@@ -64,8 +64,10 @@ func update_camera():
 func update_gates():
 	if (spawner.enemies <= 0):
 		tile_map_wall.visible = false
+		tile_map_wall.tile_set.set_physics_layer_collision_layer(0,0)
 	else:
 		tile_map_wall.visible = true
+		tile_map_wall.tile_set.set_physics_layer_collision_layer(0,1)
 	for room in rooms.values():
 		if is_player_in_room(room):
 			if (currentRoomWall == room.glo_pos): return

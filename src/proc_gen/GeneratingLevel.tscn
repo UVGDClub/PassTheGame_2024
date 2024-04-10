@@ -1051,7 +1051,7 @@ texture = ExtResource("3_b311p")
 4:4/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_0enkr"]
-physics_layer_0/collision_layer = 128
+physics_layer_0/collision_layer = 0
 sources/0 = SubResource("TileSetAtlasSource_pdvxc")
 
 [node name="GeneratingLevel" type="Node2D"]
