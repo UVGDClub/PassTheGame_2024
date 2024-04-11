@@ -1,9 +1,9 @@
 # PassTheGame_2024
+![logo](./readme_files/UVGD logo pixel_big_bordered.png) 
+
 UVGD's First Pass the Game Challenge.
 
 Feb 7th - April 10th 2024 
-
-![logo](./readme_files/UVGD_logo_pixel2.png) 
 
 Each team was given the project on Wednesday, and passed it along the following Wednesday
 
