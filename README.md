@@ -16,12 +16,12 @@ Simply open the project in Godot and run the project.
 
 You can also export it how you wish. Basic knowledge of exporting Godot projects is reccomended.
 
-## Wining
+## Winning
 Collect at least 20 cards and find the exit circle.
 
 # Credits
 ## Team list:
-- Avery / Matthew / Elliot
+- Avery / Matthew / Elliott
 - Alex / Ky / Larry
 - Josh / Christian M.
 - Grace / Auri
