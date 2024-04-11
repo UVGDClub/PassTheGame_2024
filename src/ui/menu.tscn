@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lvli7vqe60aw"]
 
 [ext_resource type="Script" path="res://src/ui/menu.gd" id="1_tjbgx"]
-[ext_resource type="Texture2D" uid="uid://dtshxkebaa42i" path="res://assets/art/title_screen_1920x1080.png" id="2_ahr08"]
+[ext_resource type="Texture2D" uid="uid://djd73mmemo3gk" path="res://assets/art/title_screen_1920x1080.png" id="2_ahr08"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fax0f"]
 font_size = 64
@@ -14,6 +14,7 @@ anchors_preset = 0
 script = ExtResource("1_tjbgx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 scale = Vector2(0.4, 0.4)
@@ -30,6 +31,7 @@ text = "PASS THE GAME"
 label_settings = SubResource("LabelSettings_fax0f")
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 266.0
 offset_top = 203.0
 offset_right = 507.0

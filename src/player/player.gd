@@ -9,6 +9,7 @@ class_name Player extends CharacterBody2D
 @onready var hit_anim = $Flip/Hitbox/Sprite2D
 @onready var character_sprite: Sprite2D = $Flip/Character_Sprite
 
+var menu = "res://src/ui/menu.tscn"
 var MAX_WALK_VEL = 200
 var WALK_ACC = MAX_WALK_VEL / 0.1 # time to reach full speed in seconds
 var WALK_TURN_ACC = MAX_WALK_VEL / 0.04
@@ -221,4 +222,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if (health <= 0): player_death() #calls player death when player reaches 0 health
 
 func player_death() -> void:
-	get_tree().reload_current_scene() #replace this with main menu / death screen
+	get_tree().change_scene_to_file(menu) #replace this with main menu / death screen
+	DeckManager.cards_collected = 0
+	DeckManager.full_deck.clear()
