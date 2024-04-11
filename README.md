@@ -1,5 +1,5 @@
 # PassTheGame_2024
-![logo](./readme_files/UVGD_logo_pixel_big_bordered.png) 
+![logo](./readme_files/UVGD_logo_pixel_big_bordered_black.png) 
 
 UVGD's First Pass the Game Challenge.
 
@@ -7,6 +7,19 @@ Feb 7th - April 10th 2024
 
 Each team was given the project on Wednesday, and passed it along the following Wednesday
 
+The project was revealed on April 10th to the club and UVIC faculty.
+
+## BUILDING INSTRUCTIONS
+Made in Godot 4.2.1 : https://godotengine.org/ 
+
+Simply open the project in Godot and run the project.
+
+You can also export it how you wish. Basic knowledge of exporting Godot projects is reccomended.
+
+## Wining
+Collect at least 20 cards and find the exit circle.
+
+# Credits
 ## Team list:
 - Avery / Matthew / Elliot
 - Alex / Ky / Larry
@@ -18,6 +31,10 @@ Each team was given the project on Wednesday, and passed it along the following 
 - Colton
 - Brendan C. / Shelby / Victoria / Martin
 
+## Organization
+- Brendan Ciccone
+### Special Thanks
+- Toby Murray
 
 # RULES
 The rule set used for every team.
