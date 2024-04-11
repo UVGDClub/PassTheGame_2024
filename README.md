@@ -19,8 +19,8 @@ Each team was given the project on Wednesday, and passed it along the following 
 - Brendan C. / Shelby / Victoria / Martin
 
 
-Rule set used:
 # RULES
+The rule set used for every team.
 ## Remember the rule of improv: "Yes, and..."
 - You have 6 hours to work (each individual)
 - Do not Delete
