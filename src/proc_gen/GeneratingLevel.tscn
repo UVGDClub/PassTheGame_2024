@@ -1074,10 +1074,10 @@ process_callback = 0
 [node name="CardInventory" parent="Camera2D/UI" instance=ExtResource("4_esyt6")]
 
 [node name="TutorialLabel_temp" type="Label" parent="."]
-offset_left = -373.0
-offset_top = -203.0
-offset_right = 282.0
-offset_bottom = 80.0
+offset_left = -384.0
+offset_top = -132.0
+offset_right = 271.0
+offset_bottom = 151.0
 text = "WASD to move
 Left click to Attack
 Right click to Dash
