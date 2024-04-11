@@ -1,5 +1,5 @@
 # PassTheGame_2024
-![logo](./readme_files/UVGD logo pixel_big_bordered.png) 
+![logo](./readme_files/UVGD_logo_pixel_big_bordered.png) 
 
 UVGD's First Pass the Game Challenge.
 
